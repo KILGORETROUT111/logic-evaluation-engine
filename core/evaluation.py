@@ -77,3 +77,47 @@ def evaluate_full(expr, context=None, phase=1):
 
     final_state = eval_inner(expr)
     return final_state, trace
+=======
+from core.expressions import Functor, Var, Value
+from enum import Enum
+
+class State(Enum):
+    JAM = 1
+    MEM = 2
+    ALIVE = 3
+    VAC = 4
+
+def evaluate(expr, context, trace):
+    def go(node):
+        if isinstance(node, Functor):
+            name = node.name
+            trace.setdefault(name, []).append(node)
+            if not hasattr(node, 'args'):
+                raise ValueError(f"Functor {name} has no 'args' attribute! {node}")
+            for arg in node.args:
+                go(arg)
+            if name == "JAM":
+                return State.JAM
+            elif name == "MEM":
+                return State.MEM
+            elif name == "EX":
+                return State.ALIVE
+            elif name == "VAC":
+                return State.VAC
+            return State.VAC
+        elif isinstance(node, Var):
+            trace["ALIVE"].append(node)
+            return State.ALIVE
+        elif isinstance(node, Value):
+            trace["ALIVE"].append(node)
+            return State.ALIVE
+        else:
+            raise ValueError(f"Unknown node type: {node}")
+
+    final_state = go(expr)
+    return final_state, trace
+
+def evaluate_full(expr, context):
+    trace = {"JAM": [], "MEM": [], "ALIVE": [], "VAC": []}
+    return evaluate(expr, context, trace)
+79041d6 (Initial commit with CLI + SUB support)

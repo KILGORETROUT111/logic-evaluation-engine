@@ -1,6 +1,5 @@
 import sys
 import os
-
 # Tell Python how to find core modules
 CURRENT = os.path.dirname(os.path.abspath(__file__))
 PARENT = os.path.abspath(os.path.join(CURRENT, ".."))
@@ -40,3 +39,49 @@ if st.button("Evaluate"):
             file_name="trace_output.json", mime="application/json")
     except Exception as e:
         st.error(str(e))
+=======
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+import streamlit as st
+import json
+from core.parser import parse_expression
+from core.evaluation import evaluate_full
+from core.visualize import visualize_trace_graph
+
+st.set_page_config(page_title="Logic Evaluation Engine", layout="wide")
+
+st.title("Logic Evaluation Engine")
+st.markdown("""
+Enter an expression in JSON format:
+- Example: `["Root", ["EX", "x", "JAM"], ["Node", {"value": 3}, "MEM", "z"]]`
+- Or simpler: `["EX", "x", "JAM"]`
+""")
+
+expr_str = st.text_area("Expression Input", height=200)
+
+if expr_str:
+    try:
+        expr_str = expr_str.replace("'", '"')
+        raw = json.loads(expr_str)
+        expr = parse_expression(raw)
+        st.success(f"✔️ Parsed Expression:\n`{expr}`")
+
+        context = {"x": 1, "z": 2, "y": 7}
+        state, trace = evaluate_full(expr, context)
+
+        st.subheader("Evaluation Results")
+        st.success(f"✅ Final state: `{state}`")
+
+        st.subheader("Trace Output")
+        st.json({k: [str(vv) for vv in v] for k, v in trace.items()})
+
+        if st.button("📈 Generate Diagram"):
+            result = visualize_trace_graph(trace, context=context, final_state=state)
+            st.success("Diagram and manifest saved!")
+            st.markdown(f"📁 SVG Path: `{result['svg_path']}`")
+            st.markdown(f"📁 PNG Path: `{result['png_path']}`")
+            st.markdown(f"📁 Manifest: `{result['manifest_path']}`")
+
+    except Exception as e:
+        st.error(f"❌ Parser/Evaluator error: {e}")
+        79041d6 (Initial commit with CLI + SUB support)

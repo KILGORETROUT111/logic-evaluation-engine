@@ -1,0 +1,24 @@
+{
+  "timestamp": "20250623_1820",
+  "final_state": "State.VAC",
+  "context": {
+    "x": 1,
+    "z": 2
+  },
+  "trace": {
+    "JAM": [],
+    "MEM": [],
+    "ALIVE": [
+      "Var('x')",
+      "Value(42)"
+    ],
+    "VAC": [],
+    "SUB": [
+      "SUB(Var('x'), Value(42))"
+    ]
+  },
+  "files": {
+    "png": "out\\trace_diagram_20250623_1820.png",
+    "svg": "out\\trace_diagram_20250623_1820.svg"
+  }
+}

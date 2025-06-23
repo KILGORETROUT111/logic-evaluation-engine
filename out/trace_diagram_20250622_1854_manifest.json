@@ -1,0 +1,25 @@
+{
+  "timestamp": "20250622_1854",
+  "final_state": "State.ALIVE",
+  "context": {
+    "x": 1,
+    "z": 2
+  },
+  "trace": {
+    "JAM": [
+      "JAM()"
+    ],
+    "MEM": [],
+    "ALIVE": [
+      "Var('x')"
+    ],
+    "VAC": [],
+    "EX": [
+      "EX(Var('x'), JAM())"
+    ]
+  },
+  "files": {
+    "svg": "out\\trace_diagram_20250622_1854.svg",
+    "png": "out\\trace_diagram_20250622_1854.png"
+  }
+}

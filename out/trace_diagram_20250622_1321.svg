@@ -1,0 +1,25 @@
+// Evaluation Trace
+digraph {
+	JAM_0 [label="JAM
+JAM()"]
+	MEM_0 [label="MEM
+MEM()"]
+	ALIVE_0 [label="ALIVE
+Var('x')"]
+	ALIVE_1 [label="ALIVE
+Value(3)"]
+	ALIVE_2 [label="ALIVE
+Var('z')"]
+	ROOT_0 [label="ROOT
+ROOT(EX(Var('x'), JAM()), NODE(Value(3), MEM(), Var('z')))"]
+	EX_0 [label="EX
+EX(Var('x'), JAM())"]
+	NODE_0 [label="NODE
+NODE(Value(3), MEM(), Var('z'))"]
+	JAM_0 -> MEM_0
+	MEM_0 -> ALIVE_0
+	ALIVE_0 -> VAC_0
+	VAC_0 -> ROOT_0
+	ROOT_0 -> EX_0
+	EX_0 -> NODE_0
+}
