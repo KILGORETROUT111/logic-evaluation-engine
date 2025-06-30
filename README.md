@@ -96,7 +96,7 @@ pytest tests/
 
 ## 🏷️ Version
 
-**v0.9.0-alpha** — Early alpha, fully working logic core with extensible primitives.
+**v0.9.2.1** — Early alpha, fully working logic core with extensible primitives.
 
 
 
