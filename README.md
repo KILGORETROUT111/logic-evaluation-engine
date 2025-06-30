@@ -204,5 +204,5 @@ Write and release accompanying paper explaining symbolic inference engine
 Comparison with lambda calculus, modal inference, and anaphora in NLP
 Copyright 2025 Logic Evaluation Engine Development Team.
 
-Copyright 2025 Logic Evaluation Engine creator/inventor William A. Patterson. For more info, see `logic_evaluation_engine_report.html` or contact maintainer at dianoetic@tuta.com
+Copyright 2025 Logic Evaluation Engine creator and inventor William A. Patterson. For more info, see `logic_evaluation_engine_report.html` or contact maintainer at dianoetic@tuta.com
 04af6e0 (✅ Finalize logic engine v0.9.2: lambda + app + substitution inference)
