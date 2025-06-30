@@ -1,30 +1,30 @@
-# core/parser.py
-
 from core.expressions import Functor, Value, Var
 
-def parse_expression(expr):
-    if isinstance(expr, list):
-        if not expr:
-            raise ValueError("Empty list cannot be parsed as a Functor")
-        head = expr[0]
-        args = expr[1:]
-        # Recursively build children
-        parsed_args = [parse_expression(arg) for arg in args]
+def build(obj):
+    print("🔍 Parsing:", obj)
+
+    if isinstance(obj, list):
+        head = obj[0]
+        args = obj[1:]
+        parsed_args = [build(arg) for arg in args]
         return Functor(str(head).upper(), parsed_args)
-    
-    elif isinstance(expr, dict) and "value" in expr:
-        return Value(expr["value"])
-    
-    elif isinstance(expr, (int, float)):  # ✅ ADD THIS
-        return Value(expr)
-    
-    elif isinstance(expr, str):
-        upper = expr.upper()
-        known = {"EX", "EEX", "MEM", "JAM", "VAC", "SUB", "ROOT", "NODE"}
-        if upper in known:
-            return Functor(upper, [])
+
+    elif isinstance(obj, dict):
+        if "value" in obj:
+            return Value(obj["value"])
         else:
-            return Var(expr)
+            raise ValueError(f"Unsupported dict format: {obj}")
+
+    elif isinstance(obj, (int, float)):
+        return Value(obj)
+
+    elif isinstance(obj, str):
+        if obj.isidentifier():
+            return Var(obj)
+        return Value(obj)
 
     else:
-        raise ValueError(f"Unsupported expression type: {type(expr)}")
+        raise ValueError(f"Unsupported expression type: {type(obj)}")
+
+def parse_expression(obj):
+    return build(obj)

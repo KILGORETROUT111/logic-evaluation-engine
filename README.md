@@ -1,20 +1,90 @@
+# Logic Evaluation Engine
 
-# Logic Evaluation Engine – Phase-State Inference with Symbolic Substitution
+A modular symbolic reasoning system for evaluating logic expressions using Functor-based ASTs and trace-based evaluation. Designed to support modal, counterfactual, and lambda-calculus-style inference in a lightweight, extensible framework.
 
-**Author:** William A. Patterson  
-**Status:** Active Research Prototype  
-**Last Updated:** June 17, 2025
+## 🚀 Key Features
 
-# logic-evaluation-engine
-Symbolic phase-state logic engine with functor evaluation, trace export, and Streamlit UI.
+- **Expression Parser**: Parses symbolic JSON-like or list-based structures into composable expression trees.
+- **Evaluator Engine**: Stateful evaluator supporting EX, EEX, SUB, MEM, APP, and LAM logic primitives.
+- **Trace System**: Evaluation traces are captured per state (ALIVE, VAC, MEM, etc.) and exportable.
+- **Visualization**: Graphviz-rendered .svg and .png output of evaluation traces.
+- **Streamlit Interface**: Live interactive web interface for expression evaluation and diagram preview.
+- **CLI Interface**: Lightweight terminal-based evaluation with diagram+JSON export.
+- **Extensible Architecture**: Add new logical primitives, visualizations, or inference modes.
+
+## 📂 Folder Structure
 
 
-🧠 License & Intent
-This repository is part of ongoing research in symbolic logic and epistemic computation. Licensing is under review.
-For inquiries or collaboration: please contact the author directly.
+logic-evaluation-engine/
+│
+├── core/               # Core logic: expressions, parser, evaluation, visualize
+├── webapp/             # Streamlit-based web interface (run with `streamlit run webapp/app.py`)
+├── examples/           # Expression demos
+├── tests/              # Pytest unit tests
+├── out/                # Output diagrams (.svg/.png) and trace logs
+├── main.py             # CLI evaluator
+├── README.md           # This file
+└── LICENSE             # MIT License (or as defined)
 
 
----
+## ✅ Expression Examples
+
+json
+
+["EX", "x", "JAM"]
+["EEX", "x", "JAM"]
+["SUB", "x", ["EX", "y", "JAM"]]
+["MEM", "x"]
+["APP", ["LAM", "x", ["EX", "x", "JAM"]], 42]
+["Root", ["SUB", "x", 42], ["Node", {"value": 3}, "MEM", "x"]]
+
+
+## 🔍 Evaluation States
+
+- `State.ALIVE`: Expression resolved and bound
+- `State.VAC`: Empty or default state
+- `State.MEM`: Memory resolved
+- `State.JAM`: Failure or paradox state
+
+## 🧠 Research Scope
+
+This project explores symbolic reasoning and inference by composing small primitives, emulating features from:
+- Modal logic
+- Counterfactual logic
+- Lambda calculus
+- Anaphora & dynamic binding
+
+Ideal for AI explainability, formal logic prototyping, or educational logic engines.
+
+## 📦 Installation
+
+bash
+pip install -r requirements.txt
+python main.py
+
+
+## 🖼️ Web Interface
+
+bash
+streamlit run webapp/app.py
+
+
+## 📁 Output
+
+- `/out`: SVG + PNG diagram visualizations
+- `/out/*.json`: Trace manifest logs
+
+## 🧪 Tests
+
+bash
+pytest tests/
+
+
+## 🏷️ Version
+
+**v0.9.0-alpha** — Early alpha, fully working logic core with extensible primitives.
+
+
 
 ## 🎯 Project Summary
 
@@ -28,7 +98,7 @@ This is a logic engine built for symbolic reasoning, evaluation tracing, and log
 
 The project bridges formal logic, modal grammar, and symbolic execution models into a single operational environment.
 
----
+
 
 ## 💻 Folder Structure
 
@@ -132,3 +202,6 @@ Paper/Publication:
 Write and release accompanying paper explaining symbolic inference engine
 Comparison with lambda calculus, modal inference, and anaphora in NLP
 © 2025 Logic Evaluation Engine Development Team.
+
+© 2025 Logic Evaluation Engine contributors. For more info, see `logic_evaluation_engine_report.html` or contact maintainer at dianoetic@tuta.com
+04af6e0 (✅ Finalize logic engine v0.9.2: lambda + app + substitution inference)

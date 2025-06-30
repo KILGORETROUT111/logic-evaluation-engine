@@ -1,0 +1,23 @@
+{
+  "timestamp": "20250630_1334",
+  "final_state": "Value(2)",
+  "context": {
+    "x": "LAM(Var('z'), EX(Var('z'), Var('JAM')))",
+    "z": "2"
+  },
+  "trace": {
+    "ROOT": [
+      "ROOT(SUB(Var('x'), LAM(Var('z'), EX(Var('z'), Var('JAM')))), NODE(Value(1), Var('MEM'), Var('x')), NODE(Value(2), Var('EEX'), APP(MEM(Var('x')), Value(42))))"
+    ],
+    "SUB": [
+      "SUB(Var('x'), LAM(Var('z'), EX(Var('z'), Var('JAM'))))"
+    ],
+    "BIND": [
+      "x\u2192LAM(Var('z'), EX(Var('z'), Var('JAM')))"
+    ],
+    "NODE": [
+      "NODE(Value(1), Var('MEM'), Var('x'))",
+      "NODE(Value(2), Var('EEX'), APP(MEM(Var('x')), Value(42)))"
+    ]
+  }
+}

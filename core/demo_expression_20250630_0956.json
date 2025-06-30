@@ -1,0 +1,21 @@
+from datetime import datetime
+import json
+from pathlib import Path
+
+# Demo expression
+expression = [
+    "Root",
+    ["SUB", "x", ["LAM", "z", ["EX", "z", "JAM"]]],
+    ["Node", {"value": 1}, "MEM", "x"],
+    ["Node", {"value": 2}, "EEX", ["APP", "x", 42]]
+]
+
+# Save demo expression to file for CLI use
+timestamp = datetime.now().strftime("%Y%m%d_%H%M")
+filename = f"demo_expression_{timestamp}.json"
+filepath = Path("/mnt/data") / filename
+
+with open(filepath, "w") as f:
+    json.dump(expression, f, indent=2)
+
+filepath.name

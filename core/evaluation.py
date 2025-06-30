@@ -1,123 +1,93 @@
-from core.state import State
-from core.expressions import Value, Var, Functor
+from core.expressions import Functor, Value, Var, State
 
-def evaluate_full(expr, context=None, phase=1):
-    if context is None:
-        context = {}
-    trace = {"JAM": [], "MEM": [], "ALIVE": [], "VAC": []}
-
-    def eval_inner(e):
-        if isinstance(e, Value):
-            trace["ALIVE"].append(e)
-            return State.ALIVE
-        if isinstance(e, Var):
-            if phase == 0:
-                trace["VAC"].append(e)
-                return State.VAC
-            if e.name in context:
-                trace["ALIVE"].append(e)
-                return State.ALIVE
-            else:
-                trace["VAC"].append(e)
-                return State.VAC
-        if isinstance(e, Functor):
-            op = e.name.upper()
-            if op == "JAM":
-                trace["JAM"].append(e)
-                return State.JAM
-            if op == "MEM":
-                trace["MEM"].append(e)
-                return State.MEM
-            if op == "VAC":
-                trace["VAC"].append(e)
-                return State.VAC
-            if op == "EX":
-                states = [eval_inner(c) for c in e.children]
-                if any(s == State.JAM for s in states):
-                    trace["JAM"].append(e)
-                    return State.JAM
-                if any(s == State.ALIVE for s in states):
-                    trace["ALIVE"].append(e)
-                    return State.ALIVE
-                if any(s == State.MEM for s in states):
-                    trace["MEM"].append(e)
-                    return State.MEM
-                trace["VAC"].append(e)
-                return State.VAC
-            if op == "EEX":
-                states = [eval_inner(c) for c in e.children]
-                if any(s == State.JAM for s in states):
-                    trace["JAM"].append(e)
-                    return State.JAM
-                if any(s == State.MEM for s in states):
-                    trace["MEM"].append(e)
-                    return State.MEM
-                if any(s == State.ALIVE for s in states):
-                    trace["ALIVE"].append(e)
-                    return State.ALIVE
-                trace["VAC"].append(e)
-                return State.VAC
-            states = [eval_inner(c) for c in e.children]
-            if any(s == State.JAM for s in states):
-                trace["JAM"].append(e)
-                return State.JAM
-            if all(s == State.ALIVE for s in states):
-                trace["ALIVE"].append(e)
-                return State.ALIVE
-            if any(s == State.MEM for s in states):
-                trace["MEM"].append(e)
-                return State.MEM
-            if any(s == State.ALIVE for s in states):
-                trace["ALIVE"].append(e)
-                return State.ALIVE
-            trace["VAC"].append(e)
-            return State.VAC
-        trace["VAC"].append(e)
-        return State.VAC
-
-    final_state = eval_inner(expr)
+def evaluate_full(expr, context=None):
+    trace = {}
+    context = context or {}
+    try:
+        final_state = evaluate(expr, context, trace)
+    except Exception as e:
+        print("❌ Evaluation error:", e)
+        final_state = None
+    if final_state is None:
+        print("⚠️ Evaluation returned None")
     return final_state, trace
-=======
-from core.expressions import Functor, Var, Value
-from enum import Enum
-
-class State(Enum):
-    JAM = 1
-    MEM = 2
-    ALIVE = 3
-    VAC = 4
 
 def evaluate(expr, context, trace):
     def go(node):
         if isinstance(node, Functor):
             name = node.name
-            trace.setdefault(name, []).append(node)
-            if not hasattr(node, 'args'):
-                raise ValueError(f"Functor {name} has no 'args' attribute! {node}")
-            for arg in node.args:
-                go(arg)
-            if name == "JAM":
-                return State.JAM
-            elif name == "MEM":
-                return State.MEM
-            elif name == "EX":
+            args = node.args
+            trace.setdefault(str(name), []).append(node)
+
+            if name == "EX" and len(args) == 2:
+                left = go(args[0])
+                right = go(args[1])
+                if isinstance(left, Value) and left.val == 0:
+                    return State.VAC
                 return State.ALIVE
-            elif name == "VAC":
+
+            elif name == "EEX" and len(args) == 2:
+                left = go(args[0])
+                right = go(args[1])
+                return State.VAC if left == State.ALIVE else State.ALIVE
+
+            elif name == "SUB" and len(args) == 2:
+                var, val = args
+                if isinstance(var, Var):
+                    context[var.name] = val
+                    trace.setdefault("BIND", []).append(f"{var.name}→{val}")
+                    return val
+                return State.JAM
+
+            elif name == "MEM" and len(args) == 1:
+                key = args[0]
+                if isinstance(key, Var) and key.name in context:
+                    return context[key.name]
+                trace.setdefault("UNBOUND", []).append(key)
                 return State.VAC
-            return State.VAC
-        elif isinstance(node, Var):
-            trace["ALIVE"].append(node)
-            return State.ALIVE
+
+            elif name == "APP" and len(args) == 2:
+                func = go(args[0])
+                arg = go(args[1])
+                if isinstance(func, Functor) and func.name == "LAM":
+                    param = func.args[0]
+                    body = func.args[1]
+                    if isinstance(param, Var):
+                        substituted = substitute(body, param.name, arg)
+                        return go(substituted)
+                    else:
+                        raise ValueError("LAM must bind a Var")
+                else:
+                    raise ValueError("APP expects first argument to be a LAM")
+
+            elif name == "LAM" and len(args) == 2:
+                return Functor("LAM", args)
+
+            elif name == "ROOT":
+                results = [go(arg) for arg in args]
+                return results[-1] if results else None
+
+            elif name == "NODE" and len(args) >= 3:
+                return go(args[0])
+
         elif isinstance(node, Value):
-            trace["ALIVE"].append(node)
-            return State.ALIVE
+            return node
+
+        elif isinstance(node, Var):
+            trace.setdefault("VAR", []).append(node)
+            return context.get(node.name, State.VAC)
+
+        elif isinstance(node, State):
+            return node
+
         else:
             raise ValueError(f"Unknown node type: {node}")
 
-    final_state = go(expr)
-    return final_state, trace
+    return go(expr)
 
-def evaluate_full(expr, context):
-    trace = {"JAM": [], "MEM": [], "ALIVE": [], "VAC": []}
-    return evaluate(expr, context, trace)
-79041d6 (Initial commit with CLI + SUB support)
+def substitute(expr, var_name, replacement):
+    if isinstance(expr, Var):
+        return replacement if expr.name == var_name else expr
+    elif isinstance(expr, Functor):
+        return Functor(expr.name, [substitute(arg, var_name, replacement) for arg in expr.args])
+    return expr

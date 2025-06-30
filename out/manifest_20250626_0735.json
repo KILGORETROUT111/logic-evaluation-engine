@@ -1,0 +1,48 @@
+{
+  "timestamp": "20250626_0735",
+  "final_state": "State.ALIVE",
+  "context": {
+    "x": "EX(Var('y'), JAM())",
+    "z": "2"
+  },
+  "trace": {
+    "ROOT": [
+      "ROOT(SUB(Var('x'), EX(Var('y'), JAM())), NODE(Value(3), MEM(), Var('x')))"
+    ],
+    "SUB": [
+      "SUB(Var('x'), EX(Var('y'), JAM()))"
+    ],
+    "EX": [
+      "EX(Var('y'), JAM())",
+      "EX(Var('y'), JAM())"
+    ],
+    "VAR": [
+      "Var('y')",
+      "Var('x')",
+      "Var('y')"
+    ],
+    "UNBOUND": [
+      "Var('y')",
+      "Var('y')"
+    ],
+    "JAM": [
+      "JAM()",
+      "JAM()"
+    ],
+    "BIND": [
+      "x\u2192EX(Var('y'), JAM())"
+    ],
+    "NODE": [
+      "NODE(Value(3), MEM(), Var('x'))"
+    ],
+    "VAL": [
+      "Value(3)"
+    ],
+    "MEM": [
+      "MEM()"
+    ],
+    "RESOLVE": [
+      "x\u2192EX(Var('y'), JAM())"
+    ]
+  }
+}

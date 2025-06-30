@@ -1,0 +1,21 @@
+elif name == "APP":
+    lam_node, arg_node = node.args
+    lam_result = go(lam_node)
+    if not isinstance(lam_result, Functor) or lam_result.name != "LAM":
+        raise ValueError("APP expects first argument to be a LAM")
+    
+    param = lam_result.args[0]
+    body = lam_result.args[1]
+
+    arg_result = go(arg_node)
+
+    # Safe substitution — treat arg_result as a bound value
+    if isinstance(param, Var):
+        trace.setdefault("BIND", []).append(f"{param.name}→{arg_result}")
+        # Create a new context with this binding
+        new_ctx = context.copy()
+        new_ctx[param.name] = arg_result
+
+        return go(body)  # optionally with new_ctx
+    else:
+        raise ValueError("LAM expects a variable as its first argument")

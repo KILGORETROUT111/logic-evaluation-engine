@@ -1,33 +1,46 @@
 import sys
+import json
 from core.expressions import Functor, Value, Var
 from core.evaluation import evaluate_full
+from core.visualize import visualize_trace_graph
 
 def parse_expr(expr_str):
-    expr_str = expr_str.strip().replace(" ", "").upper()
-    if expr_str == "EX(X,JAM())":
-        return Functor("EX", [Var("x"), Functor("JAM")])
-    elif expr_str == "MEM":
-        return Functor("MEM")
-    else:
-        raise ValueError(f"Unsupported expression: {expr_str}")
+    # Near the top of your main() after reading expr_str:
+    expr_str = expr_str.strip()
+
+    # Auto-wrap if missing outer [ ]
+    if not (expr_str.startswith('[') and expr_str.endswith(']')):
+        print("⚠️ Auto-wrapping expression in outer brackets.")
+        expr_str = f'[{expr_str}]'
+
+    return json.loads(expr_str)
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python main.py \"EX(x, JAM())\"")
-        sys.exit(1)
+        expr_str = input('Enter expression (e.g. ["EX", "x", "JAM"]): ').strip()
+        if not expr_str:
+            expr_str = '["Root", ["SUB", "x", 42], ["Node", {"value": 3}, "MEM", "x"]]'
+            print(f"ℹ️ Using default expression: {expr_str}")
+    else:
+        expr_str = sys.argv[1]
 
     try:
-        expr = parse_expr(sys.argv[1])
+        expr_json = parse_expr(expr_str)
+        expr = Functor(expr_json[0], [Var(expr_json[1]), Functor(expr_json[2])])
         context = {"x": 1, "z": 2}
+
         state, trace = evaluate_full(expr, context)
 
         print("Final state:", state)
+        print("Trace:")
         for k, v in trace.items():
-            print(f"{k} → {v}")
+            print(f"{k} → {[str(e) for e in v]}")
+
+        visualize_trace_graph(trace, context=context, final_state=state)
+
     except Exception as e:
         print("Error:", e)
-        sys.exit(2)
-=======
+
 import os
 
 # Add Graphviz's bin folder to the PATH at runtime
@@ -88,4 +101,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-79041d6 (Initial commit with CLI + SUB support)

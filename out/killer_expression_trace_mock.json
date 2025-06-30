@@ -1,0 +1,42 @@
+from datetime import datetime
+from pathlib import Path
+import json
+
+# Create the killer expression
+killer_expression = [
+    "Root",
+    ["SUB", "x", ["LAM", "y", ["EEX", "y", "JAM"]]],
+    ["APP", ["MEM", "x"], 7],
+    ["Node", {"value": 1}, "EEX", ["MEM", "z"]]
+]
+
+# Prepare a mock trace dictionary to simulate expected output
+mock_trace = {
+    "SUB": ["x → LAM(Var('y'), EEX(Var('y'), Var('JAM')))"],
+    "LAM": ["LAM(Var('y'), EEX(Var('y'), Var('JAM')))"],
+    "APP": [
+        "APP(MEM('x'), Value(7))",
+        "APP(LAM(Var('y'), EEX(Var('y'), Var('JAM'))), Value(7))"
+    ],
+    "MEM": ["MEM('x')", "MEM('z')"],
+    "EEX": ["EEX(Var('y'), Var('JAM'))", "EEX(<State.VAC: 'Vac'>, Var('JAM'))"],
+    "NODE": ["NODE(Value(1), EEX(<State.VAC: 'Vac'>, Var('JAM')))"],
+    "ROOT": ["ROOT(...)"]
+}
+
+# Compose the mock output JSON
+mock_output = {
+    "timestamp": datetime.now().strftime("%Y%m%d_%H%M"),
+    "final_state": "State.VAC",
+    "context": {"x": "bound lambda", "z": "unbound"},
+    "trace": mock_trace
+}
+
+# Save to file in out/ directory
+output_dir = Path("out")
+output_dir.mkdir(exist_ok=True)
+mock_file = output_dir / "killer_expression_trace_mock.json"
+with open(mock_file, "w") as f:
+    json.dump(mock_output, f, indent=2)
+
+mock_file.name

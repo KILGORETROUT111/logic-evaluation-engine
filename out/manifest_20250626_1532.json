@@ -1,0 +1,14 @@
+{
+  "timestamp": "20250626_1532",
+  "final_state": "State.VAC",
+  "context": {
+    "x": "1",
+    "z": "2"
+  },
+  "trace": {
+    "EEX": [
+      "EEX(Var('x'), JAM())",
+      "EEX(Var('x'), JAM())"
+    ]
+  }
+}

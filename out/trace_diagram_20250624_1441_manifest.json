@@ -1,0 +1,20 @@
+{
+  "timestamp": "20250624_1441",
+  "final_state": "State.ALIVE",
+  "context": {
+    "x": 1,
+    "z": 2
+  },
+  "trace": {
+    "JAM": [],
+    "MEM": [],
+    "ALIVE": [
+      "Var('[\"EEX\", \"x\", \"JAM\"]')"
+    ],
+    "VAC": []
+  },
+  "files": {
+    "png": "out\\trace_diagram_20250624_1441.png",
+    "svg": "out\\trace_diagram_20250624_1441.svg"
+  }
+}

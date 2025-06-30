@@ -1,0 +1,115 @@
+<h1>Logic Evaluation Engine Progress Report</h1>
+
+<p><em>Last updated: 2025-06-27</em></p>
+
+<h2>Overview</h2>
+
+<p>This document outlines the development progress of the <strong>Logic Evaluation Engine</strong> — a symbolic reasoning framework designed to support nested logical expressions, traceable state transitions, and interactive evaluation through CLI and Streamlit interfaces.</p>
+
+<p>It is intended for an audience ranging from academic researchers and developers to technical stakeholders and investors.</p>
+
+<h2>System Architecture</h2>
+
+<p>The engine is structured as a modular Python project with the following core components:</p>
+
+<ul>
+<li><code>expressions.py</code>: Defines the abstract syntax tree primitives — <code>Functor</code>, <code>Var</code>, and <code>Value</code>.</li>
+<li><code>parser.py</code>: Recursively parses nested JSON-like lists into expression trees.</li>
+<li><code>evaluation.py</code>: Interprets expressions and generates state-based traces.</li>
+<li><code>visualize.py</code>: Outputs <code>.png</code>, <code>.svg</code>, and JSON manifest trace diagrams via Graphviz.</li>
+<li><code>main.py</code>: CLI interface for testing and generating visual outputs.</li>
+<li><code>webapp/app.py</code>: Streamlit interface for live evaluation, expression input, and graph preview.</li>
+</ul>
+
+<p>Each expression is evaluated stepwise to generate a trace with symbolic interpretation.</p>
+
+<h2>Features Implemented</h2>
+
+<h3>✅ Core Primitives</h3>
+
+<ul>
+<li><code>EX(x, JAM)</code>: Existential binding</li>
+<li><code>EEX(x, JAM)</code>: Counterfactual exploration</li>
+<li><code>SUB(x, φ)</code>: Symbolic substitution</li>
+<li><code>MEM</code>: Anaphoric trace recall</li>
+<li><code>LAM(x, φ)</code>: Lambda abstraction</li>
+<li><code>APP(f, x)</code>: Function application (with substitution)</li>
+</ul>
+
+<h3>✅ Expression Parser</h3>
+
+<ul>
+<li>Nested JSON parsing for symbolic expressions</li>
+<li>Supports primitives, lists, and dictionaries (<code>{"value": 3}</code> becomes <code>Value(3)</code>)</li>
+</ul>
+
+<h3>✅ Evaluation Tracer</h3>
+
+<ul>
+<li>Evaluation engine produces state transitions (<code>ALIVE</code>, <code>JAM</code>, <code>VAC</code>, etc.)</li>
+<li>Automatically logs expression phases</li>
+<li>Prevents circular evaluation and hash errors</li>
+</ul>
+
+<h3>✅ CLI Interface</h3>
+
+<ul>
+<li>CLI prompt with contextual input</li>
+<li>Expression-to-trace output with terminal preview</li>
+<li>Graphviz-based <code>.svg</code>/<code>.png</code>/JSON output</li>
+</ul>
+
+<h3>✅ Streamlit App</h3>
+
+<ul>
+<li>Rich UI with example input box</li>
+<li>Success + error feedback for parsing/evaluation</li>
+<li>Downloadable trace diagram with timestamp and versioning</li>
+</ul>
+
+<h2>Known Issues / Limitations</h2>
+
+<ul>
+<li>CLI does not yet support piping or shell arguments without quoting issues</li>
+<li>Some deeply nested substitutions or context-aware recursion may not trigger expected symbolic outcomes</li>
+<li>Streamlit app lacks auto-diagram preview (though .svg/.png can be generated via CLI)</li>
+</ul>
+
+<h2>Next Steps</h2>
+
+<ol>
+<li><p><strong>Expression Inference Layer</strong>:</p>
+
+<ul>
+<li>Introduce modal logic: resolve possible vs. actual expression states.</li>
+<li>Extend memory (<code>MEM</code>) to conditionally resolve previous <code>SUB</code> or <code>LAM</code>.</li>
+</ul></li>
+<li><p><strong>Substitution Logic Refinement</strong>:</p>
+
+<ul>
+<li>Refactor substitution function for α-renaming safety.</li>
+<li>Cache resolved forms where possible.</li>
+</ul></li>
+<li><p><strong>Streamlit Enhancements</strong>:</p>
+
+<ul>
+<li>Auto-embed visual diagram (<code>.svg</code>) on success.</li>
+<li>Add session memory and annotation features.</li>
+</ul></li>
+<li><p><strong>GitHub Packaging + Documentation</strong>:</p>
+
+<ul>
+<li>Prepare public README with architecture diagram and example walkthroughs.</li>
+<li>Tag v0.9.1 and v1.0.0 milestone.</li>
+</ul></li>
+<li><p><strong>Paper/Publication</strong>:</p>
+
+<ul>
+<li>Write and release accompanying paper explaining symbolic inference engine</li>
+<li>Comparison with lambda calculus, modal inference, and anaphora in NLP</li>
+</ul></li>
+</ol>
+
+<hr />
+
+<p>© 2025 Logic Evaluation Engine Development Team.</p>

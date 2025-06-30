@@ -1,0 +1,24 @@
+{
+  "timestamp": "20250629_0906",
+  "final_state": "State.ALIVE",
+  "context": {
+    "x": "1",
+    "z": "2"
+  },
+  "trace": {
+    "APP": [
+      "APP(LAM(Var('x'), EX(Var('x'), Var('JAM'))), APP(LAM(Var('z'), Var('z')), Var('y')))",
+      "APP(LAM(Var('z'), Var('z')), Var('y'))"
+    ],
+    "LAM": [
+      "LAM(Var('x'), EX(Var('x'), Var('JAM')))",
+      "LAM(Var('z'), Var('z'))"
+    ],
+    "VAR": [
+      "Var('y')"
+    ],
+    "EX": [
+      "EX(<State.VAC: 4>, Var('JAM'))"
+    ]
+  }
+}

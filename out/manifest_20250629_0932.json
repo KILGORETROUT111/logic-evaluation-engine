@@ -1,0 +1,16 @@
+{
+  "timestamp": "20250629_0932",
+  "final_state": "State.VAC",
+  "context": {
+    "x": "1",
+    "z": "2"
+  },
+  "trace": {
+    "ROOT": [
+      "ROOT(SUB(Var('x'), EX(Var('y'), Var('JAM'))), NODE(Value(3), Var('MEM'), Var('x')))"
+    ],
+    "NODE": [
+      "NODE(Value(3), Var('MEM'), Var('x'))"
+    ]
+  }
+}

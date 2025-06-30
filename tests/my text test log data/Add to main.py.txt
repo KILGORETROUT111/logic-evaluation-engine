@@ -1,0 +1,31 @@
+Add to main.py
+
+----------------
+
+
+
+
+if len(sys.argv) < 2:
+    expr_str = input("Enter expression (e.g. [\"EX\", \"x\", \"JAM\"]): ").strip()
+    if not expr_str:
+        # 👇 Default fallback for fast testing
+        expr_str = "[\"Root\", [\"SUB\", \"x\", 42], [\"Node\", {\"value\": 3}, \"MEM\", \"x\"]]"
+        print(f"ℹ️ Using default expression: {expr_str}")
+else:
+    expr_str = sys.argv[1]
+
+
+
+
+-------
+
+
+
+python main.py
+
+Verify output like:
+
+perl
+
+🔍 Parsing: ['Root', ['SUB', 'x', 42], ['Node', {'value': 3}, 'MEM', 'x']]
+Final state: State.ALIVE

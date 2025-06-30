@@ -1,0 +1,17 @@
+{
+  "timestamp": "20250624_1749",
+  "final_state": "State.VAC",
+  "context": {
+    "x": 1,
+    "z": 2
+  },
+  "trace": {
+    "EEX": [
+      "EEX(Var('x'), JAM())"
+    ]
+  },
+  "files": {
+    "png": "out\\trace_diagram_20250624_1749.png",
+    "svg": "out\\trace_diagram_20250624_1749.svg"
+  }
+}

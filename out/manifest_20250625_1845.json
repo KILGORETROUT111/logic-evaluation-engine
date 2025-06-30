@@ -1,0 +1,26 @@
+{
+  "timestamp": "20250625_1845",
+  "final_state": "State.ALIVE",
+  "context": {
+    "x": "42",
+    "z": "2"
+  },
+  "trace": {
+    "ROOT": [
+      "ROOT(SUB(Var('x'), Value(42)), NODE(Value(3), MEM(), Var('x')))"
+    ],
+    "SUB": [
+      "SUB(Var('x'), Value(42))"
+    ],
+    "NODE": [
+      "NODE(Value(3), MEM(), Var('x'))"
+    ],
+    "ALIVE": [
+      "Value(3)",
+      "Var('x')"
+    ],
+    "MEM": [
+      "MEM()"
+    ]
+  }
+}

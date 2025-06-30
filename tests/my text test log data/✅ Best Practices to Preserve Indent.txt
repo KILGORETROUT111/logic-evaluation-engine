@@ -1,0 +1,51 @@
+✅ Best Practices to Preserve Indentation When Copying from AI Output
+Here are 4 foolproof ways to make sure indents are retained:
+
+✅ 1. Use a Code-Friendly Editor (like VS Code, PyCharm, Sublime)
+These editors detect indentation inconsistencies automatically.
+
+They can also convert tabs to spaces and vice versa (more below).
+
+VS Code shortcut: Ctrl+Shift+I (auto-indent selection).
+
+✅ 2. Always Paste into a Blank Area or Use Paste Special
+In VS Code: Right-click > “Paste without formatting” (avoids tabs being misinterpreted).
+
+Or: Paste into a blank new .py file and compare it side-by-side with your original file.
+
+✅ 3. Convert Tabs to Spaces or Vice Versa
+Most Python style guides (like PEP8) recommend 4 spaces, not tabs.
+
+In VS Code:
+
+Click on “Spaces: 4” or “Tab Size: 4” in the bottom bar.
+
+Select: Convert Indentation to Spaces.
+
+✅ 4. Use black or autopep8 to Reformat Automatically
+You can auto-fix indentation with tools:
+
+pip install black
+black path/to/your_file.py
+
+This will:
+
+Correct any indentation mismatches.
+
+Normalize structure to standard Python formatting.
+
+🧪 Diagnostic Tip: Run a Minimal Check
+After pasting, run a dry test like:
+
+python
+Copy
+Edit
+if True:
+    print("Test")
+If this throws a syntax error, your file has a hidden indent issue (like a tab mixed with spaces).
+
+If you ever need me to output indented code as a downloadable .py file, just ask:
+
+🗂️ “Please generate this as a downloadable file.”
+
+Would you like the current go() function and surrounding logic as a .py file to guarantee format fidelity?

@@ -1,0 +1,72 @@
+✅ core/evaluation.py – updated evaluate() logic
+Paste into your core/evaluation.py (inside the go() function):
+
+
+-------------------------
+
+elif name == "MEM":
+    # Case 1: Just MEM(), standalone
+    if len(functor.args) == 0:
+        trace["MEM"].append(functor)
+        return State.MEM
+    
+    # Case 2: MEM(Var(x)) — anaphoric memory lookup
+    elif len(functor.args) == 1 and isinstance(functor.args[0], Var):
+        var_node = functor.args[0]
+        trace["MEM"].append(functor)
+
+        if var_node.name in context:
+            val = context[var_node.name]
+            trace.setdefault("RESOLVE", []).append(f"{var_node.name} → {val}")
+            return State.ALIVE
+        else:
+            trace.setdefault("RESOLVE", []).append(f"{var_node.name} → [UNBOUND]")
+            return State.VAC
+
+
+--------
+
+Sample Expression to Test:
+
+["Root", ["SUB", "x", 42], ["Node", {"value": 3}, "MEM", "x"]]
+
+Console Run:
+python main.py "[\"Root\", [\"SUB\", \"x\", 42], [\"Node\", {\"value\": 3}, \"MEM\", \"x\"]]"
+
+Expected Output:
+Final state: State.ALIVE
+Trace:
+SUB → ['SUB(x, 42)']
+MEM → ['MEM(Var('x'))']
+RESOLVE → ['x → 42']
+ALIVE → ['Var('x')', 'Value(3)', 'Var('z')']
+ROOT → [...]
+NODE → [...]
+
+
+"python main.py "[\"Root\", [\"SUB\", \"x\", 42], [\"Node\", {\"value\": 3}, \"MEM\", \"x\"]]""
+
+
+
+------
+
+cd "C:\Users\Dell\Documents\logic-evaluation-engine"
+
+
+
+
+if isinstance(node.name, str):
+    name = node.name
+else:
+    name = str(node.name)
+trace.setdefault(name, []).append(node)
+
+
+
+
+
+----
+
+
+["Root", ["SUB", "x", 42], ["Node", {"value": 3}, "MEM", "x"]]
+

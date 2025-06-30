@@ -39,7 +39,7 @@ if st.button("Evaluate"):
             file_name="trace_output.json", mime="application/json")
     except Exception as e:
         st.error(str(e))
-=======
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 import streamlit as st
@@ -84,4 +84,3 @@ if expr_str:
 
     except Exception as e:
         st.error(f"❌ Parser/Evaluator error: {e}")
-        79041d6 (Initial commit with CLI + SUB support)

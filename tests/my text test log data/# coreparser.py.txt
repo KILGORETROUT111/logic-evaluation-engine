@@ -1,0 +1,48 @@
+# core/parser.py
+
+from core.expressions import Functor, Value, Var
+
+
+def parse_expression(obj):
+    if isinstance(obj, list):
+        if not obj:
+            raise ValueError("Empty list cannot be parsed as a Functor")
+        head = obj[0]
+        args = obj[1:]
+
+        # Recursively parse all children
+        parsed_args = [parse_expression(arg) for arg in args]
+
+        # Functor name normalization
+        return Functor(str(head).upper(), parsed_args)
+
+    elif isinstance(obj, dict):
+        # Interpret as a Value if it has {"value": ...}
+        if "value" in obj:
+            return Value(obj["value"])
+        else:
+            raise ValueError(f"Unsupported dict format: {obj}")
+
+    elif isinstance(obj, (int, float)):
+        return Value(obj)
+
+    elif isinstance(obj, str):
+        return Var(obj)
+
+    else:
+        raise ValueError(f"Unsupported expression type: {type(obj)}")
+
+
+
+----
+
+added
+
+def parse_expression(obj):
+    print(f"🔍 Parsing: {obj}")  # 👈 Add this here at the top
+------
+
+
+
+python main.py "[\"Root\", [\"SUB\", \"x\", 42], [\"Node\", {\"value\": 3}, \"MEM\", \"x\"]]"
+

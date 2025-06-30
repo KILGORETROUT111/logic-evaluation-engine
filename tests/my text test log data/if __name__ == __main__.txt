@@ -1,0 +1,18 @@
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        expr_str = input('Enter expression (e.g. ["EX", "x", "JAM"]): ').strip()
+        if not expr_str:
+            expr_str = '["Root", ["SUB", "x", 42], ["Node", {"value": 3}, "MEM", "x"]]'
+            print(f"ℹ️ Using default expression: {expr_str}")
+    else:
+        expr_str = sys.argv[1]
+
+    try:
+        expr_json = parse_expr(expr_str)
+        expr = Functor(expr_json[0], [Var(expr_json[1]), Functor(expr_json[2])])
+        context = {"x": 1, "z": 2}
+
+        state, trace = evaluate_full(expr, context)
+
+
+cd "C:\Users\Dell\Documents\logic-evaluation-engine"

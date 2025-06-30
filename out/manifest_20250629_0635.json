@@ -1,0 +1,13 @@
+{
+  "timestamp": "20250629_0635",
+  "final_state": "State.ALIVE",
+  "context": {
+    "x": "1",
+    "z": "2"
+  },
+  "trace": {
+    "LAM": [
+      "LAM(Var('x'), EX(Var('x'), Var('JAM')))"
+    ]
+  }
+}
