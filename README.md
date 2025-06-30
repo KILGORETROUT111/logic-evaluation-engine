@@ -24,7 +24,8 @@ logic-evaluation-engine/
 ├── out/                # Output diagrams (.svg/.png) and trace logs
 ├── main.py             # CLI evaluator
 ├── README.md           # This file
-└── LICENSE             # MIT License (or as defined)
+└── LICENSE             # GNU GPLv3
+
 
 
 ## ✅ Expression Examples
@@ -196,12 +197,12 @@ Add session memory and annotation features.
 GitHub Packaging + Documentation:
 
 Prepare public README with architecture diagram and example walkthroughs.
-Tag v0.9.1 and v1.0.0 milestone.
+Tag v0.9.2 and v0.9.2.1 milestone.
 Paper/Publication:
 
 Write and release accompanying paper explaining symbolic inference engine
 Comparison with lambda calculus, modal inference, and anaphora in NLP
 © 2025 Logic Evaluation Engine Development Team.
 
-© 2025 Logic Evaluation Engine contributors. For more info, see `logic_evaluation_engine_report.html` or contact maintainer at dianoetic@tuta.com
+© 2025 Logic Evaluation Engine creator and inventor William A. Patterson. For more info, see `logic_evaluation_engine_report.html` or contact maintainer at dianoetic@tuta.com
 04af6e0 (✅ Finalize logic engine v0.9.2: lambda + app + substitution inference)
