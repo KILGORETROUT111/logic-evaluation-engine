@@ -123,7 +123,7 @@ logic_engine/
 
 
 Logic Evaluation Engine Progress Report
-Last updated: 2025-06-27
+Last updated: 2025-06-30
 
 Overview
 This document outlines the development progress of the Logic Evaluation Engine — a symbolic reasoning framework designed to support nested logical expressions, traceable state transitions, and interactive evaluation through CLI and Streamlit interfaces.
@@ -204,5 +204,7 @@ Write and release accompanying paper explaining symbolic inference engine
 Comparison with lambda calculus, modal inference, and anaphora in NLP
 Copyright 2025 Logic Evaluation Engine Development Team.
 
-Copyright 2025 Logic Evaluation Engine creator and inventor William A. Patterson. For more info, see `logic_evaluation_engine_report.html` or contact maintainer at dianoetic@tuta.com
-04af6e0 (✅ Finalize logic engine v0.9.2: lambda + app + substitution inference)
+Copyright 2025 Logic Evaluation Engine creator and inventor William A. Patterson. For more info, see wiki page or contact maintainer at dianoetic@tuta.com
+04af6e0 (✅ Finalize logic engine v0.9.2: lambda + app + substitution inference). 
+
+Logic Evaluation Engine is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. Logic Evaluation Engine is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with Logic Evaluation Engine. If not, see <https://www.gnu.org/licenses/>.
