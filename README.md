@@ -16,15 +16,24 @@ A modular symbolic reasoning system for evaluating logic expressions using Funct
 
 
 logic-evaluation-engine/
-│
+
+
 ├── core/               # Core logic: expressions, parser, evaluation, visualize
+
 ├── webapp/             # Streamlit-based web interface (run with `streamlit run webapp/app.py`)
+
 ├── examples/           # Expression demos
+
 ├── tests/              # Pytest unit tests
+
 ├── out/                # Output diagrams (.svg/.png) and trace logs
+
 ├── main.py             # CLI evaluator
+
 ├── README.md           # This file
-└── LICENSE             # MIT License (or as defined)
+
+└── LICENSE             # GNU GPLv3
+
 
 
 ## ✅ Expression Examples
@@ -32,10 +41,15 @@ logic-evaluation-engine/
 json
 
 ["EX", "x", "JAM"]
+
 ["EEX", "x", "JAM"]
+
 ["SUB", "x", ["EX", "y", "JAM"]]
+
 ["MEM", "x"]
+
 ["APP", ["LAM", "x", ["EX", "x", "JAM"]], 42]
+
 ["Root", ["SUB", "x", 42], ["Node", {"value": 3}, "MEM", "x"]]
 
 
@@ -82,7 +96,7 @@ pytest tests/
 
 ## 🏷️ Version
 
-**v0.9.0-alpha** — Early alpha, fully working logic core with extensible primitives.
+**v0.9.2.2** — Early alpha, fully working logic core with extensible primitives - Stable build: Lambda, App, Substitution Inference complete.
 
 
 
@@ -103,11 +117,17 @@ The project bridges formal logic, modal grammar, and symbolic execution models i
 ## 💻 Folder Structure
 
 logic_engine/
+
 ├── core/ # Logic engine modules (expressions, evaluation, state)
+
 ├── examples/ # Demo: CLI + JSON export
+
 ├── tests/ # Pytest-based unit tests
+
 ├── webapp/ # Streamlit web UI
+
 ├── main.py # CLI entrypoint
+
 ├── README.md # This document
 
 
@@ -122,7 +142,7 @@ logic_engine/
 
 
 Logic Evaluation Engine Progress Report
-Last updated: 2025-06-27
+Last updated: 2025-06-30
 
 Overview
 This document outlines the development progress of the Logic Evaluation Engine — a symbolic reasoning framework designed to support nested logical expressions, traceable state transitions, and interactive evaluation through CLI and Streamlit interfaces.
@@ -146,28 +166,48 @@ webapp/app.py: Streamlit interface for live evaluation, expression input, and gr
 
 Each expression is evaluated stepwise to generate a trace with symbolic interpretation.
 
+
+
 Features Implemented
+
+
 ✅ Core Primitives
+
 EX(x, JAM): Existential binding
+
 EEX(x, JAM): Counterfactual exploration
+
 SUB(x, φ): Symbolic substitution
+
 MEM: Anaphoric trace recall
+
 LAM(x, φ): Lambda abstraction
+
 APP(f, x): Function application (with substitution)
 
+
+
 ✅ Expression Parser
+
 Nested JSON parsing for symbolic expressions
 Supports primitives, lists, and dictionaries ({"value": 3} becomes Value(3))
 
+
+
 ✅ Evaluation Tracer
+
 Evaluation engine produces state transitions (ALIVE, JAM, VAC, etc.)
 Automatically logs expression phases
 Prevents circular evaluation and hash errors
+
+
 
 ✅ CLI Interface
 CLI prompt with contextual input
 Expression-to-trace output with terminal preview
 Graphviz-based .svg/.png/JSON output
+
+
 
 ✅ Streamlit App
 Rich UI with example input box
@@ -196,12 +236,15 @@ Add session memory and annotation features.
 GitHub Packaging + Documentation:
 
 Prepare public README with architecture diagram and example walkthroughs.
-Tag v0.9.1 and v1.0.0 milestone.
+Tag v0.9.2.2
 Paper/Publication:
 
 Write and release accompanying paper explaining symbolic inference engine
 Comparison with lambda calculus, modal inference, and anaphora in NLP
-© 2025 Logic Evaluation Engine Development Team.
+Copyright 2025 Logic Evaluation Engine Development Team.
 
-© 2025 Logic Evaluation Engine contributors. For more info, see `logic_evaluation_engine_report.html` or contact maintainer at dianoetic@tuta.com
-04af6e0 (✅ Finalize logic engine v0.9.2: lambda + app + substitution inference)
+Copyright 2025 Logic Evaluation Engine creator/inventor of Logic Evaluation Engine, William A. Patterson. For more info, see wiki page or contact maintainer at dianoetic@tuta.com
+04af6e0 (✅ Finalize logic engine v0.9.2: lambda + app + substitution inference). 
+Stable build: Lambda, App, Substitution Inference complete
+
+Logic Evaluation Engine is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. Logic Evaluation Engine is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with Logic Evaluation Engine. If not, see <https://www.gnu.org/licenses/>.
