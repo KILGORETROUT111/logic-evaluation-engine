@@ -96,7 +96,7 @@ pytest tests/
 
 ## 🏷️ Version
 
-**v0.9.2.1** — Early alpha, fully working logic core with extensible primitives.
+**v0.9.2.2** — Early alpha, fully working logic core with extensible primitives.
 
 
 
@@ -236,7 +236,7 @@ Add session memory and annotation features.
 GitHub Packaging + Documentation:
 
 Prepare public README with architecture diagram and example walkthroughs.
-Tag v0.9.2 and v0.9.2.1 milestone.
+Tag v0.9.2.2
 Paper/Publication:
 
 Write and release accompanying paper explaining symbolic inference engine
@@ -244,6 +244,6 @@ Comparison with lambda calculus, modal inference, and anaphora in NLP
 Copyright 2025 Logic Evaluation Engine Development Team.
 
 Copyright 2025 Logic Evaluation Engine creator/inventor of Logic Evaluation Engine, William A. Patterson. For more info, see wiki page or contact maintainer at dianoetic@tuta.com
-04af6e0 (✅ Finalize logic engine v0.9.2: lambda + app + substitution inference). 
+04af6e0 (✅ Finalize logic engine v0.9.2.2: lambda + app + substitution inference). 
 
 Logic Evaluation Engine is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. Logic Evaluation Engine is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with Logic Evaluation Engine. If not, see <https://www.gnu.org/licenses/>.
