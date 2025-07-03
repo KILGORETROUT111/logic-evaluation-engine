@@ -119,6 +119,8 @@ We welcome academic collaborators, feedback from instructors, and early experime
 GNU General Public License v3.0.
 
 ---
+Wiki: https://github.com/KILGORETROUT111/logic-evaluation-engine/wiki/wiki-Phase-Evaluation
+---
 
 ## Contact
 
