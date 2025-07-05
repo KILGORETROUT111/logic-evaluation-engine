@@ -1,131 +1,125 @@
-# Logic Evaluation Engine (LEE)
+# Logic Evaluation Engine (LEE) – v0.9.3
 
-**A symbolic reasoning framework for structured substitution, lambda evaluation, and visual logic tracing.**
-
----
-
-## Overview
-
-The Logic Evaluation Engine (LEE) is a lightweight, expressive system for evaluating symbolic logic expressions through substitutional reasoning and state tracing.
-
-It was built to assist in exploring, teaching, and experimenting with lambda expressions, modal logic, and quantifiers — all while exposing a transparent trace of the logic flow.
-
-Whether you're modeling inference rules, experimenting with recursive expressions, or teaching symbolic logic, LEE makes the process legible, testable, and extendable.
+The **Logic Evaluation Engine (LEE)** is a symbolic inference framework designed for introspective logic processing, real-time event tracing, and composable expression evaluation. Built to support reproducibility and formal inspection, LEE serves as a clean-room logic substrate that bridges expressive symbolic rules with concrete memory and substitution semantics.
 
 ---
 
-## Key Features
+## 🔍 Key Features
 
-- **Lambda Calculus Support**
-  - Application, abstraction, and scope tracking
-  - Nested applications with substitution
-  - Recursive evaluation using combinators (e.g. Y-Combinator)
+- **Event-Driven Execution**  
+  All evaluation steps emit structured `LEEEvent`s, enabling real-time introspection, cycle detection, anti-pattern recognition, and symbolic trace capture.
 
-- **Quantifier Logic**
-  - Supports ∀ (universal) and ∃ (existential) structures
-  - Evaluates over simulated domains of discourse
+- **JSON Trace Export**  
+  Every evaluation run can be exported as a structured JSON file. Ideal for use in reproducibility contexts, symbolic debugging, or GUI diagnostics.
 
-- **Substitutional Evaluation**
-  - `Variable`, `Literal`, `Define`, `Substitution`, `Application`, and `Lambda` types
-  - Traceable and expressive step-by-step computation
+- **Y Combinator Demonstration**  
+  Includes example evaluation of a non-trivial fixed-point recursive combinator via lambda-calculus construction.
 
-- **Trace Visualization**
-  - Outputs inference paths as PNG, SVG, and proof-style logs
-  - CLI and Streamlit UI options for interactive or scripted use
+- **State Phase Control**  
+  Expression state transitions follow phase-logical lifecycle: `VAC → ALIVE → MEM` (with `JAM` for contradiction detection and halt conditions).
 
-- **Stateful Outcome Modeling**
-  - Expressions resolve to symbolic states: `ALIVE`, `JAM`, or `VOID`
-  - Useful for modal, epistemic, or logical condition tracking
-
-- **Extensible Expression System**
-  - Plug in custom expression types (e.g. If-Then, BinaryOp)
-  - Compose hybrid logic models
+- **Modular API Interface (O---O)**  
+  Clean API segmentation for expression handling, substitution control, evaluation, export, and phase-state inspection.  
+  The `O---O API` is LEE’s external face: symbolic, inspectable, and migratable.
 
 ---
 
-## Use Cases
+## 🧠 Why LEE Matters
 
-### 🧠 Academic & Pedagogical
+LEE is built for symbolic transparency and reproducibility. It enables logic processing systems that can:
+- Expose their own inference trace in real time,
+- Integrate phase-state lifecycle semantics,
+- Support downstream tools that visualize, annotate, or diagnose logical computation.
 
-- Teaching lambda calculus and substitution
-- Demonstrating quantifier scoping and binding
-- Visualizing logical inference flow
-- First-year logic instruction (formal reasoning, functional programming)
-- Coursework demos for CS, Philosophy, and Math departments
-
-### 🧪 Logic Research & Experimentation
-
-- Custom modal or substitution logics
-- Exploratory logic modeling for AI inference
-- Trace validation for symbolic computation pipelines
+Whether you're a logician, a symbolic AI developer, or a systems researcher, LEE offers a core substrate to **build or test introspective symbolic logic**—without reliance on opaque LLMs or probabilistic black-boxes.
 
 ---
 
-## Example
+## 📂 Project Structure
 
-```python
-from core.expressions import Variable, Literal, Lambda, Application
-from core.evaluation import evaluate_full
-
-# Define λx.λy.x
-inner = Lambda("y", Variable("x"))
-outer = Lambda("x", inner)
-
-# Apply: ((λx.λy.x) 1) 2
-expr = Application(Application(outer, Literal(1)), Literal(2))
-
-result, trace = evaluate_full(expr)
-
-for step in trace:
-    print(step)
+```plaintext
+logic-evaluation-engine/
+├── core/                # Core logic: expressions, evaluation, state, event types
+├── utils/               # Utilities: safe_print, JSON trace export
+├── demos/               # Demonstration scripts incl. Y combinator, trace inspection
+├── tests/               # Formal verification test cases
+├── out/                 # Output directory for runtime JSON traces
+├── README.md
+└── main.py              # Example runtime entry point
 ```
 
-This yields a full trace of variable binding, lambda scope, and evaluation steps — all visibly structured.
-
 ---
 
-## Visualization Example
+## 🚀 Try It
 
-Evaluate and render substitution logic as SVG/PNG for teaching or analysis:
+Run `main.py` to see the engine evaluate a small expression and emit a JSON trace:
 
 ```bash
-python main.py --expr "(LAM x (LAM y x))" --apply "1" "2" --output "trace.svg"
+python main.py
+```
+
+Check the generated trace in:
+
+```bash
+out/trace_output.json
 ```
 
 ---
 
-## Repository Structure
+## 🧪 Tests and Demos
 
-- `core/expressions.py` — all expression types (Variable, Literal, Lambda, etc.)
-- `core/evaluation.py` — recursive trace-evaluator
-- `core/state.py` — symbolic end-state tracking
-- `core/visualize.py` — DOT/SVG/PNG renderers
-- `trace_to_proof.py` — readable output logs for logic proofs
-- `main.py` — CLI interface
-- `demo_*.py` — example test and demonstration files
+- Run all tests:
 
----
+```bash
+pytest tests/
+```
 
-## Status
+- Explore demos:
 
-**Alpha release v0.9.2.3** — actively iterating.
-
-We welcome academic collaborators, feedback from instructors, and early experimental use.
+```bash
+python demos/demo_y_combinator.py
+python demos/demo_trace_to_proof.py
+```
 
 ---
 
-## License
+## 🔗 Related Papers & Foundations
 
-GNU General Public License v3.0.
+LEE is grounded in formal logic research. This research informs its deep structure and is integral to its philosophical and architectural design.  
+**DOI #s are forthcoming.**
 
 ---
 
-Wiki: https://github.com/KILGORETROUT111/logic-evaluation-engine/wiki/wiki-Phase-Evaluation
+## 🔧 License
+
+**GPL v3.0**  
+Open, transparent, and reusable. All logic artifacts, demos, and trace exports are subject to this license.
+
 ---
-f2e0449 (Release v0.9.3 – Event-driven introspection, JSON trace, Y-combinator demos)
 
-## Contact
+## 🔭 Future Directions
 
-William A. Patterson  
-Email: [dianoetic@tuta.com](mailto:dianoetic@tuta.com)  
-CC: [kilgoretrout@berkeley.edu](mailto:kilgoretrout@berkeley.edu)
+- GUI inspection (e.g. Streamlit or Qt for visualizing traces and phases)
+- Graph-based pattern detection and cycle mapping
+- RESTful or CLI interface for `O---O API` exposure
+- Full symbolic-to-proof compiler path (β reduction with trace)
+- Phase audit hooks for forensic logic and runtime introspection
+
+---
+
+## 🧬 Design Notes
+
+- JAM and MEM phases follow strict logic rules:
+  - `JAM → MEM` (awaiting contradiction resolution)
+  - `MEM → ALIVE` (triggered by valid substitution)
+  - No `MEM → JAM`, no `MEM → VAC`, unless reset or forcibly overwritten.
+- All events are exported in `LEEEvent` form for downstream use.
+- Engine is deliberately self-contained: no internet calls, no dependencies outside `Python 3.9+`.
+
+---
+
+## 🛠️ Development Status
+
+Actively maintained. Contributions welcome via fork + PR.  
+Contact: [dianoetic@tuta.com](mailto:dianoetic@tuta.com)
+Contact CC: [kilgoretrout@berkeley.edu](mailto:kilgoretrout@berkeley.edu)
