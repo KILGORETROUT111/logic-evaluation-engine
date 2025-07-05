@@ -119,8 +119,10 @@ We welcome academic collaborators, feedback from instructors, and early experime
 GNU General Public License v3.0.
 
 ---
+
 Wiki: https://github.com/KILGORETROUT111/logic-evaluation-engine/wiki/wiki-Phase-Evaluation
 ---
+f2e0449 (Release v0.9.3 – Event-driven introspection, JSON trace, Y-combinator demos)
 
 ## Contact
 

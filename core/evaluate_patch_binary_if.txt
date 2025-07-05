@@ -1,0 +1,21 @@
+# Add to evaluate_full after Quantifier:
+
+    if isinstance(expr, IfThenElse):
+        cond_result, trace = evaluate_full(expr.condition, env, trace)
+        if cond_result == State.ALIVE:
+            return evaluate_full(expr.then_branch, env, trace)
+        else:
+            return evaluate_full(expr.else_branch, env, trace)
+
+    if isinstance(expr, BinaryOp):
+        left_result, trace = evaluate_full(expr.left, env, trace)
+        right_result, trace = evaluate_full(expr.right, env, trace)
+        if expr.op == "==":
+            return (State.ALIVE if left_result == right_result else State.JAM), trace
+        if expr.op == "*":
+            try:
+                result_val = left_result.value * right_result.value
+                return Literal(result_val), trace
+            except Exception:
+                return State.JAM, trace
+        return State.JAM, trace
