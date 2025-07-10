@@ -66,7 +66,7 @@ Output Trace:
 
 - [Main Repo](https://github.com/KILGORETROUT111/logic-evaluation-engine)
 - [Project Wiki](https://github.com/KILGORETROUT111/logic-evaluation-engine/wiki)
-- [White Paper 1 – Conservation Logic](./White_Paper_1_LEE_Conservation_Logic_v2.pdf)
+- [White Paper 1 – Conservation Logic](./White_Paper_1_LEE_Conservation_Logic.pdf)
 
 ---
 
