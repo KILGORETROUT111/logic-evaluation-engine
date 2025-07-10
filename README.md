@@ -1,125 +1,73 @@
-# Logic Evaluation Engine (LEE) – v0.9.3
+# Logic Evaluation Engine (LEE)
 
-The **Logic Evaluation Engine (LEE)** is a symbolic inference framework designed for introspective logic processing, real-time event tracing, and composable expression evaluation. Built to support reproducibility and formal inspection, LEE serves as a clean-room logic substrate that bridges expressive symbolic rules with concrete memory and substitution semantics.
-
----
-
-## 🔍 Key Features
-
-- **Event-Driven Execution**  
-  All evaluation steps emit structured `LEEEvent`s, enabling real-time introspection, cycle detection, anti-pattern recognition, and symbolic trace capture.
-
-- **JSON Trace Export**  
-  Every evaluation run can be exported as a structured JSON file. Ideal for use in reproducibility contexts, symbolic debugging, or GUI diagnostics.
-
-- **Y Combinator Demonstration**  
-  Includes example evaluation of a non-trivial fixed-point recursive combinator via lambda-calculus construction.
-
-- **State Phase Control**  
-  Expression state transitions follow phase-logical lifecycle: `VAC → ALIVE → MEM` (with `JAM` for contradiction detection and halt conditions).
-
-- **Modular API Interface (O---O)**  
-  Clean API segmentation for expression handling, substitution control, evaluation, export, and phase-state inspection.  
-  The `O---O API` is LEE’s external face: symbolic, inspectable, and migratable.
+**LEE v1.0 – A Phase-State Symbolic Logic Engine**
 
 ---
 
-## 🧠 Why LEE Matters
+## 🔍 What It Is
 
-LEE is built for symbolic transparency and reproducibility. It enables logic processing systems that can:
-- Expose their own inference trace in real time,
-- Integrate phase-state lifecycle semantics,
-- Support downstream tools that visualize, annotate, or diagnose logical computation.
+LEE is a symbolic logic engine designed for introspective computation, dynamic inference, and memory-aware traceability. It avoids static truth-tables and one-pass inference. Instead, LEE resolves logic as a sequence of *phase-state transitions* between primitive states like `ALIVE`, `MEM`, `JAM`, and `VAC`, defined by structural relationships grounded in counterfactual entailment.
 
-Whether you're a logician, a symbolic AI developer, or a systems researcher, LEE offers a core substrate to **build or test introspective symbolic logic**—without reliance on opaque LLMs or probabilistic black-boxes.
+## 🚀 What It Does
 
----
+- 🔁 **Phase-Aware Evaluation:** Logical expressions evolve through state cycles (e.g., `MEM → ALIVE → JAM → ALIVE`).
+- 📘 **Four Primitive States:** The states form the core fabric for reversible computation, derived from the decomposition of material implication.
+- 🧠 **Y-Combinator & Recursion Support:** Deep lambda evaluation with structural trace tracking.
+- 📦 **Trace Export:** Emits evaluation trace in JSON for reproducibility, auditing, or visualization.
+- 🧩 **Modular O---O API:** Clean, introspective modules (Expressions, Evaluation, Substitution, Export, PhaseControl).
+- ⚖️ **Conservation-Oriented Inference:** Inspired by differential geometry’s Bianchi identity: logic transformations must preserve internal phase-state coherence.
 
-## 📂 Project Structure
+## 🧬 How It’s Different
 
-```plaintext
-logic-evaluation-engine/
-├── core/                # Core logic: expressions, evaluation, state, event types
-├── utils/               # Utilities: safe_print, JSON trace export
-├── demos/               # Demonstration scripts incl. Y combinator, trace inspection
-├── tests/               # Formal verification test cases
-├── out/                 # Output directory for runtime JSON traces
-├── README.md
-└── main.py              # Example runtime entry point
+Most logic engines:
+- Are forward-only (truth-table driven)
+- Discard memory of evaluation
+- Lack introspection or structural traceability
+
+LEE instead:
+- Tracks structural transformations across time.
+- Ensures phase-consistent reversibility.
+- Embraces logical conservation laws: inference must maintain state integrity.
+
+## 🧠 Core Inspiration
+
+- **Counterfactual Entailment**: von Wright’s logic of “if P had occurred, Q would have followed” serves as LEE’s backbone.
+- **Material Implication as Phase Dynamics**: (¬P ∨ Q) is not just syntax—it unrolls into phase-rotations with observable state effects.
+- **Bianchi Identity Analogy**: Just as geometric curvature obeys conservation rules, LEE's logic operations must preserve internal consistency and evaluative symmetry.
+
+## ⚙️ Use Cases
+
+- 🧪 Diagnostic Inference Engines (medical, technical systems)
+- 📚 Logic Education & Symbolic Reasoning Demonstrators
+- 🔬 Scientific Hypothesis Testing (counterfactual model evaluation)
+- 🧩 DSL Backend for Structured, Explainable AI
+
+## 📖 Example Expression Trace
+
+```python
+identity = Lambda("x", Variable("x"))
+expr = Application(identity, Literal(42))
+result, trace = evaluate_full(expr)
 ```
 
----
-
-## 🚀 Try It
-
-Run `main.py` to see the engine evaluate a small expression and emit a JSON trace:
-
-```bash
-python main.py
+Output Trace:
+```json
+[
+  {"type": "EVAL", "expr": "(λx.x)", "env": {}},
+  {"type": "EVAL", "expr": "42", "env": {}},
+  {"type": "LITERAL", "expr": "42", "env": {}},
+  {"type": "APPLY", "param": "x", "arg": "State.ALIVE", "body": "x"},
+  {"type": "EVAL", "expr": "x", "env": {"x": "State.ALIVE"}},
+  {"type": "EVAL", "expr": "State.ALIVE", "env": {"x": "State.ALIVE"}}
+]
 ```
 
-Check the generated trace in:
+## 🌐 Repository Links
 
-```bash
-out/trace_output.json
-```
-
----
-
-## 🧪 Tests and Demos
-
-- Run all tests:
-
-```bash
-pytest tests/
-```
-
-- Explore demos:
-
-```bash
-python demos/demo_y_combinator.py
-python demos/demo_trace_to_proof.py
-```
+- [Main Repo](https://github.com/KILGORETROUT111/logic-evaluation-engine)
+- [Project Wiki](https://github.com/KILGORETROUT111/logic-evaluation-engine/wiki)
+- [White Paper 1 – Conservation Logic](./White_Paper_1_LEE_Conservation_Logic_v2.pdf)
 
 ---
 
-## 🔗 Related Papers & Foundations
-
-LEE is grounded in formal logic research. This research informs its deep structure and is integral to its philosophical and architectural design.  
-**DOI #s are forthcoming.**
-
----
-
-## 🔧 License
-
-**GPL v3.0**  
-Open, transparent, and reusable. All logic artifacts, demos, and trace exports are subject to this license.
-
----
-
-## 🔭 Future Directions
-
-- GUI inspection (e.g. Streamlit or Qt for visualizing traces and phases)
-- Graph-based pattern detection and cycle mapping
-- RESTful or CLI interface for `O---O API` exposure
-- Full symbolic-to-proof compiler path (β reduction with trace)
-- Phase audit hooks for forensic logic and runtime introspection
-
----
-
-## 🧬 Design Notes
-
-- JAM and MEM phases follow strict logic rules:
-  - `JAM → MEM` (awaiting contradiction resolution)
-  - `MEM → ALIVE` (triggered by valid substitution)
-  - No `MEM → JAM`, no `MEM → VAC`, unless reset or forcibly overwritten.
-- All events are exported in `LEEEvent` form for downstream use.
-- Engine is deliberately self-contained: no internet calls, no dependencies outside `Python 3.9+`.
-
----
-
-## 🛠️ Development Status
-
-Actively maintained. Contributions welcome via fork + PR.  
-Contact: [dianoetic@tuta.com](mailto:dianoetic@tuta.com)
-Contact CC: [kilgoretrout@berkeley.edu](mailto:kilgoretrout@berkeley.edu)
+*LEE is built for thinkers, educators, and systems with memory. Logic, after all, isn’t a static table—it’s a living evaluation.*
