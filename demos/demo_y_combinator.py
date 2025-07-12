@@ -2,7 +2,7 @@ from core.expressions import (
     Variable, Literal, Lambda, Application, BinaryOp, IfThenElse
 )
 from core.evaluation import evaluate_full
-from core.state import State
+from core.states import State
 from trace_to_proof import trace_to_proof
 
 # Define the fixed-point combinator Y = λf.(λx.f(x x))(λx.f(x x))

@@ -1,4 +1,4 @@
-from core.state import State
+from core.states import State
 from core.expressions import (
     Literal, Variable, Lambda, Application,
     Substitution, Define, Memory, Quantifier

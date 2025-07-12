@@ -1,6 +1,6 @@
 from core.expressions import Variable, Literal, Lambda, Application
 from core.evaluation import evaluate_full
-from core.state import State
+from core.states import State
 from trace_to_proof import trace_to_proof
 
 # Sample: ((λx.λy.x)(1))(2)
