@@ -82,4 +82,9 @@ LEE introduces **phase-state geometry** as a model of logical conservation. In t
 
 The engine remains stable and coherent through contradiction, using internal trace semantics to resolve forks.
 
+Project LEE Wiki: https://github.com/KILGORETROUT111/logic-evaluation-engine/wiki
+✳️ License: GPL 3.0
+© LEE Project 2025 — logic-evaluation-engine
+
+
 ---
