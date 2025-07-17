@@ -1,6 +1,6 @@
 # Alexander Patterson  
 **SAP Platinum Consultant**  
-U.S. Citizen | Based in Europe | Multilingual (EN, DE, CZ, HR)  
+U.S. Citizen | Based in Europe | Multilingual (EN, DE, CZ)  
 Email: dianoetic@tuta.com  
 
 ---
