@@ -75,7 +75,7 @@ It’s applicable in areas like:
 
 **GitHub Project:** [Logic Evaluation Engine (LEE)](https://github.com/KILGORETROUT111/logic-evaluation-engine)  
 **Project Overview:** [README](https://github.com/KILGORETROUT111/logic-evaluation-engine/blob/main/README.md)  
-**Technical Detail:** [Documentation Wiki](https://github.com/KILGORETROUT111/logic-evaluation-engine/wiki)
+**Technical Detail:** [Documentation Wiki](https://github.com/KILGORETROUT111/logic-evaluation-engine/wiki/1-Overview)
 
 ## 🌐 Languages
 
