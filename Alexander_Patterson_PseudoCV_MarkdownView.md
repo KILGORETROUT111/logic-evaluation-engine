@@ -81,5 +81,5 @@ It’s applicable in areas like:
 
 - English (Native)  
 - German (Professional written and spoken)  
-- Czech (Profession: written and spoken)  
+- Czech (Professional written and spoken)  
 - Croatian (Basic) 
