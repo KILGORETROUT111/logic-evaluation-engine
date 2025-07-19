@@ -1,7 +1,8 @@
-# Alexander Patterson  
+# (William) Alexander (Alex) Patterson  
 **SAP Platinum Consultant**  
 U.S. Citizen | Based in Europe | Multilingual (EN, DE, CZ)  
-Email: dianoetic@tuta.com  
+Email: dianoetic@tuta.com 
+For more details contact me by email.
 
 ---
 
