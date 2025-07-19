@@ -24,6 +24,10 @@ def emit_trace_to_json(trace: list, output_path: str = "out/trace_output.json"):
         serialized.append(event_dict)
 
     with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(serialized, f, indent=2, ensure_ascii=False)
+        data = {
+            "trace": serialized,
+            "final_result": str(trace[-1].value if trace else None)
+        }
+        json.dump(data, f, indent=2, ensure_ascii=False)
 
     print(f"[TRACE EXPORT] Trace written to: {output_path}")

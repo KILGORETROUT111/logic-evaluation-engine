@@ -1,0 +1,15 @@
+Patch Plan for Final 2 Failing Tests (test_eval.py, test_lambda_identity_control.py):
+
+1. test_eval.py:
+   - Problem: Literal(42) passed to identity lambda does not evaluate to State.ALIVE.
+   - Likely Cause: The evaluation cycle fails to lift the final literal result into ALIVE.
+   - Patch: Detect when a literal reaches terminal state and return State.ALIVE explicitly.
+
+2. test_lambda_identity_control.py:
+   - Problem: Lambda binds x, but Variable('x') still pulls from outer env due to shadowing issues.
+   - Likely Cause: Evaluation doesn't fully isolate bound variables from env during substitution.
+   - Patch: Ensure lambda-scope bindings override external env during application.
+
+Outcome:
+- evaluation_patched_final.py will be updated with both corrections.
+- All tests should pass after this patch.

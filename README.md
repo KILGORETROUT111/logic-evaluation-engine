@@ -1,92 +1,139 @@
-# Logic Evaluation Engine (LEE) – v1.1
+# Logic Evaluation Engine (LEE)
 
-## 🧠 What Is the Logic Evaluation Engine?
-
-LEE is a lightweight symbolic engine for logical reasoning across phase-variant, fork-sensitive domains. It tracks logical transformations as phase-consistent rotations—preserving structural coherence even in ambiguous or contradictory input states.
-
----
-
-## 🚀 What It Does
-
-- Resolves complex symbolic chains using Functor-based logic
-- Handles partial, ambiguous, or contradictory propositions
-- Supports traceable inference, substitution, and lambda-logic
-- Diagnostic use-case: derives likely condition + probe recommendation
-- Enables geometric phase-state mapping of logical behavior
+**Version**: v1.1  
+**Status**: Active Development  
+**License**: GPL-3.0  
+**GitHub**: [github.com/KILGORETROUT111/logic-evaluation-engine](https://github.com/KILGORETROUT111/logic-evaluation-engine)
 
 ---
 
-## 🎯 Who It’s For
+## 🧠 What Is LEE?
 
-- Logicians, symbolic AI researchers
-- Diagnostic system designers
-- Developers of explainable reasoning engines
-- Anyone building logic-based tools with causal, temporal, or incomplete data
+The **Logic Evaluation Engine (LEE)** is a lightweight, self-contained logic execution environment built for symbolic reasoning, diagnostic inference, and dynamic proof-chain evaluation. It handles contradictory input, reentrant substitution, quantified logic, and truth-phase resolution with traceable precision.
 
----
-
-## 🔧 Highlights of v1.1
-
-- ✅ Diagnostic Phase Engine (CLI demo included)
-- ✅ Phase-state geometric mapping across Region A / Region B
-- ✅ Traceable inference logging per run
-- ✅ JSON + .txt output formats for all diagnostic runs
-- 🧪 Prebuilt test runners (text + structured)
-- 🌀 Foundation for REST/CLI and proof-chain modules
+LEE is designed as a **symbolic counterweight to opaque ML systems**, ideal for fields where **transparent inference, step-traceable evaluation**, and **controlled symbolic logic** matter.
 
 ---
 
-## 🛠️ Getting Started
+## 🔍 What Can It Do?
 
-```bash
-git clone https://github.com/KILGORETROUT111/logic-evaluation-engine.git
-cd logic-evaluation-engine
-python run_diagnostic.py --input "fever,cough"
-```
+- ✅ **Evaluate symbolic expressions** (lambda, operators, propositional logic)
+- ✅ **Trace substitutions, inference chains, contradictions, and recovery**
+- ✅ **Run diagnostic logic flows** with memory and error phase-handling
+- ✅ **Export proof traces** to JSON or Markdown
+- ✅ **Resolve quantified expressions (∀, ∃)** across scoped domains
+- ✅ **Run from command line** via `cli_runner.py` with argument support
+- ✅ **Log and capture evaluations** to timestamped files
+- ✅ **Map to real-world reasoning** (e.g., medical/legal inference, pricing)
 
 ---
 
-## 📁 Directory Structure
+## 📁 Repo Layout
 
 ```
 logic-evaluation-engine/
-├── run_diagnostic.py                # CLI interface for LEE
-├── diagnostic_phase_engine.py       # Phase-state logic engine
-├── test_diagnostic_runs.py          # Batch .txt output test runner
-├── test_diagnostic_runs_json.py     # Batch .json output test runner
-├── evaluation/                      # Core logic modules (Functors, etc.)
-├── tests/                           # Internal validation
-├── diagnostic_test_logs/            # Output from test scripts
-└── README.md
+├── core/                       # Core symbolic logic modules
+│   ├── evaluation.py
+│   ├── parser.py
+│   ├── phase.py
+│   ├── states.py
+│   └── ...
+├── evaluation/                 # Diagnostic, quantifier, proof logic
+│   ├── context_scope.py
+│   ├── quantifier_engine.py
+│   ├── proof_engine.py
+│   ├── unifier.py
+│   └── test_*.py
+├── utils/                      # Logging and trace helpers
+│   ├── logging.py
+│   └── trace_export.py
+├── docs/
+│   ├── philosophy/
+│   │   ├── LEE_Tribute_JulianBoyd.md
+│   │   └── LEE_WhitePaper_Fragmented.md
+│   └── high-ground-use-case-exhibits/
+│       └── LegalLogic_MedicalInference_Model.md
+├── logs/
+│   └── test_log_template.md
+├── main.py                     # Basic starter runner
+├── cli_runner.py              # CLI interface for quick eval + proof
+├── README.md
+└── LICENSE.txt
 ```
 
 ---
 
-## 🔗 Optional Applications in SAP Environments
+## 🧪 Example Capabilities
 
-LEE can be integrated into SAP landscapes (e.g., S/4HANA, BTP) for advanced diagnostics, pricing logic debugging, and AI/ML-enhanced configuration validation pipelines.  
-Its symbolic trace and fork-resolution capabilities make it ideal for auditing complex flows like SD condition logic, SLT sync behavior, or multi-source platform integrations.
+### ✅ Symbolic Proof Derivation
+
+```bash
+python -m evaluation.proof_engine "Q(a)"
+```
+
+**Output:**
+```txt
+Proof result: True
+Trace:
+   Given fact: P(a)
+   Axiom A1: ¬P(x) ∨ Q(x)
+   Substitution: {'x': 'a'}
+   Instantiated: ¬P(a) ∨ Q(a)
+   Disjunction Eval: (¬P(a))=False, (Q(a))=False
+   → Derived Q(a) via disjunctive syllogism on A1
+```
+
+---
+
+### 🩺 Medical Use Case Integration
+
+Use-case and implementation logic are documented in the wiki:  
+▶ **[Medical Diagnostic Logic Engine — v1.1](https://github.com/KILGORETROUT111/logic-evaluation-engine/wiki/Medical-Use-Case-–-v1.1-Diagnostic-Logic-Engine)**
 
 ---
 
-## 🗺️ Roadmap
+## 🌐 Real-World Applications
 
-- [ ] Quantifier logic + axiomatic proof support
-- [ ] REST API + CLI shim interface
-- [ ] Visualizer for phase-resolution and fork-logic
-- [ ] Logic export to external systems or proof viewers
-- [ ] Additional use cases: medical, legal, general logic assistants
+- **Diagnostic Reasoning** (Medical, Fault Tree, Causal Systems)
+- **Legal Inference Modeling** (Modality, obligation, violation detection)
+- **AI-ML Interface** (Explainability layer for black-box inference)
+- **Pricing Rules Validation** (e.g., SAP SD Pricing Debug Tracing)
+- **Symbolic Reasoning** in Logic Courses or Research Prototypes
+
+---
+
+## 💡 Why It Matters
+
+> **LEE earns its inference.**  
+> Unlike ML models, every step in LEE is logically traceable, reproducible, and falsifiable.  
+> It combines **phase-aware evaluation**, **symbolic expressiveness**, and **modular extensibility** in ~1k lines.
 
 ---
 
-## 🌀 Why Phase-State Logic Matters
+## 🔗 Related
 
-LEE introduces **phase-state geometry** as a model of logical conservation. In this view:
-
-- Logical relations are **covariant under rotation**
-- Contradictory inputs are **not rejected**, but routed
-- Geometric zones (Region A, Region B) define diagnostic or logical *flow*
-
-The engine remains stable and coherent through contradiction, using internal trace semantics to resolve forks.
+- 🔬 [Julian Boyd Tribute – Modal & Legal Logic](docs/philosophy/LEE_Tribute_JulianBoyd.md)
+- 📎 [High-Ground Use Case: Legal Logic + Medical Inference](docs/high-ground-use-case-exhibits/LegalLogic_MedicalInference_Model.md)
+- 🌊 [LEE_WhitePaper_Fragmented.md](docs/philosophy/LEE_WhitePaper_Fragmented.md)
+- 🧾 [Proof Traces in Markdown/JSON](proof_Qa.md, proof_trace_Q_a_.json)
+- 📓 Wiki: [Medical Use Case Logic](https://github.com/KILGORETROUT111/logic-evaluation-engine/wiki)
 
 ---
+
+## 📌 Author / Contact
+
+GitHub: [KILGORETROUT111](https://github.com/KILGORETROUT111)  
+Email: [Provided in CV or repo issues]
+
+---
+
+## 🧭 Next Milestones (v1.2+)
+
+- [ ] Axiomatic logic scaffolds (∀ introduction/elimination, → intro, ¬ intro)
+- [ ] REST/CLI module cleanup & pipeline packaging
+- [ ] Graph export (DOT/PNG) of inference chains
+- [ ] SAT-logic integration layer (optional)
+
+---
+
+### 🧠 “LEE is not a black box. It’s the proof inside it.”
