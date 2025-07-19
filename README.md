@@ -81,6 +81,45 @@ Trace:
    Instantiated: ¬P(a) ∨ Q(a)
    Disjunction Eval: (¬P(a))=False, (Q(a))=False
    → Derived Q(a) via disjunctive syllogism on A1
+
+# 🌊 Logic Evaluation Engine (LEE) – Ride the Wave of Symbolic Inference
+
+Welcome to LEE — a lightweight, phase-consistent symbolic logic engine that doesn't just evaluate expressions — it **resolves tension**, **rotates truth**, and **derives consequence** like a wave barreling through the reef of ambiguity.
+
+![Surf LEE](https://beachgrit.com/wp-content/uploads/2015/08/Screen-Shot-2015-08-15-at-8.09.21-am-1024x566.png)
+
+---
+
+## 🧠 What LEE Is
+
+- A symbolic logic engine written in Python.
+- Capable of evaluating propositional and predicate logic (∧, ∨, ¬, →, ∀, ∃).
+- Tracks **quantifier scope**, **axioms**, and **phase-state truth transitions**.
+- Proves consequence through substitution, unification, and inference tracing.
+- Outputs `.md` and `.json` traces for full auditability.
+
+Built for diagnostics, law, counterfactuals, and AI logic systems.
+
+---
+
+## 📁 Repo Structure
+
+```bash
+/evaluation/
+  ├── evaluate.py             # Main logic engine
+  ├── quantifier_engine.py    # ∀ / ∃ logic
+  ├── unifier.py              # Pattern matching
+  ├── proof_engine.py         # Axiom-based derivation
+  ├── context_scope.py        # Runtime-scoped domains
+  └── cli.py                  # Run from command line
+
+/docs/
+  ├── philosophy/
+  │   ├── LEE_Tribute_JulianBoyd.md
+  │   └── LEE_WhitePaper_Fragment.md
+  └── high-ground-use-case-exhibits/
+      └── Exhibit_A_Legal_Medical_Logic_Inference.md
+5c7371b (Release LEE v1.1 — Diagnostic Logic Engine, Proof Mode, CLI)
 ```
 
 ---
@@ -104,9 +143,9 @@ Use-case and implementation logic are documented in the wiki:
 
 ## 💡 Why It Matters
 
-> **LEE earns its inference.**  
-> Unlike ML models, every step in LEE is logically traceable, reproducible, and falsifiable.  
-> It combines **phase-aware evaluation**, **symbolic expressiveness**, and **modular extensibility** in ~1k lines.
+**LEE earns its inference.**  
+Unlike ML models, every step in LEE is logically traceable, reproducible, and falsifiable.  
+It combines **phase-aware evaluation**, **symbolic expressiveness**, and **modular extensibility** in ~1k lines.
 
 ---
 
@@ -137,3 +176,59 @@ Email: [Provided in CV or repo issues]
 ---
 
 ### 🧠 “LEE is not a black box. It’s the proof inside it.”
+
+## ⚡ Example CLI Run
+
+```bash
+python -m evaluation.cli \
+  --goal "Q(a)" \
+  --facts "P(a)" \
+  --axioms "¬P(x) ∨ Q(x)" \
+  --export-json output/proof_Qa.json \
+  --export-md output/proof_Qa.md
+```
+
+---
+
+## 🧪 Showcase Inference
+
+**Legal-Medical Logic Exhibit**  
+Real inference from regulation to diagnosis:
+📄 [`Exhibit_A_Legal_Medical_Logic_Inference.md`](docs/high-ground-use-case-exhibits/Exhibit_A_Legal_Medical_Logic_Inference.md)
+
+**Full Engine Design + Use Case**  
+🧬 [`Medical Use Case – v1.1`](https://github.com/KILGORETROUT111/logic-evaluation-engine/wiki/Medical-Use-Case-%E2%80%93-v1.1-Diagnostic-Logic-Engine)
+
+---
+
+## 🛰️ Whitepaper Fragment
+
+Read how phase-consistent rotation and covariant logic primitives power inference:
+📘 [`docs/philosophy/LEE_WhitePaper_Fragment.md`](docs/philosophy/LEE_WhitePaper_Fragment.md)
+
+---
+
+## 🎯 Who LEE Is For
+
+- **Diagnostic Engineers** – trace symptoms to diagnosis
+- **Legal Logic Developers** – encode and prove consequence
+- **Philosophers of Logic** – explore phase-rotation and symbolic unification
+- **Angels & Acies** – you want explainable AI? It lives here.
+
+---
+
+## 🌀 What’s Next
+
+- Inference chaining
+- Proof dialect extensions
+- REST + CLI symmetry
+- Logic as geometry – `∠truth`
+
+---
+
+## 🌊 Ride it
+
+LEE doesn’t simulate logic. It earns it.
+When ambiguity crashes in — LEE rides the phase.
+
+5c7371b (Release LEE v1.1 — Diagnostic Logic Engine, Proof Mode, CLI)
