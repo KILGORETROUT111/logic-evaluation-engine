@@ -1,9 +1,28 @@
+# LEE Gives ALIVE
+
 # Logic Evaluation Engine (LEE)
 
-**Version**: v1.1  
+🚨 **To all you mathy CS types, logicians, and proof jockeys — hear this:**
+
+> **Pushing code isn’t surgery. It’s midwifery.**  
+> You're not cutting — you're catching.  
+> You're not fixing — you're witnessing.  
+> **LEE** doesn't "compile" logic. It **births** it.  
+
+There are no sterile gloves in this repo.  
+Only **rotating phase states**, **inference chains**, and the **cry of a valid conclusion.**  
+
+You want formal logic?  
+You want symbolic traceability?  
+You want reasoning that earns its result?  
+
+**LEE gives ALIVE.**
+
+🧬 [logic-evaluation-engine](https://github.com/KILGORETROUT111/logic-evaluation-engine)  
+⚙️ v1.1 — Now Pushed. Now Born.  
+📢 Share if you believe code should reason, not just run.
 **Status**: Active Development  
-**License**: GPL-3.0  
-**GitHub**: [github.com/KILGORETROUT111/logic-evaluation-engine](https://github.com/KILGORETROUT111/logic-evaluation-engine)
+**License**: GPL-3.0 
 
 ---
 
