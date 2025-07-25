@@ -1,4 +1,6 @@
-# Logic Evaluation Engine (LEE)
+### **Logic Evaluation Engine (LEE).**
+
+LEE v1.2 is the first logic engine to introduce a rotational phase-state geometry for logical primitives. This allows for inference under misalignment — where memory, contradiction, or uncertainty are not obstacles, but coherent states in a structured dynamic. The model does not guess; it rotates. LEE’s architecture supports traceable evaluation, modal diagnostics, and counterfactual inference — and v1.2 introduces stable diagnostic pipelines that show phase resolution in action. This is not a claim of completeness. It is a quiet submission of structural novelty.
 
 > *“LEE is not just logic. It is rotational inference under contradiction.”*
 
