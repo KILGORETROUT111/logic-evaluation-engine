@@ -26,9 +26,18 @@ LEE creates a new frontier in formal logic computation:
 This software is released under the  
 **Logic Evaluation Engine – Limited Demonstration and Diagnostic License (LEE-LDDL v1.0)**.
 
+Logic Evaluation Engine (LEE) is a symbolic inference system for contradiction-aware reasoning under uncertainty. It rotates through logical phase states — memory, testability, contradiction, and resolution — to expose hidden inconsistencies and generate structured diagnostic traces.
+
 See full text here:  
+
 📜 [Zenodo DOI: 10.5281/zenodo.16410790](https://doi.org/10.5281/zenodo.16410790)  
+
 🧠 [WAPIV TrustChain Community](https://zenodo.org/communities/wapiv/about)
+
+📖 [Wiki Overview](https://github.com/KILGORETROUT111/logic-evaluation-engine/wiki)
+
+🔧 [Try the REST API (locally)] (http://127.0.0.1:8000/docs)
+
 
 > © 2025 William Alexander Patterson.  
 > For **personal or academic non-commercial use** only.  
