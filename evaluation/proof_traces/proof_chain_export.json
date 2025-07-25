@@ -1,0 +1,37 @@
+[
+  {
+    "branch": "main",
+    "phase": "\u03d5\u2080",
+    "steps": [
+      {
+        "expr": "P(a)",
+        "source": null,
+        "rule": null,
+        "phase": "\u03d5\u2080"
+      },
+      {
+        "expr": "Q(a)",
+        "source": "P(a)",
+        "rule": "Disjunctive Syllogism",
+        "phase": "\u03d5\u2080"
+      },
+      {
+        "expr": "R(a)",
+        "source": "Q(a)",
+        "rule": "Disjunctive Syllogism",
+        "phase": "\u03d5\u2080"
+      },
+      {
+        "expr": "\u00ac(R(a))",
+        "source": "manual injection",
+        "rule": "test",
+        "phase": "\u03d5\u2080"
+      }
+    ]
+  },
+  {
+    "branch": "main_1",
+    "phase": "\u03d52",
+    "steps": []
+  }
+]

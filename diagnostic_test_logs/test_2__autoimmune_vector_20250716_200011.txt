@@ -1,0 +1,4 @@
+=== Test 2 - Autoimmune Vector ===
+Timestamp: 20250716_200011
+Input: rash, fatigue, fever
+

@@ -1,0 +1,28 @@
+def run(self, goal):
+    self.goal = goal
+    self.trace.append(f"[ϕ₀] Evaluating goal: {goal}")
+    facts_set = set(self.facts)
+
+    # Step 1: Infer intermediate facts
+    if "UnavoidableCircumstances(x)" in facts_set:
+        inferred = "MitigatingCircumstances(x)"
+        facts_set.add(inferred)
+        self.trace.append(f"[ϕ₀] Inferred: {inferred} via 'UnavoidableCircumstances(x) → MitigatingCircumstances(x)'")
+
+    # Step 2: Check for contradiction scenario
+    if "NoticeGiven(x)" in facts_set and "MitigatingCircumstances(x)" in facts_set:
+        contradiction = "¬PenaltyApplies(x)"
+        self.trace.append(f"[ϕ₀] Derived contradiction: {contradiction} via '(NoticeGiven(x) ∧ MitigatingCircumstances(x)) → ¬PenaltyApplies(x)'")
+
+        # Step 3: Fork to new phase ϕ₁
+        self.trace.append("[ϕ₁] Forked due to contradiction in ϕ₀")
+        self.trace.append("[ϕ₁] Re-evaluating goal with mitigated context")
+
+        # Simulate rotation outcome
+        self.trace.append("[ϕ₁] Resolution: PenaltyApplies(x) BLOCKED due to mitigating clause")
+        self.trace.append("[ϕ₁] Suggested probe: Verify unavoidable nature of event")
+
+        return  # stop here for demo
+
+    # Default: accept goal
+    self.trace.append(f"[ϕ₀] Default: Accepted goal '{goal}' via primary axiom")

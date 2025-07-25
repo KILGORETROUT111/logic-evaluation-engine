@@ -1,0 +1,38 @@
+=== BRANCH: main | PHASE: ϕ₀ ===
+➤ Fever(x)
+➤ Headache(x)
+➤ VirusDetected(x)
+➤ ¬(VirusDetected(x))
+confidence_score: 50
+probes: ['Allergy test', 'MRI scan']
+resolution_status: contradiction
+inferred_condition: VirusDetected(x)
+rotation_history: ['ϕ0']
+trigger: axiom
+probes_inferred: [{'type': 'contradiction_resolution', 'suggest': 'Run diagnostic to confirm VirusDetected(x)', 'validates': 'VirusDetected(x)', 'from_axiom': '(Fever(x) ∧ Headache(x)) → VirusDetected(x)', 'rotated_memory': '¬VirusDetected(x) → alive'}]
+⚠ CONTRADICTION DETECTED
+
+=== BRANCH: main_1 | PHASE: ϕ₂ ===
+➤ Fever(x)
+➤ Headache(x)
+➤ VirusDetected(x)
+➤ ¬(VirusDetected(x))
+confidence_score: 50
+probes: ['Allergy test', 'MRI scan']
+resolution_status: contradiction
+inferred_condition: VirusDetected(x)
+rotation_history: ['ϕ0', 'ϕ1']
+trigger: axiom
+probes_inferred: [{'type': 'contradiction_resolution', 'suggest': 'Run diagnostic to confirm VirusDetected(x)', 'validates': 'VirusDetected(x)', 'from_axiom': '(Fever(x) ∧ Headache(x)) → VirusDetected(x)', 'rotated_memory': '¬VirusDetected(x) → alive'}]
+⚠ CONTRADICTION DETECTED
+
+=== BRANCH: main_2 | PHASE: ϕ₃ ===
+➤ ¬(Q(x))
+confidence_score: 30
+probes: ['Allergy test', 'MRI scan']
+resolution_status: injected
+inferred_condition: None
+rotation_history: ['ϕ0', 'ϕ1']
+trigger: counterfactual
+probes_inferred: []
+

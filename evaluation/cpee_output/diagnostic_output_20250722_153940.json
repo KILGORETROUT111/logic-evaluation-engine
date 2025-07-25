@@ -1,0 +1,137 @@
+[
+  {
+    "branch": "main",
+    "phase": "ϕ₀",
+    "steps": [
+      {
+        "expr": "Fever(x)",
+        "source": null,
+        "rule": null,
+        "phase": "ϕ₀"
+      },
+      {
+        "expr": "Headache(x)",
+        "source": null,
+        "rule": null,
+        "phase": "ϕ₀"
+      },
+      {
+        "expr": "VirusDetected(x)",
+        "source": "(Fever(x) ∧ Headache(x))",
+        "rule": "Derived via Axiom",
+        "phase": "ϕ₀"
+      },
+      {
+        "expr": "¬(VirusDetected(x))",
+        "source": "manual injection",
+        "rule": "test",
+        "phase": "ϕ₀"
+      }
+    ],
+    "contradiction": true,
+    "meta": {
+      "confidence_score": 50,
+      "probes": [
+        "MRI scan",
+        "Allergy test"
+      ],
+      "resolution_status": "contradiction",
+      "inferred_condition": "VirusDetected(x)",
+      "rotation_history": [
+        "ϕ0"
+      ],
+      "trigger": "axiom",
+      "probes_inferred": [
+        {
+          "type": "contradiction_resolution",
+          "suggest": "Run diagnostic to confirm VirusDetected(x)",
+          "validates": "VirusDetected(x)",
+          "from_axiom": "(Fever(x) ∧ Headache(x)) → VirusDetected(x)",
+          "rotated_memory": "¬VirusDetected(x) → alive"
+        }
+      ]
+    }
+  },
+  {
+    "branch": "main_1",
+    "phase": "ϕ₂",
+    "steps": [
+      {
+        "expr": "Fever(x)",
+        "source": null,
+        "rule": null,
+        "phase": "ϕ₂"
+      },
+      {
+        "expr": "Headache(x)",
+        "source": null,
+        "rule": null,
+        "phase": "ϕ₂"
+      },
+      {
+        "expr": "VirusDetected(x)",
+        "source": "(Fever(x) ∧ Headache(x))",
+        "rule": "Derived via Axiom",
+        "phase": "ϕ₂"
+      },
+      {
+        "expr": "¬(VirusDetected(x))",
+        "source": "manual injection",
+        "rule": "test",
+        "phase": "ϕ₂"
+      }
+    ],
+    "contradiction": true,
+    "meta": {
+      "confidence_score": 50,
+      "probes": [
+        "MRI scan",
+        "Allergy test"
+      ],
+      "resolution_status": "contradiction",
+      "inferred_condition": "VirusDetected(x)",
+      "rotation_history": [
+        "ϕ0",
+        "ϕ1"
+      ],
+      "trigger": "axiom",
+      "probes_inferred": [
+        {
+          "type": "contradiction_resolution",
+          "suggest": "Run diagnostic to confirm VirusDetected(x)",
+          "validates": "VirusDetected(x)",
+          "from_axiom": "(Fever(x) ∧ Headache(x)) → VirusDetected(x)",
+          "rotated_memory": "¬VirusDetected(x) → alive"
+        }
+      ]
+    }
+  },
+  {
+    "branch": "main_2",
+    "phase": "ϕ₃",
+    "steps": [
+      {
+        "expr": "¬(Q(x))",
+        "source": "⟦counterfactual⟧",
+        "rule": "modal injection",
+        "phase": "ϕ₃"
+      }
+    ],
+    "contradiction": false,
+    "meta": {
+      "confidence_score": 30,
+      "probes": [
+        "MRI scan",
+        "Allergy test"
+      ],
+      "resolution_status": "injected",
+      "inferred_condition": null,
+      "rotation_history": [
+        "ϕ0",
+        "ϕ1"
+      ],
+      "trigger": "counterfactual",
+      "probes_inferred": []
+    }
+  }
+]

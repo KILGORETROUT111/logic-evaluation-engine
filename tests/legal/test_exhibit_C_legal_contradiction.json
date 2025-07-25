@@ -1,0 +1,15 @@
+{
+    "meta": {
+        "title": "Exhibit C+ \u2013 Legal Clause Contradiction",
+        "timestamp": "2025-07-23T11:11:50.156826",
+        "description": "Clause: If the contract is breached and no notice is given, then the penalty applies.\nFacts: Notice was given. Contract was breached.\nGoal: Is the penalty enforceable?"
+    },
+    "goal": "PenaltyApplies(x)",
+    "facts": [
+        "NoticeGiven(x)",
+        "ContractBreach(x)"
+    ],
+    "axioms": [
+        "(ContractBreach(x) \u2227 \u00acNoticeGiven(x)) \u2192 PenaltyApplies(x)"
+    ]
+}

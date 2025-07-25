@@ -1,0 +1,4 @@
+Node,In-Degree,Variance,Cycle Participation,Stress Index,,
+P(a),0,0,FALSE,0,,Note: we extend stress mapping in future.
+Q(a),1,0,FALSE,1,,
+R(a),1,0,FALSE,1,,

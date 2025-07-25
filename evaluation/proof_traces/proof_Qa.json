@@ -1,0 +1,12 @@
+{
+  "goal": "Q(a)",
+  "result": true,
+  "trace": [
+    "Given fact: P(a)",
+    "Axiom A1: \u00acP(x) \u2228 Q(x)",
+    "Substitution: {'x': 'a'}",
+    "Instantiated: \u00acP(a) \u2228 Q(a)",
+    "Truth Eval: Evaluated: \u00acP(a) \u2228 Q(a)",
+    "\u2192 Derived Q(a) via disjunctive syllogism on A1"
+  ]
+}

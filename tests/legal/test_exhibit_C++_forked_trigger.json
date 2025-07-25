@@ -1,0 +1,18 @@
+{
+    "meta": {
+        "title": "Exhibit C++ Forked \u2013 Legal Clause Chain with Contradiction Trigger",
+        "timestamp": "2025-07-23T15:38:38.509364",
+        "description": "This variant explicitly tests rotation logic:\n1. If contract breached AND no notice given \u2192 penalty applies.\n2. If notice given AND mitigating circumstances \u2192 penalty does NOT apply.\n3. If unavoidable circumstances \u2192 mitigating circumstances.\nFacts: Contract breached, notice given, unavoidable circumstances.\nGoal: PenaltyApplies(x)\nThis should rotate due to contradiction between axioms 1 and 2 after axiom 3 derives mitigating."
+    },
+    "goal": "PenaltyApplies(x)",
+    "facts": [
+        "ContractBreach(x)",
+        "NoticeGiven(x)",
+        "UnavoidableCircumstances(x)"
+    ],
+    "axioms": [
+        "(ContractBreach(x) \u2227 \u00acNoticeGiven(x)) \u2192 PenaltyApplies(x)",
+        "(NoticeGiven(x) \u2227 MitigatingCircumstances(x)) \u2192 \u00acPenaltyApplies(x)",
+        "UnavoidableCircumstances(x) \u2192 MitigatingCircumstances(x)"
+    ]
+}

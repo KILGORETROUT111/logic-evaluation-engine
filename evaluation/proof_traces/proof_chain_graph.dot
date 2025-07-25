@@ -1,0 +1,11 @@
+digraph ProofChain {
+  rankdir=TB;
+  node [shape=box style=rounded];
+  main_0 [label="P(a)\nϕ₀"];
+  main_1 [label="Q(a)\nϕ₀"];
+  main_0 -> main_1;
+  main_2 [label="R(a)\nϕ₀"];
+  main_1 -> main_2;
+  main_3 [label="¬(R(a))\nϕ₀"];
+  main_2 -> main_3;
+}

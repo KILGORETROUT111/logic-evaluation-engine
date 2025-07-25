@@ -1,0 +1,10 @@
+{
+  "title": "Test 1 - Respiratory + Unknown",
+  "timestamp": "2025-07-16T20:10:31.726700",
+  "input": [
+    "cough",
+    "fatigue",
+    "joint pain"
+  ],
+  "output_raw": ""
+}

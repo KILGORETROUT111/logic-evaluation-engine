@@ -1,0 +1,7 @@
+Goal: PenaltyApplies(x)
+Trace:
+[ϕ₀] Evaluating goal: PenaltyApplies(x)
+
+Confidence Score: 65
+Probes: Check for mitigating context
+Rotation History: ϕ₀

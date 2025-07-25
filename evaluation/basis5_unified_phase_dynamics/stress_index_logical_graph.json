@@ -1,0 +1,23 @@
+[
+  {
+    "Node":"P(a)",
+    "In-Degree":0,
+    "Variance":0.0,
+    "Cycle Participation":false,
+    "Stress Index":0.0
+  },
+  {
+    "Node":"Q(a)",
+    "In-Degree":1,
+    "Variance":0.0,
+    "Cycle Participation":false,
+    "Stress Index":1.0
+  },
+  {
+    "Node":"R(a)",
+    "In-Degree":1,
+    "Variance":0.0,
+    "Cycle Participation":false,
+    "Stress Index":1.0
+  }
+]

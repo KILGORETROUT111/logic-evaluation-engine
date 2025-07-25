@@ -1,0 +1,18 @@
+{
+    "meta": {
+        "title": "Exhibit C++ \u2013 Multi-Clause Legal Contradiction",
+        "timestamp": "2025-07-23T15:24:59.393895",
+        "description": "Stacked logic:\n1. If contract breached AND no notice given \u2192 penalty applies.\n2. If notice given AND mitigating circumstances \u2192 penalty does NOT apply.\n3. If unavoidable circumstances \u2192 mitigating circumstances.\nFacts: Contract breached, notice given, unavoidable circumstances.\nGoal: PenaltyApplies(x)"
+    },
+    "goal": "PenaltyApplies(x)",
+    "facts": [
+        "ContractBreach(x)",
+        "NoticeGiven(x)",
+        "UnavoidableCircumstances(x)"
+    ],
+    "axioms": [
+        "(ContractBreach(x) \u2227 \u00acNoticeGiven(x)) \u2192 PenaltyApplies(x)",
+        "(NoticeGiven(x) \u2227 MitigatingCircumstances(x)) \u2192 \u00acPenaltyApplies(x)",
+        "UnavoidableCircumstances(x) \u2192 MitigatingCircumstances(x)"
+    ]
+}

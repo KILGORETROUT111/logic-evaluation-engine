@@ -1,0 +1,12 @@
+{
+    "trace": [
+        "[ϕ₀] Evaluating goal: PenaltyApplies(x)"
+    ],
+    "rotation_history": [
+        "ϕ₀"
+    ],
+    "confidence_score": 65,
+    "probes": [
+        "Check for mitigating context"
+    ]
+}
