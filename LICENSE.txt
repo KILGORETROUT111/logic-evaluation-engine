@@ -1,6 +1,6 @@
 Logic Evaluation Engine (LEE) – Limited Demonstration and Diagnostic License (LEE-LDDL v1.0) 
 
-Copyright (c) 2025 Alexander Patterson. 
+Copyright (c) 2025 William Alexander Patterson. 
 
 Permission is granted to any individual or institution to evaluate, study, and test the Logic Evaluation Engine (LEE) for personal or academic non-commercial purposes. 
 
