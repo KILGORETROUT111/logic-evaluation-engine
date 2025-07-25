@@ -1,8 +1,11 @@
-Logic Evaluation Engine (LEE)
-Copyright © 2025 Alexander Patterson
+Logic Evaluation Engine (LEE) – Limited Demonstration and Diagnostic License (LEE-LDDL v1.0) 
+Copyright (c) 2025 Alexander Patterson. 
 
-The Logic Evaluation Engine (LEE) Core — including code and modules in /evaluation, /core, /utils —
-is licensed under a RESTRICTED-USE license.
+Permission is granted to any individual or institution to evaluate, study, and test the Logic Evaluation Engine (LEE) for personal or academic non-commercial purposes. 
+
+Commercial use, redistribution, derivative works, or integration into proprietary or revenue-generating systems is prohibited without explicit written consent of the author. 
+
+This license provides no transfer of ownership or rights beyond temporary demonstration. All rights reserved
 
 You MAY:
 - View, fork, and study the source code for research, academic, and personal use.
