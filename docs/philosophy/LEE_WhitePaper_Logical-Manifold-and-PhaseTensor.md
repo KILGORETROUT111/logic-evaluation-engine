@@ -84,7 +84,11 @@ Logical recursion is not flat. It rotates.
 
 ### 🧭 Winding History in Phase Space
 
-![Winding History Polar Plot](sandbox:/mnt/data/winding_history_phase_space.png)
+![Winding History Polar Plot CSV](https://github.com/KILGORETROUT111/logic-evaluation-engine/blob/main/evaluation/basis5_unified_phase_dynamics/winding_history.csv)
+
+![Winding History Polar Plot JSON](https://github.com/KILGORETROUT111/logic-evaluation-engine/blob/main/evaluation/basis5_unified_phase_dynamics/winding_history.json)
+
+![Winding History Polar Plot](https://github.com/KILGORETROUT111/logic-evaluation-engine/blob/main/evaluation/basis5_unified_phase_dynamics/winding_history_phase_space.png)
 
 ```text
 P(a) → Q(a) → R(a) → S(a) → P(a)
