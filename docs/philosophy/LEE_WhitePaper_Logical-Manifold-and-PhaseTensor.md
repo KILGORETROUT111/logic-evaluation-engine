@@ -54,7 +54,7 @@ Each cell shows the phase similarity of two states (P(a), Q(a), R(a), S(a)) as a
 
 ### 📈 Real vs Imaginary Phase Flow
 
-![Phase Decomposition](sandbox:/mnt/data/phase_tensor_plot.png)
+![Phase Decomposition](https://github.com/KILGORETROUT111/logic-evaluation-engine/blob/main/evaluation/basis5_unified_phase_dynamics/phase_tensor_plot.png)
 
 Phase evolution is tracked over symbolic rotations:
 - Real: cosine of angular movement
