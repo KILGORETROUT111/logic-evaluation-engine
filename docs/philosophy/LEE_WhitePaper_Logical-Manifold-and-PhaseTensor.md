@@ -42,9 +42,9 @@ Phase coherence is not measured with booleans — it’s rotational.
 
 ### 📊 Coherence Matrix
 
-![Phase Tensor Matrix .CSV](https://github.com/KILGORETROUT111/logic-evaluation-engine/blob/main/evaluation/basis5_unified_phase_dynamics/phase_tensor_matrix.csv).
+![Phase Tensor Matrix CSV](https://github.com/KILGORETROUT111/logic-evaluation-engine/blob/main/evaluation/basis5_unified_phase_dynamics/phase_tensor_matrix.csv).
 
-![Phase Tensor Matrix .JSON](https://github.com/KILGORETROUT111/logic-evaluation-engine/blob/main/evaluation/basis5_unified_phase_dynamics/phase_tensor.json).
+![Phase Tensor Matrix JSON](https://github.com/KILGORETROUT111/logic-evaluation-engine/blob/main/evaluation/basis5_unified_phase_dynamics/phase_tensor.json).
 
 ![Phase Tensor Matrix](https://github.com/KILGORETROUT111/logic-evaluation-engine/blob/main/evaluation/basis5_unified_phase_dynamics/phase_tensor_matrix.png)
 
@@ -68,7 +68,11 @@ Contradictions generate curvature. The `StressIndex` defines where logic is forc
 - Contradictions increase tension
 - Forking is not failure — it is curvature acting on inference
 
-![Resistance Graph](sandbox:/mnt/data/resistance_graph_derived.png)
+![Resistance Graph CSV](https://github.com/KILGORETROUT111/logic-evaluation-engine/blob/main/evaluation/basis5_unified_phase_dynamics/stress_index_logical_graph.csv)
+
+![Resistance Graph JSON](https://github.com/KILGORETROUT111/logic-evaluation-engine/blob/main/evaluation/basis5_unified_phase_dynamics/stress_index_logical_graph.json)
+
+![Resistance Graph](https://github.com/KILGORETROUT111/logic-evaluation-engine/blob/main/evaluation/basis5_unified_phase_dynamics/resistance_graph_derived.png)
 
 Logical nodes (P, Q, R) show resistance to inference propagation.
 
