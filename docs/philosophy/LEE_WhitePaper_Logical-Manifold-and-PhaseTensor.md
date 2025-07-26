@@ -42,7 +42,11 @@ Phase coherence is not measured with booleans — it’s rotational.
 
 ### 📊 Coherence Matrix
 
-![Phase Tensor Matrix](sandbox:/mnt/data/phase_tensor_matrix.png)
+![Phase Tensor Matrix](https://github.com/KILGORETROUT111/logic-evaluation-engine/blob/main/evaluation/basis5_unified_phase_dynamics/phase_tensor_matrix.csv).
+
+![Phase Tensor Matrix](https://github.com/KILGORETROUT111/logic-evaluation-engine/blob/main/evaluation/basis5_unified_phase_dynamics/phase_tensor.json).
+
+![Phase Tensor Matrix](https://github.com/KILGORETROUT111/logic-evaluation-engine/blob/main/evaluation/basis5_unified_phase_dynamics/phase_tensor_matrix.png)
 
 Each cell shows the phase similarity of two states (P(a), Q(a), R(a), S(a)) as a cosine-aligned scalar.
 
