@@ -40,6 +40,8 @@ Instead:
 
 LEE’s innovation is not just in the claim — it’s in the code.
 
+> https://github.com/KILGORETROUT111/logic-evaluation-engine/wiki/7.1-Geometric-Inference-vs-Observational-Collapse
+
 > “Where others debated realism, LEE builds it.”  — o---o
 
 
