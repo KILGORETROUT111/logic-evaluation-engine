@@ -1,13 +1,16 @@
 ### **Logic Evaluation Engine (LEE).**
 
+### **Covariant Phase-State Dynamics for Symbolic Inference.**
+
+LEE (Logic Evaluation Engine) is a logic-first inference engine designed to handle symbolic contradiction, diagnostic reasoning, and counterfactual inference under phase-consistent transformation rules. It treats symbolic logic as a conserved, covariant field and supports rotational logic state handling through custom primitives.
+
+The **Logic Evaluation Engine (LEE)** is a symbolic reasoning engine built for phase-resolved inference, contradiction handling, and diagnostic logic across domains like **law**, **medicine**, and **autonomous systems**. It resolves symbolic contradictions not by discarding them, but by rotating their phase-state — traversing through **memory (mem)**, **testability (alive)**, **contradiction (jam)**, and **back to memory** — thereby preserving coherence in uncertain or incomplete environments.
+
 LEE v1.2 is the first logic engine to introduce a rotational phase-state geometry for logical primitives. This allows for inference under misalignment — where memory, contradiction, or uncertainty are not obstacles, but coherent states in a structured dynamic. The model does not guess; it rotates. LEE’s architecture supports traceable evaluation, modal diagnostics, and counterfactual inference — and v1.2 introduces stable diagnostic pipelines that show phase resolution in action. This is not a claim of completeness. It is a quiet submission of structural novelty.
 
 > *“LEE is not just logic. It is rotational inference under contradiction.”*
 
-The **Logic Evaluation Engine (LEE)** is a symbolic reasoning engine built for phase-resolved inference, contradiction handling, and diagnostic logic across domains like **law**, **medicine**, and **autonomous systems**. It resolves symbolic contradictions not by discarding them, but by rotating their phase-state — traversing through **memory (mem)**, **testability (alive)**, **contradiction (jam)**, and **back to memory** — thereby preserving coherence in uncertain or incomplete environments.
-
 LEE creates a new frontier in formal logic computation:  
-### **Covariant Phase-State Dynamics for Symbolic Inference.**
 
 ---
 
@@ -22,6 +25,64 @@ LEE creates a new frontier in formal logic computation:
 - Medical and legal demos: LEE can both *diagnose* and *disqualify* by logic
 
   ---
+
+  ## 🔁 Diagnostic Logic Engine: System Overview
+
+### 1. Live Observation Stream
+
+- Incoming symptom or event observations (e.g., `{"patient_id": "P003", "symptom": "fever", "phase": "initial"}`) are timestamped and assigned a confidence level.
+- These are routed through a `symptom_feed.py` parser or CLI ingestion into the evaluation pipeline.
+
+### 2. Memory Model
+
+- Each patient has a unique record (`/jam_store/memdb/P003.json`), storing past observations in a chronological memory stack.
+- Observations are written using `memory_push()` and retrieved with `memory_lookup()`.
+- This enables stateful diagnostic evaluation — context-sensitive to prior events.
+
+### 3. Evaluation Logic
+
+- Core logic resides in `diagnostic_phase_engine.py` and its logic module.
+- It resolves the new input against memory using symbolic reasoning.
+- Outcomes:
+  - `{"status": "resolved", "diagnosis": "Likely measles"}`
+  - `{"status": "jammed", "trace": {"contradiction": True, "conflict": ("fever", "hypothermia")}}`
+
+### 4. JAM Detection and Archive
+
+- Contradictory logic states (e.g., hypothermia after fever in same phase vector) are JAMMED.
+- JAMs are stored as JSON files with rich metadata in `/jam_store/jam_dump/`.
+- Each JAM has a unique file ID (e.g., `JAM_P003_hypothermia_2025-07-28T16-32-01.840375.json`).
+- Archive includes:
+  ```json
+  {
+    "patient_id": "P003",
+    "symptom": "hypothermia",
+    "phase": "recall",
+    "result": {
+      "contradiction": true,
+      "conflict": ["fever", "hypothermia"]
+    },
+    "timestamp": "2025-07-28T16:32:01.840375"
+  }
+  ```
+
+### 5. SVG Rendering
+
+- The JAM is visually rendered using `visualize_archive.py` and `render_patient_phase_flow.py`.
+- Diagrams include directional arrows, color-coded regions (MEM → ALIVE → JAM), and patient flows.
+- Phase lattices are saved as SVGs into `/evaluation/jam_store/svg_out/`.
+- CLI-trigger or hybrid modes supported.
+
+### 6. Upcoming: Timeline Replay + Re-evaluation
+
+- We are now wiring the ability to:
+  - Reconstruct a patient’s timeline from memory.
+  - Replay it step-by-step into the diagnostic engine.
+  - Trigger reevaluation for future hypothetical/retrospective analysis.
+
+This capability will enable advanced use in medical, legal, and defense verticals.
+
+---
 
 ## 🧭 LEE’s Position in the Landscape of Theoretical Logic and Physics
 
