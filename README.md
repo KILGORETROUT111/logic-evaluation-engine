@@ -1,3 +1,19 @@
+### **Logic Evaluation Engine LEE: Toroidal Logic Engine — Canonical Brief (LEE).**
+
+In LEE, canonical is not declared; it is projected. Only what survives phase rotation, self-consistency, and executable testing is conserved as “truth.” All else is advisory.
+Contradiction is logical torsion, not failure: the mathematics literally curves inference into place, maintaining conservation across all transformations. LEE’s architecture independently manifests the same toroidal geometry observed in mammalian brain dynamics (Nature, 2021), but in explicit, auditable logic.
+
+LEE is not here and does not exist to prove a point. It is here to function. The system either works or it does not. Its reality is in operation, not in argument.
+
+
+<img width="825" height="825" alt="image" src="https://github.com/user-attachments/assets/b8b11c6a-3642-4dab-b20e-1160bd3d7ab6" />
+
+
+
+**Figure: LEE’s logic engine as toroidal geometry.** Top right: Empirically measured toroidal attractor in neural phase-space (Nature 2021). Lower right: Phase-space attractor, logic manifold, and phase winding. Left: LEE’s resistance graph, path winding, and phase checker. All mapped as real, testable trajectories on a toroidal manifold.
+
+So for those out there who can't stand the heat, get out of the kitchen.
+
 ### **Logic Evaluation Engine (LEE).**
 
 ### **Covariant Phase-State Dynamics for Symbolic Inference.**
