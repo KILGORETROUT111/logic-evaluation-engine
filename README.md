@@ -12,7 +12,6 @@ LEE is not here and does not exist to prove a point. It is here to function. The
 
 **Figure: LEE’s logic engine as toroidal geometry.** Top right: Empirically measured toroidal attractor in neural phase-space (Nature 2021). Lower right: Phase-space attractor, logic manifold, and phase winding. Left: LEE’s resistance graph, path winding, and phase checker. All mapped as real, testable trajectories on a toroidal manifold.
 
-So for those out there who can't stand the heat, get out of the kitchen.
 
 ### **Logic Evaluation Engine (LEE).**
 
