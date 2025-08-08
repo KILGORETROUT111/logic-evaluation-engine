@@ -1,10 +1,20 @@
----
+## Current Status
+- **Phase 6 Complete**:  
+  - Core modules implemented and audited.  
+  - Analytic modules complete up to `tensor_archive.py`, `energy_dynamics.py`, `divergence_map.py`, and `counterfactual.py`.  
+  - NLP modules (`parser.py`, `rewriter.py`, `scope_inference.py`, `named_entities.py`) implemented.  
+  - Packaging installed in editable mode via `pip install -e .`.  
+  - All NLP scope/entities tests passing.  
+  - `engine/evaluator.py` smoke tests passing.
 
-## Inspiration
+## Continuous Integration
+[![CI Status](https://img.shields.io/badge/CI-pending-lightgrey)](#)  
+CI integration will be enabled in **Phase 7**.
 
-![Billy Joel - Live in Uniondale, December 29, 1982](docs/billy-joel-uniondale-1982.png)
-> **"Happy New Year Long Island. And don’t take any shit from anybody!"**  
-> — Billy Joel, [Live in Uniondale (December 29, 1982)](https://www.youtube.com/watch?v=wDEvqyiRpzE&t=5596s)
-
-This project, like Billy said, is about doing the work right — and not taking any crap from broken logic, bad data, or bloated design.
-
+## Next Milestones
+- **Phase 7:**  
+  - Expand `engine/` module functionality.  
+  - Add continuous integration (GitHub Actions).  
+- **Phase 8:**  
+  - Complete test suite migration & stress tests.  
+  - Prepare release candidate.
