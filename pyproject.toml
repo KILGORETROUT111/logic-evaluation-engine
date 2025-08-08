@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "logic-evaluation-engine"
+version = "3.0.0"
+description = "Logic Evaluation Engine v3.0 reboot"
+authors = [
+    { name = "Alexander Patterson" }
+]
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
