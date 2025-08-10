@@ -1,0 +1,64 @@
+[
+  {
+    "ts": "2025-08-10T07:28:00.951595+00:00",
+    "type": "start",
+    "data": {
+      "phase": "INIT"
+    }
+  },
+  {
+    "ts": "2025-08-10T07:28:00.954029+00:00",
+    "type": "parse",
+    "data": {
+      "phase": "INIT"
+    }
+  },
+  {
+    "ts": "2025-08-10T07:28:00.957275+00:00",
+    "type": "jam",
+    "data": {
+      "phase": "JAM",
+      "mode": "heuristic",
+      "details": {
+        "is_contradiction": true,
+        "source": "fallback",
+        "mode": "heuristic",
+        "witness": {
+          "pattern": "contains 'contradiction'"
+        },
+        "witness_hash": "91dff887a757a418",
+        "ast_size": 7,
+        "depth": 4
+      }
+    }
+  },
+  {
+    "ts": "2025-08-10T07:28:00.960011+00:00",
+    "type": "alive",
+    "data": {
+      "phase": "JAM"
+    }
+  },
+  {
+    "ts": "2025-08-10T07:28:00.964327+00:00",
+    "type": "phase",
+    "data": {
+      "phase": "JAM"
+    }
+  },
+  {
+    "ts": "2025-08-10T07:28:00.971891+00:00",
+    "type": "mem",
+    "data": {
+      "phase": "MEM",
+      "time_to_mem_ms": 18.071
+    }
+  },
+  {
+    "ts": "2025-08-10T07:28:00.977639+00:00",
+    "type": "end",
+    "data": {
+      "phase": "MEM"
+    }
+  }
+]

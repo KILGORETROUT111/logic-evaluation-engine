@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="120">
+<text x="10" y="20" font-family="monospace" font-size="12">LEE timeline</text>
+<circle cx="40" cy="50" r="6" fill="black"/>
+<text x="50" y="54" font-family="monospace" font-size="10">INIT</text>
+<circle cx="160" cy="50" r="6" fill="black"/>
+<text x="170" y="54" font-family="monospace" font-size="10">INIT</text>
+<circle cx="280" cy="50" r="6" fill="black"/>
+<text x="290" y="54" font-family="monospace" font-size="10">JAM</text>
+<circle cx="400" cy="50" r="6" fill="black"/>
+<text x="410" y="54" font-family="monospace" font-size="10">JAM</text>
+<circle cx="520" cy="50" r="6" fill="black"/>
+<text x="530" y="54" font-family="monospace" font-size="10">JAM</text>
+<circle cx="640" cy="50" r="6" fill="black"/>
+<text x="650" y="54" font-family="monospace" font-size="10">MEM</text>
+<circle cx="760" cy="50" r="6" fill="black"/>
+<text x="770" y="54" font-family="monospace" font-size="10">MEM</text>
+</svg>

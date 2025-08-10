@@ -1,0 +1,59 @@
+[
+  {
+    "ts": "2025-08-09T08:19:13.485254+00:00",
+    "type": "start",
+    "data": {
+      "phase": "INIT"
+    }
+  },
+  {
+    "ts": "2025-08-09T08:19:13.487435+00:00",
+    "type": "parse",
+    "data": {
+      "phase": "INIT"
+    }
+  },
+  {
+    "ts": "2025-08-09T08:19:13.488989+00:00",
+    "type": "jam",
+    "data": {
+      "phase": "JAM",
+      "details": {
+        "is_contradiction": true,
+        "source": "fallback",
+        "mode": "heuristic",
+        "witness": {
+          "pattern": "contains 'contradiction'"
+        }
+      }
+    }
+  },
+  {
+    "ts": "2025-08-09T08:19:13.490415+00:00",
+    "type": "alive",
+    "data": {
+      "phase": "JAM"
+    }
+  },
+  {
+    "ts": "2025-08-09T08:19:13.492091+00:00",
+    "type": "phase",
+    "data": {
+      "phase": "JAM"
+    }
+  },
+  {
+    "ts": "2025-08-09T08:19:13.496347+00:00",
+    "type": "mem",
+    "data": {
+      "phase": "MEM"
+    }
+  },
+  {
+    "ts": "2025-08-09T08:19:13.499266+00:00",
+    "type": "end",
+    "data": {
+      "phase": "MEM"
+    }
+  }
+]

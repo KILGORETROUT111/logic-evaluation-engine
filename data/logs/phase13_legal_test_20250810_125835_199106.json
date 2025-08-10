@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "log_name": "phase13_legal_test",
+    "domain": "legal",
+    "session": "test",
+    "elapsed_ms": 0.005
+  },
+  "stages": [
+    {
+      "name": "prenorm",
+      "input": "1 IMPLIES 0",
+      "normalized": "1 -> 0"
+    },
+    {
+      "name": "enrichment",
+      "domain": "legal",
+      "tags": [
+        "implication",
+        "boolean"
+      ],
+      "pattern": "1 -> 0"
+    }
+  ]
+}

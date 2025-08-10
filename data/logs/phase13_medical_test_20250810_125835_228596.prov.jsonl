@@ -1,0 +1,1 @@
+{"kind": "detect", "phase_after": "JAM", "details": {"enrichment": {"domain": "medical", "tags": ["triage", "signal"], "pattern": "1 -> 0"}}}

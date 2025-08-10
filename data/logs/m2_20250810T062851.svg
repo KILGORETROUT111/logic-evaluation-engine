@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="160">
+<style>text{font-family:monospace;font-size:11px}</style>
+<text x="10" y="20">LEE timeline · m2 · 398036b7b5e147a6</text>
+<circle cx="40" cy="50" r="6" fill="black"/>
+<text x="50" y="54">INIT</text>
+<circle cx="200" cy="50" r="6" fill="black"/>
+<text x="210" y="54">INIT</text>
+<circle cx="360" cy="50" r="6" fill="black"/>
+<text x="370" y="54">ALIVE</text>
+<circle cx="520" cy="50" r="6" fill="black"/>
+<text x="530" y="54">ALIVE</text>
+<circle cx="680" cy="50" r="6" fill="black"/>
+<text x="690" y="54">ALIVE</text>
+</svg>
