@@ -1,1 +1,0 @@
-{"kind": "detect", "phase_after": "JAM", "details": {"enrichment": {"domain": "legal", "tags": ["implication", "boolean"], "pattern": "1 -> 0"}}}

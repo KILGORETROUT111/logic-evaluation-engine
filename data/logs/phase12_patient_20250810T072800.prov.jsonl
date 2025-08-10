@@ -1,4 +1,0 @@
-{"run_id": "3e0dff1508b04476", "step": 1, "kind": "start", "phase_before": null, "phase_after": "INIT", "reason": "start", "details": {}, "ts": "2025-08-10T07:28:00.735468+00:00"}
-{"run_id": "3e0dff1508b04476", "step": 2, "kind": "detect", "phase_before": "ALIVE", "phase_after": "JAM", "reason": "post-evaluator", "details": {"note": "evaluate_expression"}, "ts": "2025-08-10T07:28:00.745334+00:00"}
-{"run_id": "3e0dff1508b04476", "step": 3, "kind": "detect", "phase_before": "ALIVE", "phase_after": "JAM", "reason": "contradiction", "details": {"witness": {"pattern": "1 -> 0", "node": ["->", 1, 0], "antecedent": 1, "consequent": 0}}, "ts": "2025-08-10T07:28:00.745379+00:00"}
-{"run_id": "3e0dff1508b04476", "step": 4, "kind": "transition", "phase_before": "JAM", "phase_after": "MEM", "reason": "archive", "details": {}, "ts": "2025-08-10T07:28:00.752715+00:00"}
