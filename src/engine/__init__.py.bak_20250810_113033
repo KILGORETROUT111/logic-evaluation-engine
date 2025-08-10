@@ -1,0 +1,19 @@
+# src/engine/__init__.py
+from __future__ import annotations
+
+# Public surface
+from .pipeline import Pipeline
+
+# Some tests/imports may pull these directly:
+try:
+    from .evaluator import evaluate_expression  # type: ignore
+except Exception:
+    evaluate_expression = None  # type: ignore
+
+# Older tests/projects might expect evaluate_full; keep soft:
+try:
+    from .evaluator import evaluate_full  # type: ignore
+except Exception:
+    evaluate_full = None  # type: ignore
+
+__all__ = ["Pipeline", "evaluate_expression", "evaluate_full"]

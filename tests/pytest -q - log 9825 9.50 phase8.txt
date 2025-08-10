@@ -1,0 +1,28 @@
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0> pytest -q
+.............F..                                                                                                                                     [100%]
+======================================================================== FAILURES =========================================================================
+_____________________________________________________________ test_split_arrow_canonicalizes ______________________________________________________________
+
+    def test_split_arrow_canonicalizes():
+        ast = mk_app4()
+        can = canonicalize(ast)
+>       assert isinstance(can, tuple) and can[0] == "->" and can[1] in (1,"1") and can[2] in (0,"0")
+E       AssertionError: assert (True and (('1', '-'), '>') == '->')
+E        +  where True = isinstance(((('1', '-'), '>'), '0'), tuple)
+
+tests\nlp\test_canonicalize.py:13: AssertionError
+==================================================================== warnings summary =====================================================================
+tests/engine/test_eval_phase8.py::test_canonicalization_feeds_contradiction
+tests/engine/test_pipeline_phase_flow.py::test_alive_jam_mem_history_for_contradiction
+  C:\Users\Dell\Documents\logic-evaluation-engine-3.0\src\engine\event_log.py:12: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    stamp = datetime.utcnow().strftime("%Y%m%dT%H%M%S")
+
+tests/engine/test_eval_phase8.py: 7 warnings
+tests/engine/test_pipeline_phase_flow.py: 7 warnings
+  C:\Users\Dell\Documents\logic-evaluation-engine-3.0\src\engine\event_log.py:19: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "ts": datetime.utcnow().isoformat(),
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+================================================================= short test summary info =================================================================
+FAILED tests/nlp/test_canonicalize.py::test_split_arrow_canonicalizes - AssertionError: assert (True and (('1', '-'), '>') == '->')
+1 failed, 15 passed, 16 warnings in 0.57s

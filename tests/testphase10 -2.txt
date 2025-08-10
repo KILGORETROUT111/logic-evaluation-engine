@@ -1,0 +1,129 @@
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0> # (optional) clear caches
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0> Get-ChildItem -Recurse -Directory -Filter "__pycache__" | Remove-Item -Recurse -Force
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0> Get-ChildItem -Recurse -Filter "*.pyc" | Remove-Item -Force
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0>
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0> pytest -q
+
+========================================================================= ERRORS ==========================================================================
+____________________________________________________ ERROR collecting tests/engine/test_eval_phase8.py ____________________________________________________
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:497: in importtestmodule
+    mod = import_path(
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+..\..\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:935: in _load_unlocked
+    ???
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\assertion\rewrite.py:186: in exec_module
+    exec(co, module.__dict__)
+tests\engine\test_eval_phase8.py:1: in <module>
+    from src.engine import Pipeline
+src\engine\__init__.py:2: in <module>
+    from .pipeline import Pipeline
+E     File "C:\Users\Dell\Documents\logic-evaluation-engine-3.0\src\engine\pipeline.py", line 4
+E       from .provenance_import ProvenanceRecorder  # Phase 10
+E                               ^^^^^^^^^^^^^^^^^^
+E   SyntaxError: invalid syntax
+_________________________________________________ ERROR collecting tests/engine/test_evaluator_logging.py _________________________________________________
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:497: in importtestmodule
+    mod = import_path(
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+..\..\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:935: in _load_unlocked
+    ???
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\assertion\rewrite.py:186: in exec_module
+    exec(co, module.__dict__)
+tests\engine\test_evaluator_logging.py:1: in <module>
+    from src.engine.evaluator import evaluate_expression
+src\engine\__init__.py:2: in <module>
+    from .pipeline import Pipeline
+E     File "C:\Users\Dell\Documents\logic-evaluation-engine-3.0\src\engine\pipeline.py", line 4
+E       from .provenance_import ProvenanceRecorder  # Phase 10
+E                               ^^^^^^^^^^^^^^^^^^
+E   SyntaxError: invalid syntax
+__________________________________________________ ERROR collecting tests/engine/test_evaluator_smoke.py __________________________________________________
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:497: in importtestmodule
+    mod = import_path(
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+..\..\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:935: in _load_unlocked
+    ???
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\assertion\rewrite.py:186: in exec_module
+    exec(co, module.__dict__)
+tests\engine\test_evaluator_smoke.py:5: in <module>
+    from engine.evaluator import evaluate_full
+src\engine\__init__.py:2: in <module>
+    from .pipeline import Pipeline
+E     File "C:\Users\Dell\Documents\logic-evaluation-engine-3.0\src\engine\pipeline.py", line 4
+E       from .provenance_import ProvenanceRecorder  # Phase 10
+E                               ^^^^^^^^^^^^^^^^^^
+E   SyntaxError: invalid syntax
+________________________________________________ ERROR collecting tests/engine/test_pipeline_phase_flow.py ________________________________________________
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\python.py:497: in importtestmodule
+    mod = import_path(
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+..\..\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:935: in _load_unlocked
+    ???
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\_pytest\assertion\rewrite.py:186: in exec_module
+    exec(co, module.__dict__)
+tests\engine\test_pipeline_phase_flow.py:1: in <module>
+    from src.engine import Pipeline
+src\engine\__init__.py:2: in <module>
+    from .pipeline import Pipeline
+E     File "C:\Users\Dell\Documents\logic-evaluation-engine-3.0\src\engine\pipeline.py", line 4
+E       from .provenance_import ProvenanceRecorder  # Phase 10
+E                               ^^^^^^^^^^^^^^^^^^
+E   SyntaxError: invalid syntax
+================================================================= short test summary info =================================================================
+ERROR tests/engine/test_eval_phase8.py
+ERROR tests/engine/test_evaluator_logging.py
+ERROR tests/engine/test_evaluator_smoke.py
+ERROR tests/engine/test_pipeline_phase_flow.py
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Interrupted: 4 errors during collection !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+4 errors in 2.21s
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0> python -c "from src.engine import Pipeline; p=Pipeline(log_name='phase10_audit', enable_provenance=True); print(p.run('1 -> 0')['state']['phase'])"
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from src.engine import Pipeline; p=Pipeline(log_name='phase10_audit', enable_provenance=True); print(p.run('1 -> 0')['state']['phase'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Documents\logic-evaluation-engine-3.0\src\engine\__init__.py", line 2, in <module>
+    from .pipeline import Pipeline
+  File "C:\Users\Dell\Documents\logic-evaluation-engine-3.0\src\engine\pipeline.py", line 4
+    from .provenance_import ProvenanceRecorder  # Phase 10
+                            ^^^^^^^^^^^^^^^^^^
+SyntaxError: invalid syntax

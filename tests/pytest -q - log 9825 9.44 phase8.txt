@@ -1,0 +1,54 @@
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0> pytest -q
+
+========================================================================= ERRORS ==========================================================================
+____________________________________________________ ERROR collecting tests/engine/test_eval_phase8.py ____________________________________________________
+tests\engine\test_eval_phase8.py:1: in <module>
+    from src.engine import Pipeline
+src\engine\__init__.py:2: in <module>
+    from .pipeline import Pipeline
+src\engine\pipeline.py:6: in <module>
+    from .evaluator import evaluate_expression
+src\engine\evaluator.py:13: in <module>
+    ast = parse(expr) if isinstance(expr, str) else expr
+                                    ^^^^
+E   NameError: name 'expr' is not defined
+_________________________________________________ ERROR collecting tests/engine/test_evaluator_logging.py _________________________________________________
+tests\engine\test_evaluator_logging.py:1: in <module>
+    from src.engine.evaluator import evaluate_expression
+src\engine\__init__.py:2: in <module>
+    from .pipeline import Pipeline
+src\engine\pipeline.py:6: in <module>
+    from .evaluator import evaluate_expression
+src\engine\evaluator.py:13: in <module>
+    ast = parse(expr) if isinstance(expr, str) else expr
+                                    ^^^^
+E   NameError: name 'expr' is not defined
+__________________________________________________ ERROR collecting tests/engine/test_evaluator_smoke.py __________________________________________________
+tests\engine\test_evaluator_smoke.py:5: in <module>
+    from engine.evaluator import evaluate_full
+src\engine\__init__.py:2: in <module>
+    from .pipeline import Pipeline
+src\engine\pipeline.py:6: in <module>
+    from .evaluator import evaluate_expression
+src\engine\evaluator.py:13: in <module>
+    ast = parse(expr) if isinstance(expr, str) else expr
+                                    ^^^^
+E   NameError: name 'expr' is not defined
+________________________________________________ ERROR collecting tests/engine/test_pipeline_phase_flow.py ________________________________________________
+tests\engine\test_pipeline_phase_flow.py:1: in <module>
+    from src.engine import Pipeline
+src\engine\__init__.py:2: in <module>
+    from .pipeline import Pipeline
+src\engine\pipeline.py:6: in <module>
+    from .evaluator import evaluate_expression
+src\engine\evaluator.py:13: in <module>
+    ast = parse(expr) if isinstance(expr, str) else expr
+                                    ^^^^
+E   NameError: name 'expr' is not defined
+================================================================= short test summary info =================================================================
+ERROR tests/engine/test_eval_phase8.py - NameError: name 'expr' is not defined
+ERROR tests/engine/test_evaluator_logging.py - NameError: name 'expr' is not defined
+ERROR tests/engine/test_evaluator_smoke.py - NameError: name 'expr' is not defined
+ERROR tests/engine/test_pipeline_phase_flow.py - NameError: name 'expr' is not defined
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Interrupted: 4 errors during collection !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+4 errors in 1.26s

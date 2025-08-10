@@ -1,0 +1,130 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\Dell> cd "C:\Users\Dell\Documents\logic-evaluation-engine-3.0"
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0> from src.engine import Pipeline
+At line:1 char:1
++ from src.engine import Pipeline
++ ~~~~
+The 'from' keyword is not supported in this version of the language.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : ReservedKeywordNotAllowed
+
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0>
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0> # normal behavior (no change)
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0> p = Pipeline(log_name="phase10_smoke")
+log_name=phase10_smoke : The term 'log_name=phase10_smoke' is not recognized as the name of a cmdlet, function, script file, or operable program. Check
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:14
++ p = Pipeline(log_name="phase10_smoke")
++              ~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (log_name=phase10_smoke:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0>
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0> # enable provenance exports
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0> p = Pipeline(log_name="phase10_audit", enable_provenance=True, session="dev_branch")
+At line:1 char:38
++ p = Pipeline(log_name="phase10_audit", enable_provenance=True, sessio ...
++                                      ~
+Missing argument in parameter list.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : MissingArgument
+
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0> out = p.run("1 -> 0")
+out : The term 'out' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path
+was included, verify that the path is correct and try again.
+At line:1 char:1
++ out = p.run("1 -> 0")
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (out:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0> print(out["state"]["phase"])  # MEM (ALIVE→JAM→MEM)
+out[state][phase] : The term 'out[state][phase]' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling
+of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:7
++ print(out["state"]["phase"])  # MEM (ALIVE→JAM→MEM)
++       ~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (out[state][phase]:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0> from pathlib import Path
+At line:1 char:1
++ from pathlib import Path
++ ~~~~
+The 'from' keyword is not supported in this version of the language.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : ReservedKeywordNotAllowed
+
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0> from src.engine import Pipeline
+At line:1 char:1
++ from src.engine import Pipeline
++ ~~~~
+The 'from' keyword is not supported in this version of the language.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : ReservedKeywordNotAllowed
+
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0>
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0> def test_provenance_files_written(tmp_path: Path):
+tmp_path: : The term 'tmp_path:' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or
+if a path was included, verify that the path is correct and try again.
+At line:1 char:35
++ def test_provenance_files_written(tmp_path: Path):
++                                   ~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (tmp_path::String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0>     p = Pipeline(log_name="phase10_test", enable_provenance=True)
+At line:1 char:41
++     p = Pipeline(log_name="phase10_test", enable_provenance=True)
++                                         ~
+Missing argument in parameter list.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : MissingArgument
+
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0>     res = p.run("1 -> 0")
+res : The term 'res' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path
+was included, verify that the path is correct and try again.
+At line:1 char:5
++     res = p.run("1 -> 0")
++     ~~~
+    + CategoryInfo          : ObjectNotFound: (res:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0>     json_path = Path(res["log_json"])
+res[log_json] : The term 'res[log_json]' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the
+name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:22
++     json_path = Path(res["log_json"])
++                      ~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (res[log_json]:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0>     assert json_path.exists()
+At line:1 char:29
++     assert json_path.exists()
++                             ~
+An expression was expected after '('.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : ExpectedExpression
+
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0>     assert json_path.with_suffix(".prov.jsonl").exists()
+Method invocation failed because [System.String] does not contain a method named 'exists'.
+At line:1 char:5
++     assert json_path.with_suffix(".prov.jsonl").exists()
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : MethodNotFound
+
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0>     assert json_path.with_suffix(".timeline.md").exists()
+Method invocation failed because [System.String] does not contain a method named 'exists'.
+At line:1 char:5
++     assert json_path.with_suffix(".timeline.md").exists()
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : MethodNotFound
+
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0>     assert json_path.with_suffix(".timeline.dot").exists()

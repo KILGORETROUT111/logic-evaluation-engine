@@ -1,0 +1,52 @@
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0> pytest -q
+......F...F..                                                                                                                                        [100%]
+======================================================================== FAILURES =========================================================================
+______________________________________________________ test_evaluator_logs_jam_only_on_contradiction ______________________________________________________
+
+    def test_evaluator_logs_jam_only_on_contradiction():
+        # no jam case
+        log = DummyLog()
+        s1 = evaluate_expression("1 -> 1", logger=log)
+        assert s1.phase.name == "ALIVE"
+        assert not any(k=="jam" for k,_ in log.events)
+
+        # jam case
+        log2 = DummyLog()
+        s2 = evaluate_expression("1 -> 0", logger=log2)
+>       assert s2.phase.name in ("JAM",)  # pipeline will carry to MEM
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: assert 'ALIVE' in ('JAM',)
+E        +  where 'ALIVE' = <Phase.ALIVE: 2>.name
+E        +    where <Phase.ALIVE: 2> = <State phase=ALIVE env=[] entropy=0.00 trace_len=2>.phase
+
+tests\engine\test_evaluator_logging.py:17: AssertionError
+______________________________________________________ test_alive_jam_mem_history_for_contradiction _______________________________________________________
+
+    def test_alive_jam_mem_history_for_contradiction():
+        pipe = Pipeline(log_name="phase7_test")
+        res = pipe.run("p & ~p  # CONTRADICTION")
+>       assert res["state"]["phase"] == "MEM"
+E       AssertionError: assert 'ALIVE' == 'MEM'
+E
+E         - MEM
+E         + ALIVE
+
+tests\engine\test_pipeline_phase_flow.py:6: AssertionError
+==================================================================== warnings summary =====================================================================
+tests/engine/test_pipeline_phase_flow.py::test_alive_jam_mem_history_for_contradiction
+  C:\Users\Dell\Documents\logic-evaluation-engine-3.0\src\engine\event_log.py:12: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    stamp = datetime.utcnow().strftime("%Y%m%dT%H%M%S")
+
+tests/engine/test_pipeline_phase_flow.py::test_alive_jam_mem_history_for_contradiction
+tests/engine/test_pipeline_phase_flow.py::test_alive_jam_mem_history_for_contradiction
+tests/engine/test_pipeline_phase_flow.py::test_alive_jam_mem_history_for_contradiction
+tests/engine/test_pipeline_phase_flow.py::test_alive_jam_mem_history_for_contradiction
+tests/engine/test_pipeline_phase_flow.py::test_alive_jam_mem_history_for_contradiction
+  C:\Users\Dell\Documents\logic-evaluation-engine-3.0\src\engine\event_log.py:19: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "ts": datetime.utcnow().isoformat(),
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+================================================================= short test summary info =================================================================
+FAILED tests/engine/test_evaluator_logging.py::test_evaluator_logs_jam_only_on_contradiction - AssertionError: assert 'ALIVE' in ('JAM',)
+FAILED tests/engine/test_pipeline_phase_flow.py::test_alive_jam_mem_history_for_contradiction - AssertionError: assert 'ALIVE' == 'MEM'
+2 failed, 11 passed, 6 warnings in 0.70s
