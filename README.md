@@ -8,3 +8,4 @@
 
 This project, like Billy said, is about doing the work right — and not taking any crap from broken logic, bad data, or bloated design.
 
+[![Docs](https://img.shields.io/badge/docs-latest-blue)](https://kilgoretrout111.github.io/logic-evaluation-engine/latest/)
