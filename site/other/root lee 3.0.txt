@@ -1,0 +1,196 @@
+C:.
+│   # LEE v3.0 Reboot Initialization.0 Reboot Initialization.md
+│   .gitignore
+│   pyproject.toml
+│   pytest.ini
+│   README.md
+│   __init__.py
+│
+├───.pytest_cache
+│   │   .gitignore
+│   │   CACHEDIR.TAG
+│   │   README.md
+│   │
+│   └───v
+│       └───cache
+│               lastfailed
+│               nodeids
+│
+├───data
+│   ├───logs
+│   │       m1_20250810T062834.json
+│   │	,..., n
+│   ├───memdb
+│   └───memory
+├───docs
+│   │   billy-joel-uniondale-1982.png
+│   │   docs_phase10_notes.md
+│   │   LEE_v3.0_Phase9_Analytics_FieldNotes.md
+│   │   LEE_v3.0_PhaseKernel_SpecialistNotes.md
+│   │   Plan Lee 30.docx
+│   │   Project LEE-3.0 Status — 10.08.25 15.48 UTC+2.md
+│   │   ~$an Lee 30.docx
+│   │
+│   ├───New folder
+│   │       legal_case_actor_map.pdf
+│   │       legal_case_actor_map.png
+│   │       legal_case_actor_matrix.md
+│   │
+│   └───status
+│           Project LEE-3.0 Status — 10.08.25 15.48 UTC+2 2.md
+│           Project LEE-3.0 Status — 10.08.25 15.48 UTC+2.md
+│           Project-Lee-3.0-Daily Status Log.md
+│           project-LEE-3.0-status-090825-100825.md
+│
+├───evaluation
+│       visualize_archive.py
+│
+├───src
+│   │   __init__.py
+│   │
+│   ├───analytic
+│   │   │   counterfactual.py
+│   │   │   divergence_map.py
+│   │   │   energy_dynamics.py
+│   │   │   tensor_archive.py
+│   │   │   __init__.py
+│   │   │
+│   │   └───__pycache__
+│   │           counterfactual.cpython-313.pyc
+│   │           divergence_map.cpython-313.pyc
+│   │           __init__.cpython-313.pyc
+│   │
+│   ├───core
+│   │   │   alpha.py
+│   │   │   contradiction.py
+│   │   │   expressions.py
+│   │   │   phase_geometry.py
+│   │   │   state.py
+│   │   │   __init__.py
+│   │   │
+│   │   └───__pycache__
+│   │           contradiction.cpython-313.pyc
+│   │           expressions.cpython-313.pyc
+│   │           phase_geometry.cpython-313.pyc
+│   │           state.cpython-313.pyc
+│   │           __init__.cpython-313.pyc
+│   │
+│   ├───engine
+│   │   │   analytics.py
+│   │   │   contradiction_driver.py
+│   │   │   diagnostics.py
+│   │   │   engine_audit.py
+│   │   │   engine_provenance.py
+│   │   │   engine_replay.py
+│   │   │   evaluator.py
+│   │   │   event_log.py
+│   │   │   event_log_backup.py
+│   │   │   logic_hooks.py
+│   │   │   memdb.py
+│   │   │   memory_store.py
+│   │   │   orchestration.py
+│   │   │   pipeline.py
+│   │   │   provenance.py
+│   │   │   reducer.py
+│   │   │   resolution.py
+│   │   │   state_manager.py
+│   │   │   __init__.py
+│   │   │   __init__.py.bak_20250810_113033
+│   │   │
+│   │   ├───adapters
+│   │   │   │   base.py
+│   │   │   │   legal.py
+│   │   │   │   medical.py
+│   │   │   │   __init__.py
+│   │   │   │
+│   │   │   └───__pycache__
+│   │   │           base.cpython-313.pyc
+│   │   │           legal.cpython-313.pyc
+│   │   │           medical.cpython-313.pyc
+│   │   │           __init__.cpython-313.pyc
+│   │   │
+│   │   └───__pycache__
+│   │           contradiction_driver.cpython-313.pyc
+│   │           evaluator.cpython-313.pyc
+│   │           event_log.cpython-313.pyc
+│   │           memdb.cpython-313.pyc
+│   │           memory_store.cpython-313.pyc
+│   │           pipeline.cpython-313.pyc
+│   │           provenance.cpython-313.pyc
+│   │           reducer.cpython-313.pyc
+│   │           state_manager.cpython-313.pyc
+│   │           __init__.cpython-313.pyc
+│   │
+│   ├───logic_evaluation_engine.egg-info
+│   │       dependency_links.txt
+│   │       PKG-INFO
+│   │       SOURCES.txt
+│   │       top_level.txt
+│   │
+│   ├───nlp
+│   │   │   named_entities.py
+│   │   │   parser.py
+│   │   │   rewriter.py
+│   │   │   scope_inference.py
+│   │   │   __init__.py
+│   │   │
+│   │   └───__pycache__
+│   │           canonicalize.cpython-313.pyc
+│   │           named_entities.cpython-313.pyc
+│   │           parser.cpython-313.pyc
+│   │           rewriter.cpython-313.pyc
+│   │           scope_inference.cpython-313.pyc
+│   │           __init__.cpython-313.pyc
+│   │
+│   └───__pycache__
+│           __init__.cpython-313.pyc
+│
+├───tests
+│   │   conftest.py
+│   │   test_scope_and_entities.py
+│   │   __init__.py
+│   │
+│   ├───core
+│   │       test_contradiction.py
+│   │
+│   ├───engine
+│   │   │   audit.py
+│   │   │   test_adapter_hooks_passthrough.py
+│   │   │   test_evaluator_logging.py
+│   │   │   test_evaluator_smoke.py
+│   │   │   test_eval_phase8.py
+│   │   │   test_phase10_provenance.py
+│   │   │   test_phase12_5_memdb_export.py
+│   │   │   test_phase12_memdb.py
+│   │   │   test_phase13_adapters.py
+│   │   │   test_phase14_bridge_smoke.py
+│   │   │   test_pipeline_phase_flow.py
+│   │   │   test_provenance_shape.py
+│   │   │
+│   │   └───__pycache__
+│   │           test_adapter_hooks_passthrough.cpython-313-pytest-8.4.0.pyc
+│   │           test_phase13_adapters.cpython-313-pytest-8.4.0.pyc
+│   │           test_phase14_bridge_smoke.cpython-313-pytest-8.4.0.pyc
+│   │           test_provenance_shape.cpython-313-pytest-8.4.0.pyc
+│   │
+│   ├───misc test text files
+│   │       pytest -q - log 9825 8.37.txt
+│   │       pytest -q - log 9825 9.17.txt
+│   │       pytest -q - log 9825 9.44 phase8.txt
+│   │       pytest -q - log 9825 9.50 phase8.txt
+│   │       pytest -q 108 1604.txt
+│   │       python -m evaluation.diagnostic_pha.txt
+│   │       testphase10 -1.txt
+│   │       testphase10 -2.txt
+│   │
+│   ├───nlp
+│   │       test_canonicalize.py
+│   │
+│   ├───test logs
+│   └───__pycache__
+│           conftest.cpython-313-pytest-8.4.0.pyc
+│           test_scope_and_entities.cpython-313-pytest-8.4.0.pyc
+│           __init__.cpython-313.pyc
+│
+└───__pycache__
+        __init__.cpython-313.pyc

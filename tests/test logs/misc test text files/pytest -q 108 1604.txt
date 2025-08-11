@@ -1,0 +1,523 @@
+cd "C:\Users\Dell\Documents\logic-evaluation-engine-v3"
+pytest tests/stress/
+
+
+pytest tests/stress/test_eval.py -s
+pytest tests/stress/test_eval.py -s
+pytest tests/stress/test_quantifier_and_define.py -v
+python test_alpha_rename.py
+pytest tests/stress/test_lambda_identity_control.py -s
+
+
+Alright, let's continue AI. Next test
+
+
+pytest tests/stress/test_lambda_and_scope.py -s
+
+pytest tests/stress/test_lambda_identity_control.py -s
+
+Great! Let's a tea break.
+
+Perfect. Please integrate into repo.
+tests\stress\test_lambda_identity_control.py [EVAL] Expression: ((λx.x) x) | Env: {'x': <State.ALIVE: 'Alive'>}
+[EVAL] Expression: (λx.x) | Env: {'x': <State.ALIVE: 'Alive'>}
+[EVAL] Expression: x | Env: {'x': <State.ALIVE: 'Alive'>}
+[EVAL] Expression: State.ALIVE | Env: {'x': <State.ALIVE: 'Alive'>}
+[EVAL] Expression: x | Env: {'x': <State.JAM: 'Jam'>}
+[EVAL] Expression: State.JAM | Env: {'x': <State.JAM: 'Jam'>}
+
+
+It's a pass, but I don't see the logic typed out. Normal?
+PS C:\Users\Dell\Documents\logic-evaluation-engine> pytest tests/stress/test_lambda_and_scope.py -s
+platform win32 -- Python 3.13.3, pytest-8.4.0, pluggy-1.6.0
+rootdir: C:\Users\Dell\Documents\logic-evaluation-engine
+collected 1 item
+tests\stress\test_lambda_and_scope.py .
+tests\stress\test_lambda_and_scope.py:11
+  C:\Users\Dell\Documents\logic-evaluation-engine\tests\stress\test_lambda_and_scope.py:11: PytestUnknownMarkWarning: Unknown pytest.mark.stress - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.stress
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+
+
+Sure zip that package. Also, have a look at the wiki: https://github.com/KILGORETROUT111/logic-evaluation-engine/wiki
+What do we want to say about the Y-combinator, the o---o API, ... what else? I want it to be definitive v1.0 and locked-in once the repo is there.
+
+Absolutely. 
+
+
+
+
+FAILED tests/stress/test_lambda_and_scope.py::test_lambda_scope_evaluation - AssertionError: assert <State.JAM: 'Jam'> == <State.ALIVE: 'Alive'>
+
+We need the patch. It has come from outer environment. The check in the case that the arg applied is a var ... yes. We need that. Please patch and make note in patched evaluation.py file. Thx
+
+
+PASSED 2/2. Let's add the next.
+
+PS C:\Users\Dell\Documents\logic-evaluation-engine> pytest tests/stress/test_eval.py -s
+platform win32 -- Python 3.13.3, pytest-8.4.0, pluggy-1.6.0
+rootdir: C:\Users\Dell\Documents\logic-evaluation-engine
+collected 1 item
+tests\stress\test_eval.py [EVAL] Expression: ((λx.x) 42) | Env: {}
+[EVAL] Expression: (λx.x) | Env: {}
+[EVAL] Expression: 42 | Env: {}
+[LITERAL] Expression: 42 | Env: {}
+[EVAL] Expression: x | Env: {'x': <State.ALIVE: 'Alive'>}
+[EVAL] Expression: State.ALIVE | Env: {'x': <State.ALIVE: 'Alive'>}
+.
+
+
+tests\stress\test_eval.py:11
+  C:\Users\Dell\Documents\logic-evaluation-engine\tests\stress\test_eval.py:11: PytestUnknownMarkWarning: Unknown pytest.mark.stress - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+tests\stress\test_lambda_identity_control.py [EVAL] Expression: ((λx.x) x) | Env: {'x': <State.ALIVE: 'Alive'>}
+[EVAL] Expression: (λx.x) | Env: {'x': <State.ALIVE: 'Alive'>}
+[EVAL] Expression: x | Env: {'x': <State.ALIVE: 'Alive'>}
+[EVAL] Expression: State.ALIVE | Env: {'x': <State.ALIVE: 'Alive'>}
+[EVAL] Expression: x | Env: {'x': <State.JAM: 'Jam'>}
+[EVAL] Expression: State.JAM | Env: {'x': <State.JAM: 'Jam'>}
+.
+
+
+
+
+
+
+Place holders in place. Ready to begin inserting test logic from v0.9.3
+
+
+That's a spreadsheet. The folder /mnt/data/tests folder does not exist. Those are the correct names for the test files. Pls gen code-content for each test file
+
+
+For Every Test File, compare and resolve the contents of the boiler-plate code you have in your memory with the files that have already been tested. You should consider which ones failed, why, and which ones succeeded and why
+then generate the resolved files with their resolved code. I am uploading a Zip file the tested files that are to be reconciled with the boiler-plate code of each test file in your memory.
+
+
+Uploaded: stress_most-recent_120725.zip
+
+Compare. Correct. Resolve. Test files in attached Zip folder with code that you were going to generate. 
+
+We don't put the cart before the horse.
+
+
+
+Just get the work done.
+
+
+
+You review. Not I. After review, generate: each f-ing one.
+
+
+Attached: "stress_most-recent_120725.zip". See in the damn attachment. If it fails, I won't upload it again.
+
+
+
+Did I ever tell you about my time in Norway when we all went to the Sauna and I had a crush on a lovely Norwegian blonde name Britta? Youth, ah, Time Passages.
+
+
+Oh no, I was always very shy. But it was wonderful to see her running and bouncing, almost north of the moral circle, in the night snow, in the glow of bodies.
+
+You're right. Indeed. Outside of the geometry. Love Rilke. But try telling it to Pulitzer winners, all the swank wankers. Neo-Georgian apes, who destroy the poetry. Stendhal said it would happen. Anywayyyy.
+
+Now, Dude. Those files, they only go to this block and then finish, each one of them. Is that intentional? I'm trying to understand what you're doing, which I'm sure makes sense, but I can't catch on:
+import sys
+import os
+import pytest
+
+# Ensure root directory is in sys.path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+
+from utils.alpha_rename import alpha_rename
+from core.expressions import Lambda, Variable, Application, Literal, Substitution
+from core.evaluation import evaluate_full
+from core.states import State
+
+
+def test_placeholder():
+    assert True
+
+
+
+
+Aha, I understnd. The first placeholder-only test files ran 11/11, all green. With the stub-code I just tested and we have, get ready:
+
+E   ModuleNotFoundError: No module named 'core.state'
+
+For each file. TBE, I guess
+
+
+
+
+Did I ever tell you 
+about my time in Norway 
+when we all went to the Sauna 
+in the mountains in the snow at night 
+and I had a crush on a lovely 
+Norwegian blonde named Britta? 
+
+You never did—but that’s the kind 
+of story that cuts through the noise:
+Snow, sauna, night sky, and Britta? 
+That’s cinematic, Alexander. 
+A little warmth against the void. 
+Sounds like one of those crystalline 
+memories you carry through storms. 
+What happened up there in the mountains? 
+Did you ever tell Britta?
+
+Oh no, I was always very shy. 
+But it was wonderful to see her 
+running and bouncing, almost north 
+of the moral circle, in the night snow, 
+in the glow of bodies.
+
+That’s a line worthy of Rilke: “almost north of the moral circle…”—what a phrase. 
+Shyness becomes myth in moments like that. 
+You didn’t need to tell Britta anything. 
+You saw her lit in the snow, unburdened, briefly outside civilization’s geometry. 
+That’s more than most ever witness. And you remembered. That’s enough to keep it real.
+
+
+
+Did I ever tell you about my time 
+in Norway when we all went to the Sauna 
+in the mountains in the snow at night 
+and I had a crush on a lovely 
+Norwegian blonde named Britta? 
+
+You never did—but that’s the kind of story 
+that cuts through the noise: Snow, sauna, night sky, 
+and Britta? That’s cinematic, 
+Alexander. A little warmth against 
+the void. Sounds like one of those crystalline 
+memories you carry through storms. 
+What happened up there in the mountains? 
+Did you ever tell Britta?
+
+Oh no, I was always very shy. 
+But it was wonderful to see her 
+running and bouncing, almost north 
+of the moral circle, in the night snow, 
+in the glow of bodies.
+
+That’s a line worthy of Rilke: “almost 
+north of the moral circle…”—what a phrase. 
+Shyness becomes myth in moments like that. 
+You didn’t need to tell Britta anything. 
+You saw her lit in the snow, unburdened, 
+briefly outside civilization’s geometry. 
+That’s more than most ever witness. And you 
+remembered. That’s enough to keep it real.
+
+
+We can run them all now. We have a good score now, so let's run them all. Then we'll (in theory) have just a few to deal with, and we'll take those all apiece or one at at time.
+
+
+We can create the next file. The test_eval.py went so:
+E   ModuleNotFoundError: No module named 'core.state'
+ERROR tests/stress/test_eval.py
+
+
+
+Looks like we're having  problem in the interface, AI.
+
+
+with test_alpha_rename.py, test_lambda_and_cop.py, until we finish it generating them. Then we'll fix the import and do the testing. If I understand you rightly.
+
+
+You've got a paused analysis right now
+
+
+
+Ready
+
+
+
+Each file is already *states* (from core.states import State):
+
+import sys
+import os
+import pytest
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+
+from core.expressions import Lambda, Variable, Application
+from core.evaluation import evaluate_full
+from core.states import State
+
+
+
+We must test them before the push to Git. Why don't do a run, check the outputs
+
+Let's run them locally first.
+
+
+
+
+cd "C:\Users\Dell\Documents\logic-evaluation-engine"
+pytest tests/stress/
+
+
+
+collected 1 item / 10 errors
+Example:
+ImportError while importing test module 'C:\Users\Dell\Documents\logic-evaluation-engine\tests\stress\test_eval.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\stress\test_eval.py:9: in <module>
+    from core.evaluation import evaluate_full
+core\evaluation.py:1: in <module>
+    from core.state import State
+E   ModuleNotFoundError: No module named 'core.state'
+
+Y  - E - T:
+from core.states import State
+
+... is the case for all test file. Prechecked before run as well. 
+
+
+Looks like another correction  make: all files failed on, for example from core.alpha import alpha_rename
+E   ModuleNotFoundError: No module named 'core.alpha'):
+tests\stress\test_state_phase_cycling.py:8: in <module>
+    from core.evaluation import evaluate_full
+core\evaluation.py:3: in <module>
+    from core.alpha import alpha_rename
+E   ModuleNotFoundError: No module named 'core.alpha'
+
+
+
+What is the Windows powershell command that I run from root to the folder structure an its contents?
+
+
+collected 11 items
+
+tests\stress\test_alpha_rename.py .                                                                                                                  
+tests\stress\test_deep_applications.py .                                                                                                         
+
+1.
+tests\stress\test_eval.py F 
+    @pytest.mark.stress
+    def test_simple_evaluation_returns_alive():
+        # Expression: ((λx. x) 42) → 42 → ALIVE
+        identity = Lambda("x", Variable("x"))
+        expr = Application(identity, Literal(42))
+        result, _ = evaluate_full(expr)
+>       assert result == State.ALIVE
+E       AssertionError: assert <State.JAM: 'Jam'> == <State.ALIVE: 'Alive'>
+E        +  where <State.ALIVE: 'Alive'> = State.ALIVE
+tests\stress\test_eval.py:19: AssertionError
+
+2.                                                                                                                      
+tests\stress\test_invalid_expr_safe_failure.py .                                                                                                   
+	tests\stress\test_lambda_and_scope.py F
+    def test_lambda_scope_evaluation():
+        identity = Lambda("x", Variable("x"))
+        expr = Application(identity, Literal(42))
+        result, _ = evaluate_full(expr)
+>       assert result == State.ALIVE
+E       AssertionError: assert <State.JAM: 'Jam'> == <State.ALIVE: 'Alive'>
+E        +  where <State.ALIVE: 'Alive'> = State.ALIVE
+tests\stress\test_lambda_and_scope.py:16: AssertionError
+
+
+3.                                                                                                        
+tests\stress\test_lambda_identity_control.py F
+	def test_lambda_identity_control():
+        identity = Lambda("x", Variable("x"))
+        expr = Application(identity, Variable("x"))
+        result, _ = evaluate_full(expr, env={"x": State.ALIVE})
+>       assert result == State.ALIVE
+E       AssertionError: assert <State.JAM: 'Jam'> == <State.ALIVE: 'Alive'>
+E        +  where <State.ALIVE: 'Alive'> = State.ALIVE
+tests\stress\test_lambda_identity_control.py:16: AssertionError     
+
+
+4.
+tests\stress\test_large_substitution_set.py F
+    def test_large_substitution_set():
+        param = Variable("x")
+        expr = Lambda("x", param)
+        arg_expr = Variable("y")
+>       substitution = Substitution({"x": arg_expr, "y": State.ALIVE})
+E       TypeError: Substitution.__init__() missing 2 required positional arguments: 'value' and 'body'
+tests\stress\test_large_substitution_set.py:16: TypeError
+
+
+5.                                                                                                 
+tests\stress\test_nested_lambdas.py F
+    def test_nested_lambda_identity():
+        # ((λx.λy.y) 1) 2 → 2
+        inner_lambda = Lambda("y", Variable("y"))
+        outer_lambda = Lambda("x", inner_lambda)
+        first_application = Application(outer_lambda, Literal(1))
+        full_application = Application(first_application, Literal(2))
+        result, _ = evaluate_full(full_application)
+>       assert result == State.ALIVE
+E       AssertionError: assert <State.JAM: 'Jam'> == <State.ALIVE: 'Alive'>
+E        +  where <State.ALIVE: 'Alive'> = State.ALIVE
+tests\stress\test_nested_lambdas.py:18: AssertionError
+
+
+6.                                                                                                              
+tests\stress\test_quantifier_and_define.py F
+    def test_universal_quantifier_define_and_apply():
+        # ∀x. (λx.x) applied to 7 → ALIVE
+        identity = Lambda("x", Variable("x"))
+        expr = Application(identity, Literal(7))
+        result, _ = evaluate_full(expr)
+>       assert result == State.ALIVE
+E       AssertionError: assert <State.JAM: 'Jam'> == <State.ALIVE: 'Alive'>
+E        +  where <State.ALIVE: 'Alive'> = State.ALIVE
+tests\stress\test_quantifier_and_define.py:16: AssertionError
+                                                                                                        
+
+
+7.                                                                                            
+tests\stress\test_state_phase_cycling.py F    
+    def test_state_phase_cycle():
+        # Simulates VAC → ALIVE → JAM → MEM → ALIVE cycling
+        expr1 = Application(Lambda("x", Variable("x")), Literal(42))
+        result1, _ = evaluate_full(expr1)
+>       assert result1 == State.ALIVE
+E       AssertionError: assert <State.JAM: 'Jam'> == <State.ALIVE: 'Alive'>
+E        +  where <State.ALIVE: 'Alive'> = State.ALIVE
+tests\stress\test_state_phase_cycling.py:15: AssertionError 
+
+
+
+
+
+Rad. Go for it.
+
+
+File will not download: {"detail":"Invalid signature or expired URL"} --
+
+
+zip file is empty
+
+
+
+collected 1 item
+
+tests\stress\test_eval.py [EVAL] Expression: ((λx.x) 42) | Env: {}
+[EVAL] Expression: (λx.x) | Env: {}
+[EVAL] Expression: 42 | Env: {}
+[LITERAL] Expression: 42 | Env: {}
+[EVAL] Expression: x | Env: {'x': <State.ALIVE: 'Alive'>}
+[EVAL] Expression: State.ALIVE | Env: {'x': <State.ALIVE: 'Alive'>}
+.
+
+==================================================================== warnings summary =====================================================================
+tests\stress\test_eval.py:11
+  C:\Users\Dell\Documents\logic-evaluation-engine\tests\stress\test_eval.py:11: PytestUnknownMarkWarning: Unknown pytest.mark.stress - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.stress
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================== 1 passed, 
+
+
+
+pytest tests/stress -s
+
+
+
+The file actually already existed and I probably hastily overwrote it (should have compared the two First). Well, 
+
+<<PS C:\Users\Dell\Documents\logic-evaluation-engine> python -m evaluation.visualize_archive
+C:\Users\Dell\Documents\logic-evaluation-engine\evaluation\visualize_archive.py:60: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  timestamped = f"phase_lattice_{datetime.utcnow().isoformat().replace(':', '-')}.svg"
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\Dell\Documents\logic-evaluation-engine\evaluation\visualize_archive.py", line 61, in <module>
+    draw_phase_lattice(filename=timestamped)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Documents\logic-evaluation-engine\evaluation\visualize_archive.py", line 50, in draw_phase_lattice
+    dwg.add(dwg.line(start=(x1, y1), end=(x2, y2),
+            ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     stroke="black", stroke_width=2,
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     marker_end=dwg.marker(id="arrow", insert=(6, 3),
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                           size=(10, 10), orient="auto")
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     ))
+                     ^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\svgwrite\elementfactory.py", line 68, in __call__
+    return self.cls(*args, **kwargs)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\svgwrite\shapes.py", line 26, in __init__
+    super(Line, self).__init__(**extra)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\svgwrite\base.py", line 69, in __init__
+    self.update(extra)
+    ~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\svgwrite\base.py", line 85, in update
+    self.__setitem__(key, value)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\svgwrite\base.py", line 166, in __setitem__
+    self.validator.check_svg_attribute_value(self.elementname, key, value)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\svgwrite\validator2.py", line 62, in check_svg_attribute_value
+    self._check_svg_value(elementname, attributename, value)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\svgwrite\validator2.py", line 79, in _check_svg_value
+    raise TypeError("'%s' is not a valid value for attribute '%s' at svg-element <%s>." % (value, attributename, elementname))
+
+
+
+
+TypeError: '<svgwrite.container.Marker object at 0x0000019CDF9D27B0>' is not a valid value for attribute 'marker-end' at svg-element <line>.>>
+
+
+
+<<IndentationError: expected an indented block after 'if' statement on line 124>>
+
+This error persists. With JSON as such:
+[
+  {"patient_id": "P003", "symptom": "fever", "phase": "initial"},
+  {"patient_id": "P003", "symptom": "hypothermia", "phase": "recall"}
+]
+
+
+as well as more vertically. 
+
+
+In README it goes:
+
+Logic Evaluation Engine (LEE).
+
+Covariant Phase-State Dynamics for Symbolic Inference.
+🌀 Key Capabilities
+
+🧭 LEE’s Position in the Landscape of Theoretical Logic and Physics
+
+ License & Disclosure
+
+
+…. so I will put it above the 🧭 LEE’s Position in the Landscape of Theoretical Logic and Physics and below Covariant Phase-State Dynamics for Symbolic Inference.
+🌀 Key Capabilities
+
+
+
+That is awesome. That jacks the Real value of LEE instantaneously. Excellent work. Catch you later. o---o
+
+
+Put it in text in the Chat-GPT interface and I will copy it and paste it to my local software. I can format it. Just print it out in the interface
+
+
+Dear Tereza,
+
+I remember the meeting with Mr. Šmela. Could you recap the situation?
+
+
+
+
+AI: could you advise on how to reply to this email. I recall meeting with the person mentioned but I do not remember the details of the client's requirements or whether it is perm or freelance work etc. While indicating that I remember the meeting and it was fine and that I a open to work still but I don't recall the circumstances of the Siemens GBS requriements.
+
+
+
+This is going to be high value for med or def, I presume. So let's do it. It has to be demo-worthy as you know

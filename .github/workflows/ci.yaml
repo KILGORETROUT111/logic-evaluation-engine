@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches: [ v3.0, v3.0-* ]
+  pull_request:
+    branches: [ v3.0, v3.0-* ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Py${{ matrix.python }} • ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ["3.12", "3.13"]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: 'pip'
+
+      # Install dependencies (conditionally if requirements.txt exists)
+      - name: Install requirements
+        if: hashFiles('**/requirements.txt') != ''
+        run: pip install -r requirements.txt
+
+      - name: Ensure pytest available (no requirements.txt)
+        if: hashFiles('**/requirements.txt') == ''
+        run: pip install pytest
+
+      - name: Install package (editable)
+        run: pip install -e .
+
+      - name: PyTest (full suite)
+        run: pytest -q
+
+      - name: Upload logs if tests failed
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs-${{ matrix.os }}-py${{ matrix.python }}
+          path: |
+            data/logs/**
+          if-no-files-found: ignore

@@ -1,40 +1,86 @@
-# core/contradiction.py
+# src/core/contradiction.py
+from __future__ import annotations
+from typing import Any, Dict, Tuple
 
-from core.expressions import Expression
-from core.state import State
-from core.phase_geometry import Phase
+def _as_tuple(x: Any) -> Tuple:
+    return x if isinstance(x, tuple) else ()
 
-class Contradiction(Exception):
-    def __init__(self, message, trace=None):
-        super().__init__(message)
-        self.trace = trace or []
-
-
-def detect_contradiction(expr: Expression, state: State) -> bool:
+def analyze(expr: Any) -> Dict[str, Any]:
     """
-    Scans current state bindings for a contradiction with expr.
-    Returns True if contradiction found, else False.
+    Returns:
+      - 'is_contradiction': bool
+      - 'mode': 'implication-jam' | 'local-refutation' | 'none'
+      - 'witness': dict with details:
+          * implication: {'kind':'implication','pattern':'1 -> 0','antecedent':1,'consequent':0}
+          * local refutation: {'kind':'local-refutation','pattern':'X & ~X','X': <symbol>}
     """
-    for binding in state.bindings:
-        if expr == binding and state.phase == Phase.JAM:
-            return True
-    return False
+    # --- tuple AST path ------------------------------------------------------
+    t = _as_tuple(expr)
+    if t:
+        op = t[0] if len(t) > 0 else None
 
+        # implication ('->', lhs, rhs)
+        if op in ("->", "IMPLIES", "⇒", "→") and len(t) >= 3:
+            l, r = t[1], t[2]
+            if l in (1, "1") and r in (0, "0"):
+                return {
+                    "is_contradiction": True,
+                    "mode": "implication-jam",
+                    "witness": {
+                        "kind": "implication",
+                        "pattern": "1 -> 0",
+                        "antecedent": 1 if l in (1, "1") else l,
+                        "consequent": 0 if r in (0, "0") else r,
+                    },
+                }
+            if l in (1, "1") and r in (1, "1"):
+                return {"is_contradiction": False, "mode": "none", "witness": None}
 
-def jam_state(expr: Expression, state: State) -> State:
-    """
-    Transitions state to JAM phase if contradiction detected.
-    Archives the event into state's contradiction trace.
-    """
-    if detect_contradiction(expr, state):
-        state.phase = Phase.JAM
-        state.trace.append({"event": "JAM", "expr": repr(expr)})
-    return state
+        # local refutation: And(X, Not(X))
+        if op in ("And", "AND", "∧") and len(t) >= 3:
+            X, rhs = t[1], t[2]
+            rt = _as_tuple(rhs)
+            if rt and rt[0] in ("Not", "NOT", "¬", "~") and len(rt) >= 2 and rt[1] == X:
+                return {
+                    "is_contradiction": True,
+                    "mode": "local-refutation",
+                    "witness": {
+                        "kind": "local-refutation",
+                        "pattern": "X & ~X",
+                        "X": X,
+                    },
+                }
 
+    # --- string fallback (best-effort) ---------------------------------------
+    try:
+        s = str(expr).replace(" ", "")
+    except Exception:
+        s = ""
 
-def assert_no_contradiction(expr: Expression, state: State):
-    """
-    Raises Contradiction if contradiction is detected.
-    """
-    if detect_contradiction(expr, state):
-        raise Contradiction(f"Contradiction detected in phase {state.phase}", trace=state.trace)
+    if "->" in s:
+        if "1->0" in s:
+            return {
+                "is_contradiction": True,
+                "mode": "implication-jam",
+                "witness": {
+                    "kind": "implication",
+                    "pattern": "1 -> 0",
+                    "antecedent": 1,
+                    "consequent": 0,
+                },
+            }
+        if "1->1" in s:
+            return {"is_contradiction": False, "mode": "none", "witness": None}
+
+    if "And(" in s and ("Not(" in s or "~" in s or "¬" in s):
+        return {
+            "is_contradiction": True,
+            "mode": "local-refutation",
+            "witness": {
+                "kind": "local-refutation",
+                "pattern": "X & ~X",
+                # unknown X in string fallback
+            },
+        }
+
+    return {"is_contradiction": False, "mode": "none", "witness": None}

@@ -1,26 +1,24 @@
-﻿from __future__ import annotations
-from typing import Any, Dict, Optional
-from .base import AdapterProtocol, AdapterRegistry
+﻿# src/engine/adapters/legal.py
+from __future__ import annotations
+from typing import Any, Dict
+from .base import BaseAdapter
 
-@AdapterRegistry.register("legal")
-class LegalAdapter(AdapterProtocol):
-    domain = "legal"
-
-    def __init__(self) -> None:
-        self.config: Dict[str, Any] = {}
-
-    def initialize(self, config: Optional[Dict[str, Any]] = None) -> None:
-        self.config = config or {}
-        # TODO: hook real modules, e.g. analytic.counterfactual, nlp.named_entities, etc.
-
-    def enrich(self, normalized_expr: str) -> Dict[str, Any]:
-        # TODO: replace with real heuristics/analytics
-        return {
-            "domain": self.domain,
-            "pattern": normalized_expr,
-            "tags": ["implication", "boolean"],
+class LegalAdapter(BaseAdapter):
+    def enrich(self, norm_expr: str) -> Dict[str, Any]:
+        out: Dict[str, Any] = {
+            "domain": "legal",
+            "pattern": norm_expr,
             "score": 0.5,
+            "tags": ["implication", "boolean"] if "->" in norm_expr else [],
         }
 
-    def close(self) -> None:
-        return
+        # Pass-through to optional counterfactual hook (tests monkeypatch this)
+        cf = self.hooks.get("counterfactual_analyze") or self.hooks.get("cf_analyze")
+        if callable(cf):
+            try:
+                out["counterfactual"] = cf(norm_expr)
+            except Exception:
+                # Never let adapter hooks break the pipeline
+                pass
+
+        return out

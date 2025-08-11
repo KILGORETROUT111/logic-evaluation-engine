@@ -1,0 +1,26 @@
+site_name: Logic Evaluation Engine
+site_url: https://kilgoretrout111.github.io/logic-evaluation-engine/
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - content.code.copy
+extra:
+  version:
+    provider: mike
+nav:
+  - Overview: index.md
+  - Getting Started: getting-started.md
+  - Phase Geometry: phase-geometry.md
+  - API:
+      - API Overview: api.md
+      - Adapter Hooks: adapter-hooks.md
+  - Contributing: contributing.md
+plugins:
+  - search
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - attr_list

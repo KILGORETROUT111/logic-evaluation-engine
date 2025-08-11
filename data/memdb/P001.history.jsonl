@@ -1,0 +1,5 @@
+{"run_id": "a56962210a2c48ed", "domain": "medical", "pattern": "1 -> 0", "phase": "MEM", "elapsed_ms": 0.048}
+{"run_id": "723bc14b36114918", "domain": "medical", "pattern": "1 -> 0", "phase": "MEM", "final_phase": "MEM", "elapsed_ms": 0.038}
+{"run_id": "510bf2c808e34760", "domain": "medical", "pattern": "1 -> 0", "phase": "MEM", "final_phase": "MEM", "elapsed_ms": 0.04}
+{"run_id": "2ac333bfde0b4197", "domain": "medical", "pattern": "1 -> 0", "phase": "MEM", "final_phase": "MEM", "elapsed_ms": 0.041}
+{"run_id": "fcbf1684b24e402f", "domain": "medical", "pattern": "1 -> 0", "phase": "MEM", "final_phase": "MEM", "elapsed_ms": 0.063}

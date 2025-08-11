@@ -78,3 +78,12 @@ dmypy.json
 
 # Local dev
 *.log
+
+
+data/logs/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+~$*.docx
+
