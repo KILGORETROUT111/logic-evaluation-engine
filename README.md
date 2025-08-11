@@ -217,7 +217,7 @@ scripts/
 
 LEE is **conservative**: the engine does not “invent.”  
 **Basis5 projects → Engine records and executes.**  
-The conserved transforms you observed (your “logical Bianchi identity”) are **emergent from Basis5** and remain conserved by construction.
+The conserved transforms observed (“logical Bianchi identity”) are **emergent from Basis5** and remain conserved by construction.
 
 If a code path can’t be derived from Basis5, it doesn’t ship.
 
@@ -228,6 +228,6 @@ If a code path can’t be derived from Basis5, it doesn’t ship.
 - Think of phases as **cardinal directions** on a square compass.  
 - An evaluation rotates that compass by exact quarter-turns as it moves from `ALIVE` (open) through `JAM` (tension) to `MEM` (closure).  
 - Implications and refutations **mark** the presence of those rotations; they don’t “weigh” them.  
-- The provenance is your scope note: which turn, when, and why — in integers, not vibes.
+- The provenance is the scope note: which turn, when, and why — in integers, not vibes.
 
 That’s LEE 3.0. Conservative, geometric, exact.
