@@ -87,3 +87,6 @@ __pycache__/
 *.egg-info/
 ~$*.docx
 
+data/memdb/**
+data/**/history*.jsonl
+*.history.jsonl
