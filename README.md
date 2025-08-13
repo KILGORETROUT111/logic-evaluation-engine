@@ -5,7 +5,7 @@
 # Logic Evaluation Engine (LEE) — v3.0
 
 ## Inspiration
-![Billy Joel - Live in Uniondale, December 29, 1982](docs/billy-joel-uniondale-1982.png)
+![Billy Joel – Live in Uniondale, December 29, 1982](docs/billy-joel-uniondale-1982.png)
 **“Happy New Year Long Island. And don’t take any shit from anybody!”**  
 — Billy Joel, [Live in Uniondale (December 29, 1982)](https://www.youtube.com/watch?v=wDEvqyiRpzE&t=5596s)
 
