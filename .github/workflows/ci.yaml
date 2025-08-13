@@ -52,6 +52,15 @@ jobs:
           name: pytest-cache-${{ matrix.os }}-py${{ matrix.python }}
           path: .pytest_cache
           if-no-files-found: ignore
+
+      - name: Install package and test deps
+      run: |
+        python -m pip install --upgrade pip setuptools wheel
+        pip install -e .
+        pip install pytest
+      env:
+        PIP_DISABLE_PIP_VERSION_CHECK: "1"
+
           
 # .github/workflows/ci.yml
 on:
@@ -60,3 +69,7 @@ on:
     tags: [ 'v*' ]
   pull_request:
     branches: [ v3.0 ]
+
+    
+
+
