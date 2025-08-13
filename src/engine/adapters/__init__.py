@@ -1,16 +1,20 @@
-﻿# src/engine/adapters/__init__.py
-from __future__ import annotations
-from typing import Any, Dict, Optional
+﻿from __future__ import annotations
+from typing import Optional
+from .base import DomainAdapter
 
-from .base import BaseAdapter
-from .legal import LegalAdapter
-from .medical import MedicalAdapter
-
-class AdapterRegistry:
-    @staticmethod
-    def create(domain: str, *, hooks: Optional[Dict[str, Any]] = None) -> BaseAdapter:
-        if domain == "legal":
-            return LegalAdapter(hooks=hooks)
-        if domain == "medical":
-            return MedicalAdapter(hooks=hooks)
-        return BaseAdapter(hooks=hooks)
+# Lazy import to avoid import cycles at startup
+def get_adapter(domain: str) -> Optional[DomainAdapter]:
+    d = (domain or "").strip().lower()
+    try:
+        if d in ("legal", "law"):
+            from .legal import LegalAdapter
+            return LegalAdapter()
+        if d in ("medical", "med", "health"):
+            from .medical import MedicalAdapter
+            return MedicalAdapter()
+        if d in ("defense", "def"):
+            from .defense import DefenseAdapter
+            return DefenseAdapter()
+    except Exception:
+        return None
+    return None

@@ -1,28 +1,55 @@
-# Phase Geometry
+# Phase Geometry (Basis5)
 
-LEE models evaluation as a compact phase machine:
+This page documents the **exact discrete geometry** used by LEE 3.0.
 
-- **ALIVE** — active evaluation
-- **JAM** — contradiction / blocking condition detected
-- **MEM** — archived / conserved state
-- **VAC** — quiescent (rare in the v3.0 pipeline)
+## Phases
 
-## Allowed transitions (v3.0)
+| Phase | Angle | Unit Vector |
+|------:|:-----:|:-----------:|
+| ALIVE |  0°   |  (1, 0)     |
+| JAM   |  90°  |  (0, 1)     |
+| MEM   | 180°  | (-1, 0)     |
 
-- `VAC → ALIVE`
-- `ALIVE → { MEM, JAM, VAC }`
-- `JAM → MEM`
-- `MEM → ALIVE`
+- Angles live in **ℤ/360ℤ**; we only use multiples of **90°**.
+- Vectors are integer unit vectors on **ℤ²**. No floats, no amplitudes.
 
-In practice for contradiction-like inputs we emit **ALIVE → JAM → MEM** in history, while the **final phase** remains **MEM**.
+## Rotations
 
-## Provenance events
+- Allowed deltas: `{0, 90, 180, 270}` degrees.  
+- Composition is modular addition: `Δ(a→b) = angle(b) - angle(a) mod 360`.
 
-Per run we record:
-- **start** — domain/session context
-- **prenorm** — input normalization (e.g., `IMPLIES → ->`)
-- **enrich** — domain enrichment (adapters)
-- **detect** — contradiction detection (`phase_after="JAM"`)
+```python
+from src.core.basis5 import project_phase, rotation_delta_deg, transition_basis
 
-Artifacts live next to the JSON log:
-- `*.prov.jsonl`, `*.timeline.md`, `*.timeline.dot`, `*.svg`
+print(project_phase("ALIVE"))   # {'phase':'ALIVE','angle_deg':0,'vec':{'x':1,'y':0}}
+print(rotation_delta_deg("ALIVE","JAM"))  # 90
+print(transition_basis("ALIVE","MEM"))
+# {'before':{...},'after':{...},'delta_deg':180}
+```
+
+## Winding (per run)
+
+`build_winding(phases)` accumulates the rotation across a phase trace and summarizes it.
+
+```python
+from src.core.basis5 import build_winding
+w = build_winding(["ALIVE","JAM","MEM"])
+print(w["summary"])
+# {'total_winding_deg': 180, 'avg_vector': {'x': {'num':0,'den':3}, 'y': {'num':1,'den':3}}, 'unique_phases':['ALIVE','JAM','MEM']}
+```
+
+## Witness projection
+
+`witness_basis(expr)` projects integer flags from syntax; e.g. implication (`1 -> 0`) or local refutation (`p & ~p`).
+
+```python
+from src.core.basis5 import witness_basis
+print(witness_basis("1 -> 0"))     # {'jam':1,'detach':1,'mp':1}
+print(witness_basis("p & ~p"))     # {'jam':1,'refute':1}
+print(witness_basis("1 -> 1"))     # {'jam':0}
+```
+
+## Invariants
+
+- **Discrete rotation conservation**: closed loops sum to multiples of `360°`.
+- **Detachment preservation**: implication witnesses survive into MEM and are recorded in enrichment/provenance.

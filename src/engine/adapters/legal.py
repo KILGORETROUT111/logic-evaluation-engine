@@ -22,3 +22,21 @@ class LegalAdapter(BaseAdapter):
                 pass
 
         return out
+
+from __future__ import annotations
+import re
+from typing import Dict, List
+from .base import DomainAdapter
+
+class LegalAdapter(DomainAdapter):
+    def __init__(self) -> None:
+        super().__init__(name="legal")
+
+    def analyze(self, text: str) -> Dict:
+        s = text.strip()
+        # patterns: "A implies B", "A results in B", "A entails B", "A causes B"
+        m = re.search(r"\b([A-Za-z][\w]*)\s+(implies|results in|entails|causes)\s+([A-Za-z][\w]*)\b", s, re.I)
+        if m:
+            p, rel, q = m.group(1), m.group(2).lower(), m.group(3)
+            return {"pattern": f"{p} -> {q}", "tags": [f"rel:{rel}", "implication:nl"]}
+        return {}

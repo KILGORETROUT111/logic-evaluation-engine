@@ -1,0 +1,7 @@
+idx,expr,domain,phase,elapsed_ms,log_json,log_svg,enrichment
+1,@',legal,MEM,0.369,data\logs\smoke_0001_20250811_094954_802972.json,data\logs\smoke_0001_20250811_094954_802972.svg,"{'domain': 'legal', 'pattern': ""@'"", 'score': 0.5, 'tags': []}"
+2,1 -> 0,legal,MEM,0.119,data\logs\smoke_0002_20250811_094954_919030.json,data\logs\smoke_0002_20250811_094954_919030.svg,"{'domain': 'legal', 'pattern': '1 -> 0', 'score': 0.5, 'tags': ['implication', 'boolean']}"
+3,1 -> 1,legal,MEM,0.066,data\logs\smoke_0003_20250811_094954_974683.json,data\logs\smoke_0003_20250811_094954_974683.svg,"{'domain': 'legal', 'pattern': '1 -> 1', 'score': 0.5, 'tags': ['implication', 'boolean']}"
+4,p & ~p  # CONTRADICTION,legal,MEM,0.056,data\logs\smoke_0004_20250811_094955_015156.json,data\logs\smoke_0004_20250811_094955_015156.svg,"{'domain': 'legal', 'pattern': 'p & ~p  # CONTRADICTION', 'score': 0.5, 'tags': []}"
+5,1 IMPLIES 0,legal,MEM,0.067,data\logs\smoke_0005_20250811_094955_049472.json,data\logs\smoke_0005_20250811_094955_049472.svg,"{'domain': 'legal', 'pattern': '1 -> 0', 'score': 0.5, 'tags': ['implication', 'boolean']}"
+6,'@ | Set-Content -Encoding UTF8 inputs.txt,legal,MEM,0.049,data\logs\smoke_0006_20250811_094955_072996.json,data\logs\smoke_0006_20250811_094955_072996.svg,"{'domain': 'legal', 'pattern': ""'@ | Set-Content -Encoding UTF8 inputs.txt"", 'score': 0.5, 'tags': []}"

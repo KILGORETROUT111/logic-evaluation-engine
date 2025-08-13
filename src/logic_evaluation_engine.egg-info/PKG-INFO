@@ -1,8 +1,19 @@
 Metadata-Version: 2.4
 Name: logic-evaluation-engine
-Version: 3.0.0
-Summary: Logic Evaluation Engine v3.0 reboot
-Author: Alexander Patterson
+Version: 3.0.0.dev0
+Summary: LEE v3.0 – Logic Evaluation Engine (basis5, NL→λ→pipeline)
+Author: William Alexander Patterson
 License: MIT
 Requires-Python: >=3.10
 Description-Content-Type: text/markdown
+
+---
+
+## Inspiration
+
+![Billy Joel - Live in Uniondale, December 29, 1982](docs/billy-joel-uniondale-1982.png)
+> **"Happy New Year Long Island. And don’t take any shit from anybody!"**  
+> — Billy Joel, [Live in Uniondale (December 29, 1982)](https://www.youtube.com/watch?v=wDEvqyiRpzE&t=5596s)
+
+This project, like Billy said, is about doing the work right — and not taking any crap from broken logic, bad data, or bloated design.
+

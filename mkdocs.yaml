@@ -1,26 +1,36 @@
 site_name: Logic Evaluation Engine
 site_url: https://kilgoretrout111.github.io/logic-evaluation-engine/
+repo_url: https://github.com/KILGORETROUT111/logic-evaluation-engine
+repo_name: logic-evaluation-engine
+edit_uri: edit/v3.0/docs/
+
 theme:
   name: material
-  features:
-    - navigation.sections
-    - navigation.indexes
-    - content.code.copy
 extra:
   version:
     provider: mike
-nav:
-  - Overview: index.md
-  - Getting Started: getting-started.md
-  - Phase Geometry: phase-geometry.md
-  - API:
-      - API Overview: api.md
-      - Adapter Hooks: adapter-hooks.md
-  - Contributing: contributing.md
+
 plugins:
   - search
+
 markdown_extensions:
   - admonition
   - toc:
       permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - tables
+  - def_list
   - attr_list
+
+nav:
+  - Logic Evaluation Engine:
+      - Overview: index.md
+      - Getting Started: getting-started.md
+      - Phase Geometry: phase-geometry.md
+      - Provenance: provenance.md
+      - Pipeline: pipeline.md
+      - API: api.md
+      - Adapter Hooks: adapter-hooks.md
+      - Contributing: contributing.md
+  - 404: 404.md

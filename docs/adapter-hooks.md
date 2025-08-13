@@ -1,32 +1,75 @@
-# Adapter Hooks
+# Adapter Hooks (Legal / Medical)
 
-Adapters provide domain enrichments during the `enrich` stage of the pipeline. In tests/demos we often **monkeypatch** hooks onto `src.engine.pipeline` so `Pipeline` discovers them at import time.
+**Goal:** keep domain logic thin and explicit. Adapters may enrich signals, but the **Basis5 geometry remains the source of phase dynamics**.
 
-## Hook names & signatures
+## Locations
 
-- `dm_classify(text: str) -> str`  
-  Divergence classification (e.g., `"low"`, `"hi-risk"`).
-- `ner_extract(text: str) -> list[dict]`  
-  Simple NER payloads.
-- `cf_analyze(text: str) -> dict`  
-  Counterfactual analysis.
+```
+src/engine/adapters/
+  base.py      # shared types/helpers (already present)
+  legal.py     # thin legal shim
+  medical.py   # thin medical shim
+```
 
-## Example (monkeypatch + run)
+## Interfaces
+
+Each adapter can expose some/all of the following optional callables. The pipeline probes them with `raising=False` and proceeds if missing.
 
 ```python
-import importlib
-import src.engine.pipeline as pl
-from src.engine import Pipeline
+# legal.py
+def cf_analyze(expr: str) -> dict | None:
+    """Optional. Counterfactual analysis (used as an enrichment field)."""
 
-pl.dm_classify = lambda s: "hi-risk"
-pl.ner_extract = lambda s: [{"text": "1"}]
-pl.cf_analyze  = lambda s: {"flag": "cf-ok"}
-importlib.reload(pl)
+# medical.py
+def dm_classify(expr: str) -> str | None:
+    """Optional. Divergence/clinical risk classification: e.g. 'low' | 'hi-risk'. """
 
-p = Pipeline(log_name="hooks_demo", domain="medical", enable_provenance=True, session="t")
-res = p.run("1 -> 0")
+def ner_extract(expr: str) -> list[dict] | None:
+    """Optional. Simple NER results: [{"text": "1"}, ...]."""
+```
 
-# Enrichment becomes part of detect details in provenance:
-# detect.details.enrichment == {'domain': 'medical', 'pattern': '1 -> 0', 'score': 0.5,
-#                               'tags': ['implication', 'boolean'], 'risk': 'hi-risk',
-#                               'entities': [{'text': '1'}], 'counterfactual': {'flag': 'cf-ok'}}
+## Example stubs (safe defaults)
+
+```python
+# src/engine/adapters/legal.py
+def cf_analyze(expr: str):
+    if "->" in expr or "IMPLIES" in expr:
+        return {"counterfactual": True}
+    return None
+```
+
+```python
+# src/engine/adapters/medical.py
+def dm_classify(expr: str):
+    return "low"
+
+def ner_extract(expr: str):
+    return []
+```
+
+## How the pipeline uses them
+
+- After prenorm and before detect, the pipeline builds `enrichment` and includes any adapter outputs under stable keys:
+  - Legal: enrichment['counterfactual'] = {...} when present
+  - Medical: enrichment['risk'] = 'low'|'hi-risk', enrichment['ner'] = [...]
+- Additionally, enrichment carries basis5_witness projected from the normalized expression.
+
+Resulting provenance detect event (excerpt):
+
+```json
+{
+  "kind": "detect",
+  "phase_after": "JAM",
+  "details": {
+    "enrichment": {
+      "domain": "legal",
+      "pattern": "1 -> 0",
+      "tags": ["implication","boolean"],
+      "basis5_witness": {"jam":1,"detach":1,"mp":1},
+      "counterfactual": {"flag": "cf-ok"}
+    }
+  }
+}
+```
+
+Adapters remain non-authoritative: they annotate, they do not steer phases.

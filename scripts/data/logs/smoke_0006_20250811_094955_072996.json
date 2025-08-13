@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "log_name": "smoke_0006",
+    "domain": "legal",
+    "session": "batch",
+    "elapsed_ms": 0.049,
+    "run_id": "226b826c1fbb4e7a"
+  },
+  "history": {
+    "phases": [
+      "ALIVE",
+      "JAM",
+      "MEM"
+    ],
+    "run_id": "226b826c1fbb4e7a"
+  },
+  "norm": "'@ | Set-Content -Encoding UTF8 inputs.txt"
+}

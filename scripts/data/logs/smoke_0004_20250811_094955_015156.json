@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "log_name": "smoke_0004",
+    "domain": "legal",
+    "session": "batch",
+    "elapsed_ms": 0.056,
+    "run_id": "bd40d030b36a4c41"
+  },
+  "history": {
+    "phases": [
+      "ALIVE",
+      "JAM",
+      "MEM"
+    ],
+    "run_id": "bd40d030b36a4c41"
+  },
+  "norm": "p & ~p  # CONTRADICTION"
+}

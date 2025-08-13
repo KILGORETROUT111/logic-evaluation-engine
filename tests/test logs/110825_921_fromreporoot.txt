@@ -1,0 +1,80 @@
+# from repo root
+python scripts\run_once.py --expr "1 -> 0" --domain legal --log quick
+python scripts\run_once.py --expr "1 IMPLIES 0" --domain legal --log legal_demo
+python scripts\run_once.py --expr "1 -> 0" --domain medical --log med_demo
+python scripts\print_last_run.py
+
+
+
+
+PS C:\Users\Dell> cd "C:\Users\Dell\Documents\logic-evaluation-engine-3.0"
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0> python scripts\run_once.py --expr "1 -> 0" --domain legal --log quick
+{
+  "phase": "MEM",
+  "history": {
+    "phases": [
+      "ALIVE",
+      "JAM",
+      "MEM"
+    ],
+    "run_id": "833b597a45be4509"
+  },
+  "log_json": "data\\logs\\quick_20250811_091930_602937.json",
+  "log_svg": "data\\logs\\quick_20250811_091930_602937.svg",
+  "enrichment(last_detect)": {
+    "domain": "legal",
+    "pattern": "1 -> 0",
+    "score": 0.5,
+    "tags": [
+      "implication",
+      "boolean"
+    ]
+  }
+}
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0> python scripts\run_once.py --expr "1 IMPLIES 0" --domain legal --log legal_demo
+{
+  "phase": "MEM",
+  "history": {
+    "phases": [
+      "ALIVE",
+      "JAM",
+      "MEM"
+    ],
+    "run_id": "738064060f1840bf"
+  },
+  "log_json": "data\\logs\\legal_demo_20250811_091945_325079.json",
+  "log_svg": "data\\logs\\legal_demo_20250811_091945_325079.svg",
+  "enrichment(last_detect)": {
+    "domain": "legal",
+    "pattern": "1 -> 0",
+    "score": 0.5,
+    "tags": [
+      "implication",
+      "boolean"
+    ]
+  }
+}
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0> python scripts\run_once.py --expr "1 -> 0" --domain medical --log med_demo
+{
+  "phase": "MEM",
+  "history": {
+    "phases": [
+      "ALIVE",
+      "JAM",
+      "MEM"
+    ],
+    "run_id": "58cd04f44eb54d73"
+  },
+  "log_json": "data\\logs\\med_demo_20250811_091958_205745.json",
+  "log_svg": "data\\logs\\med_demo_20250811_091958_205745.svg",
+  "enrichment(last_detect)": {
+    "domain": "medical",
+    "pattern": "1 -> 0",
+    "score": 0.3,
+    "risk": "low"
+  }
+}
+PS C:\Users\Dell\Documents\logic-evaluation-engine-3.0> python scripts\print_last_run.py
+Newest: data\logs\med_demo_20250811_091958_205745.json
+Summary: {'domain': 'medical', 'final_phase': None}
+Enrichment(last_detect): {'domain': 'medical', 'pattern'

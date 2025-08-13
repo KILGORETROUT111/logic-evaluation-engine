@@ -1,11 +1,9 @@
 # Getting Started
 
-## Requirements
-- Python **3.10+** (tested with 3.13)
-- `pip`
-
-## Install (editable)
-```bash
+## Install
+```powershell
 git clone https://github.com/KILGORETROUT111/logic-evaluation-engine.git
 cd logic-evaluation-engine
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
 pip install -e .

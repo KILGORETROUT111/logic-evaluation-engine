@@ -1,0 +1,4 @@
+digraph phases {
+  "ALIVE" -> "JAM";
+  "JAM" -> "MEM";
+}

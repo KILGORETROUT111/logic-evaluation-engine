@@ -1,0 +1,4 @@
+{"run_id": "bd40d030b36a4c41", "step": 1, "kind": "start", "phase_before": null, "phase_after": "ALIVE", "reason": "init", "details": {"domain": "legal", "session": "batch"}}
+{"run_id": "bd40d030b36a4c41", "step": 2, "kind": "prenorm", "phase_before": "MEM", "phase_after": "MEM", "reason": "canon", "details": {"input": "p & ~p  # CONTRADICTION", "normalized": "p & ~p  # CONTRADICTION"}}
+{"run_id": "bd40d030b36a4c41", "step": 3, "kind": "enrich", "phase_before": "MEM", "phase_after": "MEM", "reason": "domain-enrichment", "details": {"domain": "legal", "pattern": "p & ~p  # CONTRADICTION", "score": 0.5, "tags": []}}
+{"run_id": "bd40d030b36a4c41", "step": 4, "kind": "detect", "phase_before": "MEM", "phase_after": "JAM", "reason": "no-contradiction", "details": {"enrichment": {"domain": "legal", "pattern": "p & ~p  # CONTRADICTION", "score": 0.5, "tags": []}}}

@@ -1,0 +1,6 @@
+Set-Content -Encoding UTF8 .\scripts\inputs.txt @"
+1 -> 0
+1 -> 1
+p & ~p  # CONTRADICTION
+1 IMPLIES 0
+"@

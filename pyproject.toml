@@ -1,17 +1,25 @@
 [build-system]
-requires = ["setuptools"]
+requires = ["setuptools>=69", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "logic-evaluation-engine"
-version = "3.0.0"
-description = "Logic Evaluation Engine v3.0 reboot"
-authors = [
-    { name = "Alexander Patterson" }
-]
+version = "3.0.0"   # <- bump from 3.0.0.dev0
+description = "LEE v3.0 – Logic Evaluation Engine (basis5, NL→λ→pipeline)"
 readme = "README.md"
-license = { text = "MIT" }
 requires-python = ">=3.10"
+authors = [{ name = "William Alexander Patterson" }]
+license = { text = "MIT" }
+dependencies = []
 
-[tool.pytest.ini_options]
-pythonpath = ["src"]
+# Console script entrypoint
+[project.scripts]
+lee = "cli:main"
+
+# Tell setuptools we're using src/ layout
+[tool.setuptools]
+package-dir = {"" = "src"}
+py-modules = ["cli"]  # src/cli.py
+
+[tool.setuptools.packages.find]
+where = ["src"]

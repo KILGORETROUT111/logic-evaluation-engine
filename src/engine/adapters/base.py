@@ -13,3 +13,14 @@ class BaseAdapter:
             "score": 0.0,
             "tags": [],
         }
+from __future__ import annotations
+from dataclasses import dataclass
+from typing import Dict, Optional
+
+@dataclass
+class DomainAdapter:
+    name: str
+
+    def analyze(self, text: str) -> Dict:
+        """Return {'pattern': 'P -> Q', 'tags': [...]} when recognized; else {}."""
+        return {}
