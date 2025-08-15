@@ -7,6 +7,12 @@ Where other inference tools produce “best guesses,” LEE generates **provable
 
 ---
 
+> **🧠 Research Collaboration Opportunity — Neuroscience**  
+> LEE’s phase-geometry engine has produced **toroidal low–high dimensional manifolds** closely matching cortical grid-cell activity seen in *Nature* (2011, 2024) — despite being developed independently of neuroscience models. Its **counterfactual multi-object testing** enables hypothesis generation that could point to *as-yet unobserved* cortical configurations.  
+> [Read the full call for neuroscience collaboration →](#-call-for-research-collaboration--neuroscience)
+
+---
+
 ## Why LEE Now
 Medical diagnostics, legal analysis, and defense intelligence all face the same core challenge:  
 **How do you ensure that your reasoning engine is correct, stable, and explainable — every time, under all conditions?**
@@ -78,6 +84,22 @@ LEE does not replace vertical-specific tooling — it **sits alongside**, evalua
 
 ---
 
+## 📢 Call for Research Collaboration — Neuroscience
+LEE’s phase-geometry inference engine has, in multiple independent runs, produced **toroidal low–high dimensional manifold activity** strikingly consistent with cortical grid-cell dynamics reported in *Nature* (2011, 2024).  
+Unlike purely biologically grounded models, LEE was developed independently — yet its **compucognitive architecture** naturally generates manifold structures both **within and beyond known cortical constraints**.
+
+Through its **counterfactual multi-object testing** (patients, cases, or plug-in domains), LEE can probe “what-if” reasoning paths in ways that align with hypothesis generation in experimental neuroscience.  
+This raises a compelling possibility: LEE could serve as a **computational discovery tool**, suggesting novel cortical configurations that may later be tested in vivo or in silico.
+
+We invite collaboration with systems neuroscientists, computational modelers, and cognitive architecture researchers to explore:
+- How LEE’s emergent manifolds map to cortical activity patterns
+- Whether beyond-topology configurations offer new experimental targets
+- How counterfactual manifold analysis could accelerate cortical hypothesis formation
+
+**If your research investigates brain-state manifolds or neural dynamics, LEE may offer a new computational lens to expand your discovery space.**
+
+---
+
 ## Next Steps
 - Extend vertical partnerships for domain-specific pilots.
 - Secure funding to scale compute, optimize engine parameters, and expand metric suite.
@@ -87,3 +109,4 @@ LEE does not replace vertical-specific tooling — it **sits alongside**, evalua
 
 **Author:** William Alexander Patterson  
 **License:** [GNU General Public License version 3](https://opensource.org/license/gpl-3-0)
+
