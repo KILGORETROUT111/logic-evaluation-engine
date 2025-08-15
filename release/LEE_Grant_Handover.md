@@ -34,5 +34,8 @@ The Logic Evaluation Engine (LEE) is a novel inference framework built on phase-
 3. Applied pilots in medical diagnostics and legal review.
 
 ---
-*Author: Alexander Patterson*  
-*This work includes original research by the author and an attributed external contribution (Logical Bianchi Identity v2).*
+*Author: William Alexander Patterson* 
+
+*This work constitutes solely original research by the author*
+
+*GNU General Public License version 3*
