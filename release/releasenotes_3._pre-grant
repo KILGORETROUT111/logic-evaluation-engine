@@ -1,0 +1,34 @@
+## 🚀 Logic Evaluation Engine (LEE) — v3.1-pre-grant
+
+This is the pre‑grant milestone for LEE — a phase‑geometry inference engine for counterfactual reasoning and diagnostic evaluation.
+
+### 🔹 Key Innovations
+- Original contributions (A. Patterson):
+  - Phase‑geometry mapping from material implication truth tables
+  - Identity of conjugate quantities in logical systems
+  - StressIndex, Winding, Resistance metrics
+- Externally inspired refinement (attributed):
+  - Logical Bianchi Identity v2 (conservation analogue + residual audit)
+
+### 📊 Demonstrated Capabilities
+- StressIndex — strain in logical flow
+- Resistance — persistence of strain
+- Bianchi Residual — conservation of contradiction current
+- Reproducible: metrics computed from provenance logs
+
+### 🛠 Current Status
+- Working engine, docs, tests
+- Provenance logging wired
+- Example smoke runs available
+
+### 🌍 Applications & Impact
+- Medical diagnostics, legal reasoning, AI safety (stability under contradiction)
+
+### 📅 Next (6–12 months if funded)
+1. Time‑weighted StressIndex
+2. Manifold distortion analysis
+3. Applied pilots (medical/legal)
+
+### 📄 Attachments
+- `release/LEE_Grant_Handover.pdf`
+- `release/LEE_Grant_Handover.md`
