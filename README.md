@@ -64,12 +64,13 @@ LEE does not replace vertical-specific tooling — it **sits alongside**, evalua
 
 ## Maturity & Funding Readiness
 - **Status:** Fully functional engine, metrics, provenance, automated tests.
-- **Grant-Ready:** Public GitHub release (`v3.1-pre-grant`) includes code, docs, and reproducible runs.
+- **Grant-Ready:** Public GitHub release (`v3.1-pre-grant` [See Release v3.1-pre-grant →](https://github.com/KILGORETROUT111/logic-evaluation-engine/releases/tag/v3.1-pre-grant)) includes code, docs, and reproducible runs.
 - **Next Milestones (6–12 months):**
   1. Time-weighted StressIndex for temporal instability detection.
   2. Expanded manifold distortion analysis.
   3. Field pilots in medical, legal, and defense environments.
 
+[GNU General Public License version 3](https://opensource.org/license/gpl-3-0)
 ---
 
 ## Technical Overview (Basis5)
