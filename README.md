@@ -10,6 +10,10 @@ Where other inference tools produce “best guesses,” LEE generates **provable
 > **🧠 Research Collaboration Opportunity — Neuroscience**  
 > LEE’s phase-geometry engine has produced **toroidal low–high dimensional manifolds** closely matching cortical grid-cell activity seen in *Nature* (2011, 2024) — despite being developed independently of neuroscience models. Its **counterfactual multi-object testing** enables hypothesis generation that could point to *as-yet unobserved* cortical configurations.  
 > [Read the full call for neuroscience collaboration →](#-call-for-research-collaboration--neuroscience)
+>
+>  A graphical preview here →
+> 
+> <img width="825" height="825" alt="image" src="https://github.com/user-attachments/assets/b8b11c6a-3642-4dab-b20e-1160bd3d7ab6" />
 
 ---
 
