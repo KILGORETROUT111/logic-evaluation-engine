@@ -13,7 +13,7 @@ Where other inference tools produce “best guesses,” LEE generates **provable
 >
 >  A graphical preview here →
 > 
-> <img width="825" height="825" alt="image" src="https://github.com/user-attachments/assets/b8b11c6a-3642-4dab-b20e-1160bd3d7ab6" />
+> <img width="350" height="350" alt="image" src="https://github.com/user-attachments/assets/b8b11c6a-3642-4dab-b20e-1160bd3d7ab6" />
 
 ---
 
@@ -73,8 +73,7 @@ LEE does not replace vertical-specific tooling — it **sits alongside**, evalua
   1. Time-weighted StressIndex for temporal instability detection.
   2. Expanded manifold distortion analysis.
   3. Field pilots in medical, legal, and defense environments.
-
-[GNU General Public License version 3](https://opensource.org/license/gpl-3-0)
+  
 ---
 
 ## Technical Overview (Basis5)
