@@ -1,0 +1,18 @@
+{
+  "run_id": "bd40d030b36a4c41",
+  "phases": [
+    "ALIVE",
+    "JAM",
+    "MEM"
+  ],
+  "rotation_deltas_deg": [
+    90,
+    90
+  ],
+  "total_winding_deg": 180,
+  "jam_ratio": 0.333333,
+  "resistance": 0.25,
+  "stress_index": 0.166666,
+  "used_timestamps": false,
+  "notes": "jam_ratio approximated by step ratio; refine if state durations are available in provenance. Jam ratio derived from phase trace distribution."
+}

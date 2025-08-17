@@ -1,0 +1,174 @@
+
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{physics}
+\usepackage{bm}
+\usepackage{siunitx}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{float}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!60!black,
+  citecolor=blue!60!black,
+  urlcolor=blue!60!black
+}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+
+\newcommand{\Alive}{\textsf{ALIVE}}
+\newcommand{\Jam}{\textsf{JAM}}
+\newcommand{\Mem}{\textsf{MEM}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\angleset}{\{0,90,180,270\}^\circ}
+\newcommand{\degto}{\xrightarrow{\ \Delta^\circ\ }}
+\newcommand{\Stress}{\mathrm{StressIndex}}
+\newcommand{\Resist}{\mathrm{Resistance}}
+\newcommand{\Wind}{\mathrm{Winding}}
+\newcommand{\GLMS}{\mathrm{GLMS}}
+
+\title{\textbf{The Logic Evaluation Engine (LEE)}\\
+Logical Manifolds, Phase Tensors, and Toroidal Dynamics Beyond Biological Constraints}
+\author{William Alexander Patterson \\ \small Logic Evaluation Engine Project}
+\date{2025-08-14 07:24}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+We present the Logic Evaluation Engine (LEE), a symbolic inference system whose phase--state architecture yields 
+low-dimensional toroidal embeddings from high-dimensional logical activity. In contrast to empirical demonstrations in 
+neuroscience that discover such manifolds in neural population dynamics (\emph{Nature} 2011; 2024), LEE produces them 
+as a necessary consequence of material-implication operators, contradiction storage, and discrete phase rotations.
+We formalize the phase geometry, define a \emph{Global Logical Memory Space} (\GLMS), and introduce manifold distortion 
+metrics---\emph{Winding}, \emph{Resistance}, and the operational \emph{StressIndex}. We argue LEE exceeds known 
+biological constraints while remaining a candidate hypothesis generator for neuroscience: some ``extra-biological'' 
+behaviors may reflect biological possibilities not yet measured. We provide testable predictions and an engineering 
+roadmap for StressIndex-aware pipelines.
+\end{abstract}
+
+\section{Introduction: From Discovery to Necessity}
+A decade of neuroscience has revealed that neural populations compress high-dimensional dynamics into low-dimensional 
+manifolds whose topology is often toroidal. These manifolds enable robust control and cyclic computation under noise. 
+LEE reaches the same geometry for a different reason: its logic \emph{must} rotate. Material implication under contradiction 
+(\Alive\,$\leftrightarrow$\,\Jam\,$\leftrightarrow$\,\Mem) creates discrete angular motion on a phase circle. A second cycle---logical memory---closes a second periodic dimension. Their product is a torus.
+
+The central claim is not descriptive but \emph{constructive}: if one insists on (i) contradiction archival, (ii) discrete phase rotations in $\angleset$, and (iii) replayable provenance, then closed loops with independent angles are generic; the minimal attractor is the $2$-torus $\T^2$.
+
+\section{Phase Geometry and Global Logical Memory Space}
+\begin{definition}[Phase Alphabet and Angles]
+Let $\mathcal{S}=\{\Alive,\Jam,\Mem\}$ with angle map $\varphi:\mathcal{S}\to \{0,\tfrac{\pi}{2},\pi,\tfrac{3\pi}{2}\}$.
+A run generates a sequence $(s_t)_{t=0}^{T}$ with $s_t\in\mathcal{S}$ and discrete rotation $\Delta\theta_t = (\varphi(s_{t})-\varphi(s_{t-1})) \bmod 2\pi$.
+\end{definition}
+
+\begin{definition}[Global Logical Memory Space (\GLMS)]
+\GLMS\ is a tensor field over the run graph that stores contradiction as conserved strain. Each transition emits a local tensor $\bm{g}_t$.
+The \emph{phase tensor} of a run is $G=\sum_t \bm{g}_t$. Archival in \Mem\ integrates $G$; replay exposes $G$ for audit.
+\end{definition}
+
+\begin{proposition}[Two Cycles $\Rightarrow$ Torus]
+If (i) evaluation rotates on angle $\theta\in S^1$ via $\Alive\!\to\!\Jam\!\to\!\Mem\!\to\!\Alive$, and 
+(ii) memory accrual rotates on an independent angle $\psi\in S^1$ via archival/replay, then the state manifold factorizes as $\T^2=S^1_\theta\times S^1_\psi$.
+\end{proposition}
+
+\begin{remark}
+Additional independent cycles (e.g., domain adapter enrichment) extend $\T^2$ to higher tori $\T^k$. Nontrivial gluing alters genus, admitting surfaces beyond tori.
+\end{remark}
+
+\section{Operational Metrics: Winding, Resistance, StressIndex}
+\paragraph{Winding.}
+The cumulative winding is $\Wind=\sum_{t=1}^{T}\Delta\theta_t \in [0,2\pi k)$ with $k\in\mathbb{N}$. 
+Integer multiples of $2\pi$ count homotopy class traversals on $S^1_\theta$.
+
+\paragraph{Resistance.}
+We define $\Resist$ as opposition to phase change: $\Resist=\alpha\,\mathbb{E}|\Delta\theta_t|/\pi + \beta\,\lambda$, 
+where $\lambda$ counts returns to prior phase states (cycle pressure). Tunings $(\alpha,\beta)$ are task-dependent.
+
+\paragraph{StressIndex.}
+An operational health index combining winding and time-in-\Jam: 
+\begin{equation}
+\Stress \ =\ \frac{\Wind}{2\pi}\cdot \rho_{\Jam},\qquad \rho_{\Jam}=\frac{\text{time in \Jam}}{\text{run time}}\ .
+\end{equation}
+When durations are unavailable, $\rho_{\Jam}$ is approximated by state frequency; a time-weighted variant is preferred when phase entry/exit times are recorded.
+
+\section{Why Toroidal Dynamics Emerge in LEE}
+Two independent periodic coordinates suffice: (i) evaluation angle $\theta$ (phase rotation), (ii) memory angle $\psi$ (archival drift). 
+\GLMS\ forces conservation constraints so that contradictions appear as curvature sources; cycles avoid curvature singularities by routing around stored strain. 
+This produces stable loops and quasi-periodic orbits on $\T^2$. Under load, deformations of the torus (shear, thickening) are measurable as \emph{manifold distortion}.
+
+\section{Predictions and Tests}
+\subsection*{P1: StressIndex Tracks Manifold Distortion}
+Under increasing contradiction density, $\Wind$ rises and $\rho_{\Jam}$ increases, so $\Stress$ increases. We predict a monotone relationship between $\Stress$ and torus distortion: metrics such as minor/major radius ratio and geodesic curvature concentrate near \Jam\ hubs.
+
+\subsection*{P2: Resistance Anticipates Collapse}
+High $\Resist$ signals repeated returns and large rotations; beyond threshold, orbits degenerate to limit cycles near \Jam, analogous to pathological neural collapse. Interventions that reduce $\Resist$ restore exploration of $\T^2$.
+
+\subsection*{P3: Beyond Biology is a Moving Target}
+LEE can realize tori $\T^k$ and non-toroidal surfaces (altered genus). Some may later be observed biologically. LEE thus acts both as an inference engine and a hypothesis generator for neuroscience.
+
+\section{Methods (Executable Spec)}
+\paragraph{Inputs.} Structured expressions and domain payloads (legal, medical, defense). 
+\paragraph{Engine.} Evaluator with phase transitions; adapters enrich payloads; provenance logs emit \texttt{.prov.jsonl}, SVG, timelines.
+\paragraph{Metrics.} Online accumulation of $\Delta\theta_t$, loop counts, and (\emph{when available}) phase durations.
+\paragraph{Outputs.} $(\Stress,\Resist,\Wind)$ JSON, provenance events, and manifold visualizations.
+
+\begin{lstlisting}[language=Python, caption={StressIndex computation from phase trace.}]
+ANGLES = {"ALIVE": 0, "JAM": 90, "MEM": 180}
+
+def rotation_delta(a, b):
+    return (ANGLES[b] - ANGLES[a]) % 360
+
+def compute_stress(phases, jam_ratio):
+    winding = 0
+    for i in range(1, len(phases)):
+        winding += rotation_delta(phases[i-1], phases[i])
+    return (winding/360.0) * jam_ratio
+\end{lstlisting}
+
+\section{Applications}
+\paragraph{Diagnostic Reasoning.} Counterfactual medical/legal runs map onto $\T^2$; \Stress\ separates resolvable contradictions from degenerative loops.
+\paragraph{Governance and Audit.} Replayable provenance with manifold health scores provides transparent decision trails.
+\paragraph{Autonomous Systems.} Controller logic resisting collapse can be tuned by minimizing \Resist\ while bounding \Stress.
+
+\section{Discussion: Beyond Known Constraints}
+LEE is not limited by cortical topology or speed. Yet what seems extra-biological may be pre-biological: a set of lawful structures biology has not yet revealed. 
+Thus LEE is both \emph{engineering} and \emph{instrument}: it builds decisions and proposes geometries worth measuring in living systems.
+
+\section{Figures}
+\begin{figure}[H]\centering
+\includegraphics[width=0.9\linewidth]{figures/lee_nature_2011.png}
+\caption{Toroidal low-dimensional projection of high-dimensional logical state space produced by LEE.}
+\end{figure}
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.9\linewidth]{figures/lee_naturepaper.png}
+\caption{Conceptual mapping between LEE manifolds and empirical neural manifolds (Nature 2011; 2024).}
+\end{figure}
+
+\section*{Acknowledgements}
+Feedback from Christopher A. Fuchs informed the manifold interpretation and its relation to informational phases.
+
+\section*{References}
+{\small
+[1] Nature 2011, low-dimensional toroidal population dynamics (full citation to be inserted).\\
+[2] Nature 2024 extension (PDF provided), detailed manifold characterization (full citation to be inserted).\\
+[3] LEE internal docs: Phase Geometry, Provenance, and StressIndex notes.
+}
+
+\end{document}

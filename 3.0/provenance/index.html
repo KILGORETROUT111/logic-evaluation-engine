@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#provenance" class="md-skip">
+        <a href="#exhaustibility-provenance-basis5-taxonomy" class="md-skip">
           Skip to content
         </a>
       
@@ -339,8 +339,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Provenance
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -353,6 +364,32 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exhaustibility-provenance-basis5-taxonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exhaustibility Provenance (Basis5 Taxonomy)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -497,8 +534,23 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exhaustibility-provenance-basis5-taxonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exhaustibility Provenance (Basis5 Taxonomy)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -517,16 +569,33 @@
   
 
 
-<h1 id="provenance">Provenance<a class="headerlink" href="#provenance" title="Permanent link">&para;</a></h1>
-<p>When <code>enable_provenance=True</code>, LEE writes:
-- <code>&lt;log&gt;.prov.jsonl</code> – line-delimited events
-- <code>&lt;log&gt;.svg</code> – compact timeline
-- <code>&lt;log&gt;.json</code> – run summary</p>
-<p>Events you’ll see: <code>start</code>, <code>prenorm</code>, <code>rewrite</code>, <code>enrich</code>, <code>detect</code>, <code>transition</code>.</p>
-<p>```python
-from pathlib import Path
-log = Path(res["log_json"])
-print(log.with_suffix(".prov.jsonl").read_text().splitlines()[:3])</p>
+  <h1>Provenance</h1>
+
+<h2 id="exhaustibility-provenance-basis5-taxonomy">Exhaustibility Provenance (Basis5 Taxonomy)<a class="headerlink" href="#exhaustibility-provenance-basis5-taxonomy" title="Permanent link">&para;</a></h2>
+<p>Every experiment can record its mathlog-to-code status.</p>
+<p><strong>JSONL schema (added fields):</strong>
+```json
+{
+  "ts": "2025-08-17T21:11:03+0000",
+  "event": "stress_index_run",
+  "payload": {
+    "run_id": "demo-001",
+    "dataset": "demo",
+    "stress_index": 0.742,
+    "winding": 1.0,
+    "resistance": 0.18,
+    "bianchi_residual": 0.013,
+    "duration_s": 2.41
+  },
+  "exhaustibility_class": "I",
+  "evidence": ["complexity_upper_bound","approx_algo_v1"],
+  "reviewer": "WAP-IV",
+  "context": {
+    "cli": { "...": "..." },
+    "git_rev": "e7a9c3d",
+    "machine": "LEE-WS01"
+  }
+}</p>
 
 
 

@@ -404,6 +404,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#stressindex" class="md-nav__link">
+    <span class="md-ellipsis">
+      StressIndex
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resistance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resistance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#figure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Figure
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -628,6 +655,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#stressindex" class="md-nav__link">
+    <span class="md-ellipsis">
+      StressIndex
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resistance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resistance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#figure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Figure
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -711,6 +765,30 @@
 <li><strong>Discrete rotation conservation</strong>: closed loops sum to multiples of <code>360°</code>.</li>
 <li><strong>Detachment preservation</strong>: implication witnesses survive into MEM and are recorded in enrichment/provenance.</li>
 </ul>
+<hr />
+<h2 id="stressindex">StressIndex<a class="headerlink" href="#stressindex" title="Permanent link">&para;</a></h2>
+<p>The <strong>StressIndex</strong> measures accumulated logical strain in a run. It is a function of:
+- <strong>Total winding degrees</strong> (cumulative angular displacement across phases)
+- <strong>Transition density</strong> (phase changes per unit time/steps)
+- <strong>Jam persistence</strong> (duration spent in JAM without resolution)</p>
+<p>A simple baseline metric:</p>
+<div class="highlight"><pre><span></span><code>StressIndex = (total_winding_deg / 360) * jam_ratio
+# where jam_ratio = jam_time / run_time
+</code></pre></div>
+<p>Interpretation:
+- <strong>Low (&lt;0.2)</strong> – stable reasoning
+- <strong>Moderate (0.2–0.5)</strong> – contradictions present, resolvable
+- <strong>High (&gt;0.5)</strong> – potential deadlock or over-constraint</p>
+<hr />
+<h2 id="resistance">Resistance<a class="headerlink" href="#resistance" title="Permanent link">&para;</a></h2>
+<p><strong>Resistance</strong> is a measure of opposition to phase change. It increases with:
+- Mean absolute rotation delta per transition
+- Number of return cycles to a prior phase state
+- Prolonged stalls near JAM without resolution</p>
+<p>Use Resistance alongside StressIndex to diagnose stability under load.</p>
+<hr />
+<h2 id="figure">Figure<a class="headerlink" href="#figure" title="Permanent link">&para;</a></h2>
+<p><img alt="Phase Rotation Operators" src="../figures/20250813-154511_resistance_graph_derived.png" /></p>
 
 
 
