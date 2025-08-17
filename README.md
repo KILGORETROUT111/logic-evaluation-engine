@@ -6,7 +6,7 @@
 > **"Happy New Year Long Island. And don’t take any shit from anybody!"**  
 > — Billy Joel, [Live in Uniondale (December 29, 1982)](https://www.youtube.com/watch?v=wDEvqyiRpzE&t=5596s)
 
-This project, like Billy said, is about doing the work right — and not taking any crap from broken logic, bad data, or bloated design.
+This project, like Billy said, is about doing the work right — and not taking any crap from anyone: not when they insist on broken logic, bad data, or bloated design, not when they step think they can talk shit in your presence.
 
 
 ## Executive Summary
