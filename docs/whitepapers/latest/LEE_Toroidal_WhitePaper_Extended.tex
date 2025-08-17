@@ -1,0 +1,82 @@
+
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{Toroidal Phase Space and Beyond-Biological Manifold Dynamics in the Logic Evaluation Engine (LEE)}
+\author{William Alexander Patterson}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The Logic Evaluation Engine (LEE) exhibits a toroidal phase space structure emergent from its treatment of material implication as a phase rotation operator. 
+This white paper details the independently-discovered toroidal topology, its convergence with recent neuroscience literature, and its extension beyond biological constraints. 
+We formalize manifold distortion metrics to evaluate logical state "health" and integrate the StressIndex framework to quantify resilience and instability within logical inference flows. 
+Finally, we explore speculative but plausible medical applications where LEE could model potential biological configurations not yet observed in nature, providing a computational lens for discovery.
+\end{abstract}
+
+\section{Background}
+LEE was not inspired by neuroscience research, but rather developed from first principles in computational logic. 
+In mid-2025, external observers noted its strong visual and structural similarity to toroidal low-dimensional embeddings of high-dimensional brain activity (Nature, 2011; Nature, 2024). 
+This observation came after the explicit development of a toroidal phase space within LEE's phase geometry module. 
+Given LEE's independence from these inspirations, the similarities are convergent, arising from shared geometric constraints in dynamical systems.
+
+\section{Mathematical Framework}
+LEE models logical propositions as state vectors in a high-dimensional phase space. 
+Material implication, $P \rightarrow Q$, is operationalized as a rotation in a complex-valued tensor space, mapping onto a toroidal embedding when projected into low dimensions.
+
+Let $\mathbf{x}(t) \in \mathbb{C}^n$ be the logical state vector at time $t$. 
+The core update rule for material implication is:
+\begin{equation}
+\mathbf{x}(t + \Delta t) = R_{\theta} \mathbf{x}(t),
+\end{equation}
+where $R_{\theta}$ is a unitary rotation matrix with $\theta$ derived from the logical truth table's phase geometry.
+
+The toroidal structure arises when constraining:
+\begin{align}
+\|\mathbf{x}\| &= r_1, \\
+\|\Pi_{\perp} \mathbf{x}\| &= r_2,
+\end{align}
+with $r_1$ and $r_2$ representing the major and minor radii, respectively. The dynamics preserve these norms under ideal inference conditions.
+
+\section{Manifold Distortion Metrics}
+To quantify the ``health'' of LEE's logical state space, we define a distortion metric $D$ comparing the instantaneous manifold embedding to the idealized torus:
+\begin{equation}
+D(t) = \frac{1}{N} \sum_{i=1}^N \left| \|\mathbf{x}_i(t)\| - r_1 \right| + \left| \|\Pi_{\perp} \mathbf{x}_i(t)\| - r_2 \right|.
+\end{equation}
+High $D(t)$ indicates deviation from the invariant manifold, analogous to neural misfiring or logical instability.
+
+\section{StressIndex Integration}
+The StressIndex $S$ is defined as a time-weighted integral over distortion:
+\begin{equation}
+S = \frac{1}{T} \int_{0}^{T} w(t) D(t) \, dt,
+\end{equation}
+where $w(t)$ is a weighting function emphasizing recent deviations. 
+This formalism allows LEE to diagnose not only static distortion but also temporal instability patterns, enabling intervention or reconfiguration of logical pathways before critical failures occur.
+
+\section{Beyond-Biological Constraints}
+While analogous to structures in biological systems (LEE was developed independently of research in biological systems), LEE's dimensionality is not limited by cortical topology or evolutionary constraints. 
+Its manifold embedding can extend to $n \gg 3$ while retaining toroidal projections in select subspaces. 
+We hypothesize that such embeddings could model potential biological configurations beyond currently known limits, offering predictive scenarios for neuroinformatics and synthetic cognition research.
+
+\section{Discussion}
+The independent emergence of a toroidal manifold in LEE suggests that certain geometric attractors are universal to information-processing systems, regardless of substrate. 
+By formalizing manifold distortion metrics and integrating them with the StressIndex, we gain a rigorous diagnostic for logical system stability.
+
+Speculatively, LEE could provide a simulation platform for exploring hypothetical biological manifolds. 
+For example, distortions that lead to pathological logical inference in LEE might correspond to undetected or rare neurological conditions. 
+Conversely, stable configurations discovered in silico might inspire new therapeutic targets or AI-augmented neuroprosthetics.
+
+\section{Conclusion}
+LEE's toroidal phase space is both a practical computational construct and a bridge to interdisciplinary research. 
+By combining strict logical formalism with geometric diagnostic tools, we open pathways to novel AI architectures and potentially transformative biomedical applications.
+
+\bibliographystyle{unsrt}
+\bibliography{lee_toroidal}
+\end{document}

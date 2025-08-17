@@ -1,0 +1,22 @@
+*** a/src/engine/provenance.py
+--- b/src/engine/provenance.py
+@@
+ class Recorder:
+@@
+     def transition(self, before: str, after: str, details: dict | None = None):
+         self._write({
+             "event": "transition",
+             "before": before,
+             "after": after,
+             "details": details or {},
+         })
++
++    # NEW: stress index event
++    def stress_index(self, value: float, winding_deg: int, jam_ratio: float, resistance: float):
++        self._write({
++            "event": "stress_index",
++            "value": value,
++            "winding_deg": winding_deg,
++            "jam_ratio": jam_ratio,
++            "resistance": resistance,
++        })

@@ -3,3 +3,5 @@
 {"run_id": "a656a121268d4b9d", "domain": "legal", "pattern": "1 -> 0", "phase": "MEM", "final_phase": "MEM", "elapsed_ms": 0.038}
 {"run_id": "71514fb454814cfc", "domain": "legal", "pattern": "1 -> 0", "phase": "MEM", "final_phase": "MEM", "elapsed_ms": 0.038}
 {"run_id": "2ee87ba497b34ad8", "domain": "legal", "pattern": "1 -> 0", "phase": "MEM", "final_phase": "MEM", "elapsed_ms": 0.05}
+{"run_id": "b02465eaf9c24197", "domain": "legal", "pattern": "1 -> 0", "phase": "MEM", "final_phase": "MEM", "elapsed_ms": 0.037}
+{"run_id": "e0533ad5fc644921", "domain": "legal", "pattern": "1 -> 0", "phase": "MEM", "final_phase": "MEM", "elapsed_ms": 0.039}

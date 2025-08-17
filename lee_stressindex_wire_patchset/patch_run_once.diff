@@ -1,0 +1,20 @@
+*** a/scripts/run_once.py
+--- b/scripts/run_once.py
+@@
+-import argparse, json
++import argparse, json, pathlib
+@@
+ parser = argparse.ArgumentParser()
+ parser.add_argument("--expr", type=str, default="1 -> 0")
+ parser.add_argument("--domain", type=str, default="legal")
+ parser.add_argument("--log", type=str, default="quick")
++parser.add_argument("--emit-stress", action="store_true", help="Emit StressIndex metrics JSON next to the run log")
+@@
+ res = evaluator.run(args.expr)
+ print(json.dumps(res, indent=2))
++
++# NEW: optionally emit standalone stress metrics JSON
++if args.emit_stress and "stress" in res:
++    out = pathlib.Path(f"{args.log}_StressIndex_metrics.json")
++    out.write_text(json.dumps(res["stress"], indent=2), encoding="utf-8")
++    print(f"[stress] wrote {out}")

@@ -1,0 +1,51 @@
+*** a/src/engine/evaluator.py
+--- b/src/engine/evaluator.py
+@@
+-from typing import Any, Dict
++from typing import Any, Dict
++
++# NEW: StressIndex metrics
++try:
++    from src.analytic.stress_index import compute_stress_metrics
++except Exception:  # fallback for relative imports in some envs
++    from ..analytic.stress_index import compute_stress_metrics
+@@
+ class Evaluator:
+     def __init__(self, recorder, memory, domain: str = "generic", **kwargs):
+         self.recorder = recorder
+         self.memory = memory
+         self.domain = domain
+         self.kwargs = kwargs
+@@
+     def run(self, expr: Any) -> Dict[str, Any]:
+         history = {"phases": ["ALIVE"]}
+         self.recorder.start(expr=expr, domain=self.domain)
+@@
+-        # ... existing evaluation logic mutates history["phases"] via transitions
++        # ... existing evaluation logic mutates history["phases"] via transitions
+@@
+-        result = {
++        result = {
+             "ok": True,
+             "domain": self.domain,
+             "history": history,
+         }
++
++        # NEW: StressIndex emission (count-based, upgrade to time-weighted later)
++        try:
++            stress = compute_stress_metrics(history.get("phases", []))
++            result["stress"] = stress
++            # write into provenance as a dedicated event
++            if getattr(self.recorder, "stress_index", None):
++                self.recorder.stress_index(
++                    value=stress.get("stress_index"),
++                    winding_deg=stress.get("total_winding_deg"),
++                    jam_ratio=stress.get("jam_ratio"),
++                    resistance=stress.get("resistance"),
++                )
++        except Exception as e:
++            # Non-fatal: keep run output even if stress calc fails
++            result["stress_error"] = str(e)
+@@
+         self.recorder.end(result=result)
+         return result

@@ -1,0 +1,17 @@
+{
+  "phases": [
+    "ALIVE",
+    "JAM",
+    "MEM"
+  ],
+  "rotation_deltas_deg": [
+    90,
+    90
+  ],
+  "total_winding_deg": 180,
+  "jam_ratio": 0.0,
+  "resistance": 0.25,
+  "stress_index": 0.0,
+  "used_timestamps": false,
+  "notes": "Jam ratio from provenance step counts when available; otherwise from phase trace."
+}

@@ -1,0 +1,25 @@
+*** a/scripts/run_batch.py
+--- b/scripts/run_batch.py
+@@
+-import argparse, json, pathlib
++import argparse, json, pathlib
+@@
+ parser = argparse.ArgumentParser()
+ parser.add_argument("--file", type=str, default="scripts/inputs.txt")
+ parser.add_argument("--domain", type=str, default="legal")
+ parser.add_argument("--log-prefix", type=str, default="smoke")
++parser.add_argument("--emit-stress", action="store_true", help="Emit StressIndex metrics JSON for each run")
+@@
+ for i, line in enumerate(open(args.file, "r", encoding="utf-8")):
+     expr = line.strip()
+     if not expr:
+         continue
+     log_name = f"{args.log_prefix}_{i:04d}"
+     res = evaluator.run(expr)
+     out = pathlib.Path(f"{log_name}.json")
+     out.write_text(json.dumps(res, indent=2), encoding="utf-8")
++    if args.emit_stress and "stress" in res:
++        (pathlib.Path(f"{log_name}_StressIndex_metrics.json")).write_text(
++            json.dumps(res["stress"], indent=2),
++            encoding="utf-8"
++        )

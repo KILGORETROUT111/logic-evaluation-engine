@@ -1,0 +1,35 @@
+
+\section{Basis5 Taxonomy of MathLog$\rightarrow$Code Exhaustibility}
+
+This section formalizes three classes distinguishing constructs that LEE can \emph{implement} from those it can only \emph{define}. Each class carries explicit \emph{proof obligations}.
+
+\subsection{Class I --- Exhaustible (Resource‑Constrained Implementable)}
+\textbf{Definition.} Algorithms and representations exist; implementation is blocked by practical resources (time, memory, scale).\\
+\textbf{Theory analogue.} Decidable classes (e.g., P/NP/PSPACE) with high constants.\\
+\textbf{Proof obligations:} complexity bounds or approximation guarantees; reductions to known kernels; an engineering bill of resources.\\
+\textbf{LEE examples:} multi‑object counterfactual runs completed on HPC; fully time‑weighted StressIndex on large networks.
+
+\subsection{Class II --- Exhaustible (Translator/Technology‑Lagged Implementable)}
+\textbf{Definition.} Logically implementable, but no media‑translator (language/architecture/semantics) exists yet.\\
+\textbf{Theory analogue.} Constructive existence without a current operational mapping; unconventional computing.\\
+\textbf{Proof obligations:} constructive semantics for a DSL/IR; compilation strategy; soundness/completeness relative to the math object.\\
+\textbf{LEE examples:} phase‑geometry rotations requiring a new phase‑tensor IR; counterfactual branching with native provenance algebras.
+
+\subsection{Class III --- Non‑Exhaustible (Inherent Non‑Implementable)}
+\textbf{Definition.} Inherently non‑implementable due to undecidability or non‑constructive features; no faithful finite encoding.\\
+\textbf{Theory analogue.} Halting‑like undecidability; diagonal/no‑go arguments.\\
+\textbf{Proof obligations:} reduction from known undecidable problems; explicit boundary statements (approximable shadows vs. full object).\\
+\textbf{LEE examples:} global closure properties whose computation entails unbounded logical completion.
+
+\subsection{Decision Checklist (Triage)}
+\begin{center}
+\begin{tabular}{|p{6.5cm}|p{4.0cm}|p{1.2cm}|}
+\hline
+\textbf{Question} & \textbf{If Yes} & \textbf{Class} \\ \hline
+Do we have an algorithmic representation today? & but resource blow‑up blocks execution & I \\ \hline
+Can we define a constructive mapping with a new DSL/IR/hardware? & plausible and testable & II \\ \hline
+Does the construct imply undecidability or non‑constructive dependence? & provable & III \\ \hline
+\end{tabular}
+\end{center}
+
+\noindent \textbf{Integration.} Basis5LM uses this taxonomy for roadmap commitments; Basis5HM attaches formal proofs for class placement. Provenance logs should include \verb|"exhaustibility_class"| per experiment.

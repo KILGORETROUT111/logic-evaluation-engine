@@ -53,3 +53,41 @@ print(witness_basis("1 -> 1"))     # {'jam':0}
 
 - **Discrete rotation conservation**: closed loops sum to multiples of `360°`.
 - **Detachment preservation**: implication witnesses survive into MEM and are recorded in enrichment/provenance.
+
+---
+
+## StressIndex
+
+The **StressIndex** measures accumulated logical strain in a run. It is a function of:
+- **Total winding degrees** (cumulative angular displacement across phases)
+- **Transition density** (phase changes per unit time/steps)
+- **Jam persistence** (duration spent in JAM without resolution)
+
+A simple baseline metric:
+
+```
+StressIndex = (total_winding_deg / 360) * jam_ratio
+# where jam_ratio = jam_time / run_time
+```
+
+Interpretation:
+- **Low (<0.2)** – stable reasoning
+- **Moderate (0.2–0.5)** – contradictions present, resolvable
+- **High (>0.5)** – potential deadlock or over-constraint
+
+---
+
+## Resistance
+
+**Resistance** is a measure of opposition to phase change. It increases with:
+- Mean absolute rotation delta per transition
+- Number of return cycles to a prior phase state
+- Prolonged stalls near JAM without resolution
+
+Use Resistance alongside StressIndex to diagnose stability under load.
+
+---
+
+## Figure
+
+![Phase Rotation Operators](figures/20250813-154511_resistance_graph_derived.png)
