@@ -6,7 +6,7 @@
 > **"Happy New Year Long Island. And don’t take any shit from anybody!"**  
 > — Billy Joel, [Live in Uniondale (December 29, 1982)](https://www.youtube.com/watch?v=wDEvqyiRpzE&t=5596s)
 
-This project, like Billy said, is about doing the work right — and not taking any crap from anyone: not when they insist on broken logic, bad data, bloated design; and not when they think they can talk shit to your face.
+This project, like Billy said, is about doing the work right — and not taking any crap from anyone: not when they insist on broken logic, bad data, bloated design; and especially not when they think they can talk any shit whatsoever in your presence. You may let them do it; but they'll know you've noted it.
 
 ## Executive Summary
 The **Logic Evaluation Engine (LEE)** is a next-generation inference system built on **phase-geometry logic**. It delivers deterministic, reproducible, and measurable reasoning performance — across Medical, Legal, and Defense domains — without the statistical drift or opaque heuristics common in competing engines.
