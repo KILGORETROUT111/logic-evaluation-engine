@@ -29,6 +29,14 @@ Where other inference tools produce “best guesses,” LEE generates **provable
 
 ---
 
+## Logic Evaluation Engine (LEE) — for Researchers: LEE is an inference framework built on phase geometry and counterfactual dynamics. 
+U.S. Provisional Patent Application filed: Patent Pending.
+Whitepapers and math details are maintained in /docs/whitepapers for reference.
+
+## The Logic Evaluation Engine (LEE) — for funding, strategists, angels, and grantors: LEE introduces a novel method for diagnostic and counterfactual inference.
+Intellectual property protection is underway: U.S. Provisional Patent Application filed (Patent Pending).
+Supporting research and technical documentation are maintained within the repository under /docs/whitepapers.
+
 ## Why LEE Now
 Medical diagnostics, legal analysis, and defense intelligence all face the same core challenge:  
 **How do you ensure that your reasoning engine is correct, stable, and explainable — every time, under all conditions?**
