@@ -1,0 +1,5 @@
+python scripts/compute_stress.py \
+    --summary scripts/data/logs/<run>.json \
+    --prov-out scripts/data/logs/<run>.prov.jsonl \
+    --exhaustibility-class I --evidence approx_algo_v1 runtime_truncation \
+    --reviewer WAP-IV
