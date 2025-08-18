@@ -1,0 +1,53 @@
+LEE-LDDL1.1
+
+# Logic Evaluation Engine – Phase-Resolved Diagnostic Inference
+
+This release documents and discloses the novel logical architecture, rotation mechanism, and inference structure behind the Logic Evaluation Engine (LEE). Specifically:
+
+- Covariant phase-based truth rotation: `mem → alive → jam → mem`
+- Conjugate contradiction tracking and forked evaluation branches
+- Phase-state rotation and logical resolution engine geometry
+- Diagnostic trace memory coherence and inference probes
+- Dual-mode implementation: CLI + RESTful endpoint logic
+
+## Purpose of Disclosure
+
+This bundle constitutes a formal **defensive disclosure** and **licensing declaration** for intellectual property protection. It places the key mechanisms of LEE into the public record under a limited demonstration and diagnostic license (LEE-LDDL v1.1), with all commercial rights reserved to the author.
+
+It includes:
+
+- Provisional patent
+- Reference code snapshots and output traces
+- License declaration: `LICENSE.txt` (LEE-LDDL v1.1)
+
+The Logic Evaluation Engine (LEE) Core — including code and modules in /evaluation, /core, /utils —
+is licensed under a RESTRICTED-USE license.
+
+You MAY:
+- View, fork, and study the source code for research, academic, and personal use.
+
+You MAY NOT:
+- Embed LEE in any commercial system, proprietary platform, or automated inference product.
+- Use LEE as a backend for legaltech, medtech, AI, or decision-making tools intended for deployment.
+
+This repository initially used GPL-3.0 as a placeholder license during early research development,
+pending clarification of intellectual property boundaries. As of this revision, LEE is designated
+as a restricted-use system under bespoke licensing terms.
+
+If you wish to deploy or embed LEE in a commercial, governmental, or AI-integrated application,
+please contact:
+
+📧 dianoetic@tuta.com
+
+Violation of this license may result in legal action.
+
+## Usage Rights
+
+The Logic Evaluation Engine and its documented inference system may be evaluated, tested, and reviewed for **non-commercial purposes**. Derivative or commercial use is **explicitly prohibited** without written consent of the author.
+
+Formal licensing or integration inquiries may be directed via:
+- GitHub: [https://github.com/KILGORETROUT111/logic-evaluation-engine](https://github.com/KILGORETROUT111/logic-evaluation-engine)
+
+Logic Evaluation Engine (LEE)
+Copyright © 2025 William Alexander Patterson
+
