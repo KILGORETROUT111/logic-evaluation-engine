@@ -1,5 +1,9 @@
 # Logic Evaluation Engine (LEE)
 
+A system for logic evaluation via phase geometry and counterfactual inference.  
+
+⚖️ **Patent Pending** (USPTO Provisional Application)
+
 ## Some Inspiration
 
 ![Billy Joel - Live in Uniondale, December 29, 1982](docs/billy-joel-uniondale-1982.png)
