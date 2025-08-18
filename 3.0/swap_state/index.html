@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://kilgoretrout111.github.io/logic-evaluation-engine/3.0/provenance.updated/">
+        <link rel="canonical" href="https://kilgoretrout111.github.io/logic-evaluation-engine/3.0/swap_state/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Provenance - Logic Evaluation Engine</title>
+        <title>LEE · SWAP STATE (for next AI/operator) - Logic Evaluation Engine</title>
       
     
     
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#provenance" class="md-skip">
+        <a href="#lee-swap-state-for-next-aioperator" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Provenance
+              LEE · SWAP STATE (for next AI/operator)
             
           </span>
         </div>
@@ -491,9 +491,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#winding-and-resistance-in-provenance" class="md-nav__link">
+  <a href="#0-project-coordinates" class="md-nav__link">
     <span class="md-ellipsis">
-      Winding and Resistance in Provenance
+      0) Project Coordinates
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-current-phase-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      1) Current Phase &amp; Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-state-of-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      2) State of Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-data-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      3) Data &amp; Outputs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-exhaustibility-tracking-basis5-taxonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      4) Exhaustibility Tracking (Basis5 Taxonomy)
     </span>
   </a>
   
@@ -518,32 +554,48 @@
   
 
 
-<h1 id="provenance">Provenance<a class="headerlink" href="#provenance" title="Permanent link">&para;</a></h1>
-<p>When <code>enable_provenance=True</code>, LEE writes:
-- <code>&lt;log&gt;.prov.jsonl</code> – line-delimited events
-- <code>&lt;log&gt;.svg</code> – compact timeline
-- <code>&lt;log&gt;.json</code> – run summary</p>
-<p>Events you’ll see: <code>start</code>, <code>prenorm</code>, <code>rewrite</code>, <code>enrich</code>, <code>detect</code>, <code>transition</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="n">log</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s2">&quot;log_json&quot;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">log</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">&quot;.prov.jsonl&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()[:</span><span class="mi">3</span><span class="p">])</span>
-
-<span class="o">---</span>
-
-<span class="c1">## StressIndex in Provenance</span>
-
-<span class="n">When</span> <span class="n">enabled</span><span class="p">,</span> <span class="n">StressIndex</span> <span class="n">entries</span> <span class="n">appear</span> <span class="ow">in</span> <span class="err">`</span><span class="o">.</span><span class="n">prov</span><span class="o">.</span><span class="n">jsonl</span><span class="err">`</span> <span class="k">with</span> <span class="n">winding</span> <span class="ow">and</span> <span class="n">jam</span> <span class="n">ratio</span> <span class="k">for</span> <span class="n">each</span> <span class="n">run</span> <span class="p">(</span><span class="ow">or</span> <span class="n">window</span><span class="p">):</span>
-
-<span class="err">```</span><span class="n">json</span>
-<span class="p">{</span><span class="s2">&quot;event&quot;</span><span class="p">:</span><span class="s2">&quot;stress_index&quot;</span><span class="p">,</span><span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="mf">0.38</span><span class="p">,</span><span class="s2">&quot;winding_deg&quot;</span><span class="p">:</span><span class="mi">180</span><span class="p">,</span><span class="s2">&quot;jam_ratio&quot;</span><span class="p">:</span><span class="mf">0.4</span><span class="p">}</span>
-</code></pre></div>
-<hr />
-<h2 id="winding-and-resistance-in-provenance">Winding and Resistance in Provenance<a class="headerlink" href="#winding-and-resistance-in-provenance" title="Permanent link">&para;</a></h2>
+<h1 id="lee-swap-state-for-next-aioperator">LEE · SWAP STATE (for next AI/operator)<a class="headerlink" href="#lee-swap-state-for-next-aioperator" title="Permanent link">&para;</a></h1>
+<p>Last updated: <YYYY-MM-DD> by <name/initials></p>
+<h2 id="0-project-coordinates">0) Project Coordinates<a class="headerlink" href="#0-project-coordinates" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Winding</strong> is stored as cumulative degrees and average phase vector.  </li>
-<li><strong>Resistance</strong> records cycle counts and mean rotation deltas across repeated transitions.</li>
+<li>Repo branch/tag: <v3.0 / v3.1-pre-grant / …></li>
+<li>Active vertical(s): <medical / legal / defense / …></li>
+<li>Patent: Provisional filed (Patent Pending). SB/16 + Spec + Drawings uploaded. Fee: <paid/pending>.</li>
+<li>Live docs index: /docs/whitepapers/README.md</li>
 </ul>
-<p>These metrics enable post-run diagnosis and replay validation.</p>
+<h2 id="1-current-phase-objectives">1) Current Phase &amp; Objectives<a class="headerlink" href="#1-current-phase-objectives" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Basis level: <Basis5LM | Basis5HM | Mixed></li>
+<li>Primary objective (next 1–2 weeks): <e.g., StressIndex end-to-end with time-weighting></li>
+<li>Secondary objective: <e.g., Bianchi residual v2 integration in provenance/stress></li>
+</ul>
+<h2 id="2-state-of-code">2) State of Code<a class="headerlink" href="#2-state-of-code" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Entry points:</li>
+<li><code>scripts/compute_stress.py</code> (CLI) — emits metrics + provenance</li>
+<li><code>scripts/prov_util.py</code> — <code>append_prov()</code> (JSONL)</li>
+<li>Important flags:</li>
+<li><code>--exhaustibility-class I|II|III</code></li>
+<li><code>--evidence &lt;tags…&gt;</code></li>
+<li><code>--prov-out &lt;path.prov.jsonl&gt;</code></li>
+<li>Latest good run: <run_id> → logs in <code>scripts/data/logs/&lt;run_id&gt;*</code></li>
+<li>Open code tasks:</li>
+<li>[ ] Add time-weighted StressIndex (true Δt weighting)</li>
+<li>[ ] Finalize Bianchi residual v2 computation &amp; thresholds</li>
+<li>[ ] Batch runner for multiple summaries</li>
+</ul>
+<h2 id="3-data-outputs">3) Data &amp; Outputs<a class="headerlink" href="#3-data-outputs" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Latest summary: <code>&lt;path to *.json&gt;</code></li>
+<li>Latest prov log: <code>&lt;path to *.prov.jsonl&gt;</code></li>
+<li>Latest figures: <code>&lt;paths to *.svg *.png&gt;</code></li>
+<li>Datasets in play: <list></li>
+</ul>
+<h2 id="4-exhaustibility-tracking-basis5-taxonomy">4) Exhaustibility Tracking (Basis5 Taxonomy)<a class="headerlink" href="#4-exhaustibility-tracking-basis5-taxonomy" title="Permanent link">&para;</a></h2>
+<ul>
+<li _exhaustibility_class_:_I_II_III_evidence_:_..._reviewer_:_WAP-IV_="&quot;exhaustibility_class&quot;:&quot;I|II|III&quot;,&quot;evidence&quot;:[&quot;...&quot;],&quot;reviewer&quot;:&quot;WAP-IV&quot;">Policy: record per run in prov JSONL:
+  ```json</li>
+</ul>
 
 
 

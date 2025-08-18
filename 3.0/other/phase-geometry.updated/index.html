@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://kilgoretrout111.github.io/logic-evaluation-engine/3.0/status/Project%20LEE-3.0%20Status%20%E2%80%94%2010.08.25%2015.48%20UTC%2B2%202/">
+        <link rel="canonical" href="https://kilgoretrout111.github.io/logic-evaluation-engine/3.0/other/phase-geometry.updated/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Project LEE-3.0 Status — 09–10/08/25 - Logic Evaluation Engine</title>
+        <title>Phase Geometry (Basis5) - Logic Evaluation Engine</title>
       
     
     
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#project-lee-30-status-09100825" class="md-skip">
+        <a href="#phase-geometry-basis5" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Project LEE-3.0 Status — 09–10/08/25
+              Phase Geometry (Basis5)
             
           </span>
         </div>
@@ -491,60 +491,72 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#phases" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      Phases
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#phase-completions" class="md-nav__link">
+  <a href="#rotations" class="md-nav__link">
     <span class="md-ellipsis">
-      ✅ Phase Completions
+      Rotations
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="✅ Phase Completions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#phase-12-memdb-integration-10-aug-2025" class="md-nav__link">
-    <span class="md-ellipsis">
-      Phase 12 — MEMDB Integration (10 Aug 2025)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pipeline-stability-patch-09-aug-2025" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pipeline Stability Patch (09 Aug 2025)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#test-framework-cleanup-09-aug-2025" class="md-nav__link">
-    <span class="md-ellipsis">
-      Test Framework Cleanup (09 Aug 2025)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#current-data-snapshot" class="md-nav__link">
+  <a href="#winding-per-run" class="md-nav__link">
     <span class="md-ellipsis">
-      📊 Current Data Snapshot
+      Winding (per run)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witness-projection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Witness projection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#invariants" class="md-nav__link">
+    <span class="md-ellipsis">
+      Invariants
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stressindex" class="md-nav__link">
+    <span class="md-ellipsis">
+      StressIndex
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resistance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resistance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#figure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Figure
     </span>
   </a>
   
@@ -569,69 +581,94 @@
   
 
 
-<h1 id="project-lee-30-status-09100825">Project LEE-3.0 Status — 09–10/08/25<a class="headerlink" href="#project-lee-30-status-09100825" title="Permanent link">&para;</a></h1>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>This log covers development milestones from <strong>9 August 2025</strong> through <strong>10 August 2025</strong> for the LEE v3.0 reboot cycle, aligned to the roadmap toward public demo readiness.</p>
-<hr />
-<h2 id="phase-completions">✅ Phase Completions<a class="headerlink" href="#phase-completions" title="Permanent link">&para;</a></h2>
-<h3 id="phase-12-memdb-integration-10-aug-2025"><strong>Phase 12 — MEMDB Integration</strong> <em>(10 Aug 2025)</em><a class="headerlink" href="#phase-12-memdb-integration-10-aug-2025" title="Permanent link">&para;</a></h3>
+<h1 id="phase-geometry-basis5">Phase Geometry (Basis5)<a class="headerlink" href="#phase-geometry-basis5" title="Permanent link">&para;</a></h1>
+<p>This page documents the <strong>exact discrete geometry</strong> used by LEE 3.0.</p>
+<h2 id="phases">Phases<a class="headerlink" href="#phases" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Phase</th>
+<th style="text-align: center;">Angle</th>
+<th style="text-align: center;">Unit Vector</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">ALIVE</td>
+<td style="text-align: center;">0°</td>
+<td style="text-align: center;">(1, 0)</td>
+</tr>
+<tr>
+<td style="text-align: right;">JAM</td>
+<td style="text-align: center;">90°</td>
+<td style="text-align: center;">(0, 1)</td>
+</tr>
+<tr>
+<td style="text-align: right;">MEM</td>
+<td style="text-align: center;">180°</td>
+<td style="text-align: center;">(-1, 0)</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li><strong>Objective:</strong> Introduce an in-memory + JSONL database to persist phase results for <em>legal</em> and <em>medical</em> diagnostic contexts.</li>
-<li><strong>Core Deliverables:</strong></li>
-<li><strong><code>src/engine/memdb.py</code></strong><ul>
-<li>Unified record store + patient/case segmented files.</li>
-<li>Append-on-write for JSONL; optional CSV export.</li>
-<li>CLI:</li>
-<li><code>python -m src.engine.memdb report</code></li>
-<li><code>python -m src.engine.memdb export</code></li>
+<li>Angles live in <strong>ℤ/360ℤ</strong>; we only use multiples of <strong>90°</strong>.</li>
+<li>Vectors are integer unit vectors on <strong>ℤ²</strong>. No floats, no amplitudes.</li>
 </ul>
-</li>
-<li><strong>Pipeline Enhancements:</strong><ul>
-<li>Added <code>patient_id</code>, <code>case_id</code>, <code>domain</code> arguments.</li>
-<li>Auto-store MEM phase results into MEMDB if IDs present.</li>
-</ul>
-</li>
-<li>
-<p><strong>Tests Implemented:</strong></p>
+<h2 id="rotations">Rotations<a class="headerlink" href="#rotations" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>tests/engine/test_phase12_memdb.py</code></li>
-<li><code>tests/engine/test_phase12_5_memdb_export.py</code></li>
-<li>Round-trip persistence + CSV export verified.</li>
+<li>Allowed deltas: <code>{0, 90, 180, 270}</code> degrees.  </li>
+<li>Composition is modular addition: <code>Δ(a→b) = angle(b) - angle(a) mod 360</code>.</li>
 </ul>
-</li>
-<li>
-<p><strong>Verification:</strong></p>
-</li>
-<li>All related unit tests pass (<code>pytest -q</code> clean).</li>
-<li>Manual runs confirmed MEMDB storage for both legal and medical cases.</li>
-<li>CSV generated at <code>data/analytics/memdb_export.csv</code>.</li>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">src.core.basis5</span><span class="w"> </span><span class="kn">import</span> <span class="n">project_phase</span><span class="p">,</span> <span class="n">rotation_delta_deg</span><span class="p">,</span> <span class="n">transition_basis</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">project_phase</span><span class="p">(</span><span class="s2">&quot;ALIVE&quot;</span><span class="p">))</span>   <span class="c1"># {&#39;phase&#39;:&#39;ALIVE&#39;,&#39;angle_deg&#39;:0,&#39;vec&#39;:{&#39;x&#39;:1,&#39;y&#39;:0}}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rotation_delta_deg</span><span class="p">(</span><span class="s2">&quot;ALIVE&quot;</span><span class="p">,</span><span class="s2">&quot;JAM&quot;</span><span class="p">))</span>  <span class="c1"># 90</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">transition_basis</span><span class="p">(</span><span class="s2">&quot;ALIVE&quot;</span><span class="p">,</span><span class="s2">&quot;MEM&quot;</span><span class="p">))</span>
+<span class="c1"># {&#39;before&#39;:{...},&#39;after&#39;:{...},&#39;delta_deg&#39;:180}</span>
+</code></pre></div>
+<h2 id="winding-per-run">Winding (per run)<a class="headerlink" href="#winding-per-run" title="Permanent link">&para;</a></h2>
+<p><code>build_winding(phases)</code> accumulates the rotation across a phase trace and summarizes it.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">src.core.basis5</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_winding</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">build_winding</span><span class="p">([</span><span class="s2">&quot;ALIVE&quot;</span><span class="p">,</span><span class="s2">&quot;JAM&quot;</span><span class="p">,</span><span class="s2">&quot;MEM&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="s2">&quot;summary&quot;</span><span class="p">])</span>
+<span class="c1"># {&#39;total_winding_deg&#39;: 180, &#39;avg_vector&#39;: {&#39;x&#39;: {&#39;num&#39;:0,&#39;den&#39;:3}, &#39;y&#39;: {&#39;num&#39;:1,&#39;den&#39;:3}}, &#39;unique_phases&#39;:[&#39;ALIVE&#39;,&#39;JAM&#39;,&#39;MEM&#39;]}</span>
+</code></pre></div>
+<h2 id="witness-projection">Witness projection<a class="headerlink" href="#witness-projection" title="Permanent link">&para;</a></h2>
+<p><code>witness_basis(expr)</code> projects integer flags from syntax; e.g. implication (<code>1 -&gt; 0</code>) or local refutation (<code>p &amp; ~p</code>).</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">src.core.basis5</span><span class="w"> </span><span class="kn">import</span> <span class="n">witness_basis</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">witness_basis</span><span class="p">(</span><span class="s2">&quot;1 -&gt; 0&quot;</span><span class="p">))</span>     <span class="c1"># {&#39;jam&#39;:1,&#39;detach&#39;:1,&#39;mp&#39;:1}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">witness_basis</span><span class="p">(</span><span class="s2">&quot;p &amp; ~p&quot;</span><span class="p">))</span>     <span class="c1"># {&#39;jam&#39;:1,&#39;refute&#39;:1}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">witness_basis</span><span class="p">(</span><span class="s2">&quot;1 -&gt; 1&quot;</span><span class="p">))</span>     <span class="c1"># {&#39;jam&#39;:0}</span>
+</code></pre></div>
+<h2 id="invariants">Invariants<a class="headerlink" href="#invariants" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Discrete rotation conservation</strong>: closed loops sum to multiples of <code>360°</code>.</li>
+<li><strong>Detachment preservation</strong>: implication witnesses survive into MEM and are recorded in enrichment/provenance.</li>
 </ul>
 <hr />
-<h3 id="pipeline-stability-patch-09-aug-2025"><strong>Pipeline Stability Patch</strong> <em>(09 Aug 2025)</em><a class="headerlink" href="#pipeline-stability-patch-09-aug-2025" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Objective:</strong> Address indentation and import scope errors affecting <code>Pipeline.run</code>.</li>
-<li><strong>Actions:</strong></li>
-<li>Normalized indentation to spaces across file.</li>
-<li>Fixed <code>memdb</code> reference scope to avoid <code>UnboundLocalError</code>.</li>
-<li>Added defensive checks for MEMDB activation in pipeline run loop.</li>
-<li><strong>Verification:</strong></li>
-<li>Smoke tests for Phase 10–12 pass.</li>
-<li>No regressions in Phase 5–11 execution.</li>
-</ul>
+<h2 id="stressindex">StressIndex<a class="headerlink" href="#stressindex" title="Permanent link">&para;</a></h2>
+<p>The <strong>StressIndex</strong> measures accumulated logical strain in a run. It is a function of:
+- <strong>Total winding degrees</strong> (cumulative angular displacement across phases)
+- <strong>Transition density</strong> (phase changes per unit time/steps)
+- <strong>Jam persistence</strong> (duration spent in JAM without resolution)</p>
+<p>A simple baseline metric:</p>
+<div class="highlight"><pre><span></span><code>StressIndex = (total_winding_deg / 360) * jam_ratio
+# where jam_ratio = jam_time / run_time
+</code></pre></div>
+<p>Interpretation:
+- <strong>Low (&lt;0.2)</strong> – stable reasoning
+- <strong>Moderate (0.2–0.5)</strong> – contradictions present, resolvable
+- <strong>High (&gt;0.5)</strong> – potential deadlock or over-constraint</p>
 <hr />
-<h3 id="test-framework-cleanup-09-aug-2025"><strong>Test Framework Cleanup</strong> <em>(09 Aug 2025)</em><a class="headerlink" href="#test-framework-cleanup-09-aug-2025" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Objective:</strong> Ensure clean test runs without stale bytecode or <code>__pycache__</code> conflicts.</li>
-<li><strong>Actions:</strong></li>
-<li>Integrated pre-test cleanup commands:
-    <div class="highlight"><pre><span></span><code><span class="nb">Get-ChildItem</span> <span class="n">-Recurse</span> <span class="n">-Directory</span> <span class="n">-Filter</span> <span class="s2">&quot;__pycache__&quot;</span> <span class="p">|</span> <span class="nb">Remove-Item</span> <span class="n">-Recurse</span> <span class="n">-Force</span>
-<span class="nb">Get-ChildItem</span> <span class="n">-Recurse</span> <span class="n">-Filter</span> <span class="s2">&quot;*.pyc&quot;</span> <span class="p">|</span> <span class="nb">Remove-Item</span> <span class="n">-Force</span>
-</code></pre></div></li>
-<li>Removed orphan <code>.pyc</code> files causing false test failures.</li>
-</ul>
+<h2 id="resistance">Resistance<a class="headerlink" href="#resistance" title="Permanent link">&para;</a></h2>
+<p><strong>Resistance</strong> is a measure of opposition to phase change. It increases with:
+- Mean absolute rotation delta per transition
+- Number of return cycles to a prior phase state
+- Prolonged stalls near JAM without resolution</p>
+<p>Use Resistance alongside StressIndex to diagnose stability under load.</p>
 <hr />
-<h2 id="current-data-snapshot">📊 Current Data Snapshot<a class="headerlink" href="#current-data-snapshot" title="Permanent link">&para;</a></h2>
-<p><strong>MEMDB Report</strong> (truncated):</p>
+<h2 id="figure">Figure<a class="headerlink" href="#figure" title="Permanent link">&para;</a></h2>
+<p><img alt="Phase Rotation Operators" src="figures/20250813-154511_resistance_graph_derived.png" /></p>
 
 
 
