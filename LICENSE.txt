@@ -1,0 +1,23 @@
+Logic Evaluation Engine (LEE)
+Copyright © 2025 Alexander Patterson
+
+The Logic Evaluation Engine (LEE) Core — including code and modules in /evaluation, /core, /utils —
+is licensed under a RESTRICTED-USE license.
+
+You MAY:
+- View, fork, and study the source code for research, academic, and personal use.
+
+You MAY NOT:
+- Embed LEE in any commercial system, proprietary platform, or automated inference product.
+- Use LEE as a backend for legaltech, medtech, AI, or decision-making tools intended for deployment.
+
+This repository initially used GPL-3.0 as a placeholder license during early research development,
+pending clarification of intellectual property boundaries. As of this revision, LEE is designated
+as a restricted-use system under bespoke licensing terms.
+
+If you wish to deploy or embed LEE in a commercial, governmental, or AI-integrated application,
+please contact:
+
+📧 dianoetic@tuta.com
+
+Violation of this license may result in legal action.
