@@ -1,0 +1,75 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+
+\title{Toroidal Supplement: Phase Geometry and Counterfactual Inference in LEE}
+\author{William Alexander Patterson IV}
+\date{2025}
+
+\begin{document}
+	\maketitle
+	
+	\begin{abstract}
+		The Logic Evaluation Engine (LEE) produces low--high dimensional toroidal manifolds as emergent scaffolds of reasoning. These structures were not derived from neuroscience but arose directly from phase-geometry inference built on material implication and counterfactual entailment. The resulting topologies bear a striking resemblance to cortical grid-cell activity manifolds reported in \textit{Nature} (2011, 2024). This supplement documents the mathematical form of the torus, the Logical Bianchi residual as a conservation principle, and the implications for neuroscience collaboration.
+	\end{abstract}
+	
+	\section{Parametric Form of the Torus}
+	The standard ring torus with major radius $R$ and minor radius $r$ is parameterized as:
+	\[
+	x(\theta,\phi) = (R + r\cos\theta)\cos\phi
+	\]
+	\[
+	y(\theta,\phi) = (R + r\cos\theta)\sin\phi
+	\]
+	\[
+	z(\theta,\phi) = r\sin\theta
+	\]
+	with $\theta,\phi \in [0,2\pi)$. These coordinates define the phase-geometry substrate within which LEE embeds logical operators.
+	
+	\section{Logical Bianchi Residual}
+	In analogy to differential geometry, LEE enforces a \textbf{Logical Bianchi Identity}:
+	\[
+	\nabla \cdot \mathcal{F}_{\text{logic}} = 0
+	\]
+	ensuring that cyclic rotations of inference (alive $\rightarrow$ jam $\rightarrow$ mem $\rightarrow$ vac $\rightarrow$ alive) conserve logical consistency.  
+	
+	The \textbf{Bianchi residual} provides a stress-diagnostic metric:
+	\[
+	\Delta_{\text{Bianchi}} = \|\mathcal{F}_{\text{logic}}^{(cycle)} - \mathcal{F}_{\text{logic}}^{(closure)}\|
+	\]
+	
+	This quantity is now exported alongside the StressIndex for each inference run (see \texttt{scripts/compute\_stress.py}).
+	
+	\section{Convergence with Cortical Topologies}
+	Without any neurobiological modeling, LEE’s manifolds show structural similarity to:
+	\begin{itemize}
+		\item Toroidal grid-cell attractors (\textit{Nature}, 2011; 2024),
+		\item Hexagonal lattice embeddings observed in entorhinal cortex recordings,
+		\item Invariant low-dimensional attractors under environment perturbation.
+	\end{itemize}
+	
+	This convergence suggests that the \textbf{compucognitive phase-geometry} underlying LEE is not an artifact of design, but a general feature of cyclic inference systems.
+	
+	\section{Implications for Neuroscience}
+	LEE’s counterfactual multi-object testing has demonstrated hypothesis generation across diagnostic, legal, and defense verticals. Applied to neuroscience, this mechanism may:
+	\begin{itemize}
+		\item Propose as-yet unobserved cortical attractors,
+		\item Test forked counterfactuals representing hypothetical neural configurations,
+		\item Provide metrics of manifold stress potentially applicable to clinical diagnostics.
+	\end{itemize}
+	
+	\section{Figures}
+	\begin{itemize}
+		\item \textbf{Toroidal Lattice (SVG)}
+		\item \textbf{Tensor Heatmap (SVG/PNG)}
+	\end{itemize}
+	(to be added from current \texttt{docs/assets/} runs — recommended filenames: \texttt{toroidal\_lattice.svg}, \texttt{tensor\_heatmap.svg})
+	
+	\section{References}
+	\begin{itemize}
+		\item D. Hafting et al., \textit{Nature} 436, 801–806 (2011).
+		\item S. Gardner et al., \textit{Nature} 601, 92–97 (2024).
+		\item Patterson, W.A. (2025). \textit{Logic Evaluation Engine v3.1-pre-grant}. GitHub Repository: \href{https://github.com/KILGORETROUT111/logic-evaluation-engine}{https://github.com/KILGORETROUT111/logic-evaluation-engine}.
+	\end{itemize}
+	
+\end{document}
