@@ -135,4 +135,186 @@ We invite collaboration with systems neuroscientists, computational modelers, an
 **License:** [GNU General Public License version 3](https://opensource.org/license/gpl-3-0)
 
 
+---
+
+# Note on Phase-8 Core Snapshot
+
+## Logic Evaluation Engine (LEE) — Phase-8 Core Snapshot (.md)
+
+**Scope.** This is a plain-Markdown artifact for academics and engineers.
+It documents the Phase-8 core evaluator, the archive/reactivation pathway, the
+counterfactual Δ-phase operator, and the deterministic phase history policy.
+Images are embedded directly; no LaTeX/PDF pipeline is required.
+
+---
+
+## 0) Quickstart (tests)
+
+```powershell
+cd C:\Users\Dell\Documents\logic-evaluation-engine-3.0
+$env:PYTHONPATH = "$pwd\src"
+pytest -q -rA tests\phase8_acceptance
+````
+
+**Expected (current snapshot):** All Phase-8 core tests pass; parser/WHNF tests
+may be skipped if `core.parser` is not present on `PYTHONPATH`.
+
+---
+
+## 1) Core Contracts (Operational Summary)
+
+* **Evaluator contract.** On input AST/text, `evaluate_full` **wakes** (MEM→ALIVE),
+  runs contradiction detection, and if a witness exists, **routes ALIVE→JAM**, emits
+  `{mode, witness}`, archives the artifact, then **JAM→MEM**.
+* **Invariant I₁ (Phase monotonicity).** In a single run, `ALIVE` precedes `JAM`
+  precedes `MEM` iff a JAM witness exists.
+* **Invariant I₂ (Archive completeness).** Every `JAM` event has a persisted archive
+  record with `{mode, witness.pattern}` and `{artifact_id}`.
+* **Counterfactual policy.** Region-A transformations keep you in A (A→A); promotion
+  to actionable (A→B) happens only under explicit rules.
+* **Determinism.** For a fixed input, phase history is deterministic; the trace hash is stable.
+
+---
+
+## 2) Figures (raw engine artifacts)
+
+
+
+![Phase Tensor Heatmap](https://github.com/KILGORETROUT111/logic-evaluation-engine/blob/v3.0/docs/assets/tensor_heatmap.svg) 
+
+# Phase coherence values across P(a)…S(a).
+
+---
+
+# Tensor Lattice (logic connectivity)
+![Tensor Lattice](https://github.com/KILGORETROUT111/logic-evaluation-engine/blob/v3.0/docs/assets/tensor_lattice.svg) 
+
+# Connectivity/winding lattice used for path diagnostics.
+
+---
+
+![Phase Tensor Matrix](https://github.com/KILGORETROUT111/logic-evaluation-engine/blob/v3.0/docs/assets/phase_tensor_matrix.png "Phase Tensor Coherence Matrix")
+
+# Symmetry and off-diagonal relations.
+
+---
+
+![Phase Components](https://github.com/KILGORETROUT111/logic-evaluation-engine/blob/v3.0/docs/assets/phase_tensor_plot.png "PhaseTensor Component Decomposition")
+
+# cosθ/sinθ components across measured angles.
+
+---
+
+![Winding History](https://github.com/KILGORETROUT111/logic-evaluation-engine/blob/v3.0/docs/assets/winding_history_phase_space.png "Winding History in Phase Space")
+
+# Polar plot of ALIVE→…→MEM cycles and returns.
+
+---
+
+## 3) Archive & Reactivation (JAM→MEM→ALIVE)
+
+* **When `analyze(expr)` finds a contradiction**, the engine:
+
+  1. logs `Event("JAM", {"mode": <local-refutation|implication-jam>, "archived_id": <UUID>})`
+  2. persists archive record via `core.archive.store`,
+  3. transitions `JAM→MEM`.
+* **Reactivation:** `core.archive.reactivate(artifact_id, rules_prime)` replays
+  the artifact in a patched context, returning a fresh trace that **begins in ALIVE**.
+
+**Minimal JAM example (implication row):**
+
+```python
+expr = ("IMP", ("CONST", 1), ("CONST", 0))  # canonical (1 → 0)
+t = evaluate_full(expr)
+# t.events includes ALIVE, JAM(payload={"mode": "implication-jam", "archived_id": ...}), MEM
+```
+
+---
+
+## 4) Counterfactuals & Δ-phase
+
+* **A→A**: negated/hypothetical inputs remain in Region-A with preserved form.
+* **Promotion boundary**: rules may escalate A→B when an actionable entailment is met.
+* **Δ-phase operator**: exports the *symbolic distance* between worlds; shape verified by tests.
+
+---
+
+## 5) Determinism & Error Policy
+
+* **Deterministic phase history:** identical inputs → identical phase sequences; we pin this
+  with a `trace_hash` over the phase stream.
+* **Error→JAM policy:** well-typed operational errors are surfaced as JAM (with witness payload).
+
+---
+
+## 6) JSON Snapshot (for notebooks, BI, or docs)
+
+Generate a compact, UTF-8 snapshot of Phase-8 canonical cases:
+
+```powershell
+cd C:\Users\Dell\Documents\logic-evaluation-engine-3.0
+$env:PYTHONPATH = "$pwd\src"
+python tools\phase8_summarize.py > docs\whitepapers\LEE_Paper\build\phase8_snapshot.json
+```
+
+**Snapshot shape (excerpt):**
+
+```json
+{
+  "implication_jam": {
+    "expr": ["IMP", ["CONST", 1], ["CONST", 0]],
+    "trace": [
+      {"phase": "ALIVE", "payload": {}},
+      {"phase": "JAM", "payload": {"mode": "implication-jam", "archived_id": "..." }},
+      {"phase": "MEM",  "payload": {}}
+    ],
+    "witness": {"is_contradiction": true, "mode": "implication-jam", "witness": ["IMP", ["CONST", 1], ["CONST", 0]]},
+    "trace_hash": "…"
+  },
+  "local_refutation": { "expr": ["AND", ["VAR", "x"], ["NOT", ["VAR", "x"]]], "...": "…" }
+}
+```
+
+> **Note.** JSON keeps real Unicode (e.g., `¬`, `∧`) if they occur in labels.
+> No LaTeX escaping is required in this `.me`.
+
+---
+
+## 7) Commands (one-liners you can copy/paste)
+
+* **Run core acceptance tests**
+
+  ```powershell
+  $env:PYTHONPATH = "$pwd\src"
+  pytest -q -rA tests\phase8_acceptance
+  ```
+
+* **Export Phase-8 snapshot JSON**
+
+  ```powershell
+  python tools\phase8_summarize.py > docs\whitepapers\LEE_Paper\build\phase8_snapshot.json
+  ```
+
+---
+
+## 8) What’s in / What’s deferred
+
+* **In (Phase-8 core)**: canonicalization→witness→JAM→archive→MEM, reactivation path,
+  Δ-phase counterfactuals (A→A, promotion boundary), deterministic phase history.
+* **Deferred (Phase-9 analytics)**: OLAP cubes, temporal slicing, BI dashboards.
+  Kept out of core to preserve the invariants and keep tests fast.
+
+---
+
+## 9) Provenance & Expectations
+
+Nothing in LEE is coded unless it is **self-projected by MathLog and first principles**:
+the code mirrors the kernel’s four-phase semantics, witness calculus, and archive contract.
+This `.md` is the running ledger for that alignment.
+
+
+
+
+
+
 
