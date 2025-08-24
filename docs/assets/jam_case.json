@@ -1,0 +1,38 @@
+{
+  "patient_id": "TESTP",
+  "symptom": "test_symptom",
+  "phase": "JAM",
+  "timestamp": "2025-07-30T20-11-35.319381",
+  "exprs": [
+    "test_symptom"
+  ],
+  "trace": [],
+  "diagnosis": null,
+  "phase_tensor_matrix": {
+    "P(a)": {
+      "P(a)": 1,
+      "Q(a)": 0.5,
+      "R(a)": 0.2,
+      "S(a)": 0.0
+    },
+    "Q(a)": {
+      "P(a)": 0.5,
+      "Q(a)": 1,
+      "R(a)": 0.5,
+      "S(a)": 0.2
+    },
+    "R(a)": {
+      "P(a)": 0.2,
+      "Q(a)": 0.5,
+      "R(a)": 1,
+      "S(a)": 0.5
+    },
+    "S(a)": {
+      "P(a)": 0.0,
+      "Q(a)": 0.2,
+      "R(a)": 0.5,
+      "S(a)": 1
+    }
+  },
+  "jam_filename": "JAM_TESTP_test_symptom_2025-07-30T20-11-35.319381.json"
+}
