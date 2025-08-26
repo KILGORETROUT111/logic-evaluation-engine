@@ -464,7 +464,10 @@ PYTHONPATH=src pytest -q -rA tests/phase8b_tensor_semantics.py
 
 Tests will `skip` cleanly if `core/tensor.py` is missing.
 
-![phase8b_plan](https://github.com/KILGORETROUT111/logic-evaluation-engine/blob/v3.0/docs/phase8b_plan.md]"phase8bplan")
+
+
+![phase8b_plan](https://github.com/KILGORETROUT111/logic-evaluation-engine/blob/v3.0/docs/phase8b_plan.md "phase8b_plan")
+
 ---
 
 ## Roadmap (post-8b)
