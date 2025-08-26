@@ -312,7 +312,6 @@ Nothing in LEE is coded unless it is **self-projected by MathLog and first princ
 the code mirrors the kernel’s four-phase semantics, witness calculus, and archive contract.
 This `.md` is the running ledger for that alignment.
 
-Here you go—two drop-ins you can paste straight into the repo/wiki.
 
 ---
 
