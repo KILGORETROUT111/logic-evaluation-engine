@@ -320,6 +320,7 @@ This `.md` is the running ledger for that alignment.
 ```md
 ## Tensor Semantics in LEE (Phase-8b)
 
+
 LEE’s phase manifold is taken (for core purposes) as a 2-D torus \(M \cong \mathbb{T}^2\).  
 We expose **tensor *types*** (not numeric components) to keep the core evaluator geometrically disciplined.
 
@@ -463,6 +464,7 @@ PYTHONPATH=src pytest -q -rA tests/phase8b_tensor_semantics.py
 
 Tests will `skip` cleanly if `core/tensor.py` is missing.
 
+![phase8b_plan](https://github.com/KILGORETROUT111/logic-evaluation-engine/blob/v3.0/docs/phase8b_plan.md]"phase8bplan")
 ---
 
 ## Roadmap (post-8b)
