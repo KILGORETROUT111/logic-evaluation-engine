@@ -1,0 +1,13 @@
+﻿# Default: text files normalized to LF in repo, CRLF on Windows checkout
+* text=auto eol=lf
+
+# Keep LF for YAML / shell
+*.yml text eol=lf
+*.yaml text eol=lf
+*.sh text eol=lf
+
+# Python stays LF
+*.py text eol=lf
+
+# Windows-only scripts can keep CRLF
+*.ps1 text eol=crlf
